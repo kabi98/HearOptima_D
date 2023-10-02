@@ -13,7 +13,22 @@
         android:theme="@style/Theme.HearOptima_D_01"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".views.TestResultInput.SurveyStart"
+            android:exported="false" />
+        <activity
+            android:name=".views.TestResultInput.TestResultInput"
+            android:exported="false" />
+        <activity
+            android:name=".views.TestResultInput.DataInputChoice"
+            android:exported="false" />
+        <activity
+            android:name=".views.Common.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.Common.MenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.Common.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

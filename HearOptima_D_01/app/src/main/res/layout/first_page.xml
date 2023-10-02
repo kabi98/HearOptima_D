@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/main01">
+    android:background="@color/sky">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -20,7 +20,7 @@
             android:layout_height="75dp"
             android:layout_gravity="center"
             android:layout_weight="9"
-            app:srcCompat="@drawable/hearoptimad" />
+            app:srcCompat="@drawable/hearoptimad_white" />
 
         <ImageView
             android:id="@+id/imageView2"
