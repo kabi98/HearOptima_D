@@ -10,6 +10,7 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.hearoptima_d_01.R;
 import com.example.hearoptima_d_01.views.Common.MenuActivity;
+import com.example.hearoptima_d_01.views.HearingAidFind.HearingAidFind;
 
 public class TestResultInput extends AppCompatActivity implements View.OnClickListener {
 
@@ -29,6 +30,9 @@ public class TestResultInput extends AppCompatActivity implements View.OnClickLi
     public void onClick(View view) {
         if (view.getId() == R.id.returnMenu) {
             Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+            startActivity(intent);
+        } else if (view.getId() == R.id.myHearingAid) {
+            Intent intent = new Intent(getApplicationContext(), HearingAidFind.class);
             startActivity(intent);
         }
     }

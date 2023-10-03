@@ -1,5 +1,6 @@
 package com.example.hearoptima_d_01.views.TestResultInput;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,16 +9,22 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hearoptima_d_01.R;
+import com.example.hearoptima_d_01.views.HearingAidFind.HearingAidFind;
 
 public class SurveyStart extends AppCompatActivity {
 
     TextView pttTestText;
+    int totalScore = 0;
 
-    // 예시: 퀴즈 문제 배열 (추후 변경 가능)
+    // 제공된 문제 리스트
     String[] quizQuestions = {
-            "소리가 들릴 때마다 ‘잘 들립니다’ 버튼을,\n안 들리면 ‘안 들립니다’ 버튼을 선택해 주세요.",
-            "두 번째 문제 내용",
-            "세 번째 문제 내용"
+            "어느 상황이든 1:1 대화에 지장이 있습니다.",
+            "3-5m 떨어진 곳에서 대화하거나 집단으로 대화할 때 보통의 회화 청취가 곤란합니다.",
+            "1m 정도 떨어진 곳에서의 큰 소리는 알아들을 수 없습니다.",
+            "군중 속이나 강의실에서는 언어 이해가 곤란합니다.",
+            "귀 가까이에서 말하지 않으면 알아들을 수 없습니다.",
+            "매우 큰 소리에만 반응하며, 언어의 이해는 거의 불가능합니다.",
+            "폭발음 등만 들을 수 있고 상당히 큰 소리도 들을 수 없습니다."
     };
 
     int currentQuestionIndex = 0;
@@ -28,23 +35,74 @@ public class SurveyStart extends AppCompatActivity {
         setContentView(R.layout.activity_survey_start);
 
         pttTestText = findViewById(R.id.pttTestText);
+        updateQuestion();
 
-        // 예시로, '다음' 버튼을 추가하여 문제를 다음으로 변경
-        Button nextButton = new Button(this);  // 임의로 버튼 생성, 레이아웃에 실제로 추가해야 함
-        nextButton.setOnClickListener(new View.OnClickListener() {
+        Button alwaysBtn = findViewById(R.id.alwaysBtn);
+        alwaysBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                addScore(5);
+                nextQuestion();
+            }
+        });
+
+        Button oftenBtn = findViewById(R.id.oftenBtn);
+        oftenBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addScore(4);
+                nextQuestion();
+            }
+        });
+
+        Button sometimesBtn = findViewById(R.id.sometimesBtn);
+        sometimesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addScore(3);
+                nextQuestion();
+            }
+        });
+
+        Button almostNoneBtn = findViewById(R.id.almostNoneBtn);
+        almostNoneBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addScore(2);
+                nextQuestion();
+            }
+        });
+
+        Button notAtAllBtn = findViewById(R.id.notAtAllBtn);
+        notAtAllBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addScore(1);
                 nextQuestion();
             }
         });
     }
 
+    private void updateQuestion() {
+        if (currentQuestionIndex < quizQuestions.length) {
+            pttTestText.setText(quizQuestions[currentQuestionIndex]);
+        } else {
+            Intent intent = new Intent(getApplicationContext(), HearingAidFind.class);
+            startActivity(intent);
+        }
+    }
+
+    private void addScore(int score) {
+        totalScore += score;
+    }
+
     private void nextQuestion() {
         if (currentQuestionIndex < quizQuestions.length - 1) {
             currentQuestionIndex++;
-            pttTestText.setText(quizQuestions[currentQuestionIndex]);
+            updateQuestion();
         } else {
-            // 모든 문제를 마쳤을 경우의 로직 (예: 다른 액티비티로 이동)
+            Intent intent = new Intent(getApplicationContext(), HearingAidFind.class);
+            startActivity(intent);
         }
     }
 }
