@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import com.example.hearoptima_d_01.views.HearingAidFind.HearingAidFind;
 public class SurveyStart extends AppCompatActivity {
 
     TextView pttTestText;
+    ProgressBar progress_bar;
     int totalScore = 0;
 
     // 제공된 문제 리스트
@@ -81,6 +83,10 @@ public class SurveyStart extends AppCompatActivity {
                 nextQuestion();
             }
         });
+        //----------------------------------PROGRESS BAR SETTING----------------------------------//
+        progress_bar = findViewById(R.id.progress_bar);
+        progress_bar.setIndeterminate(false);
+        progress_bar.setProgress(0);
     }
 
     private void updateQuestion() {

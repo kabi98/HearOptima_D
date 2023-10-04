@@ -11,11 +11,14 @@ import androidx.appcompat.widget.AppCompatButton;
 import com.example.hearoptima_d_01.R;
 import com.example.hearoptima_d_01.views.Common.MenuActivity;
 import com.example.hearoptima_d_01.views.HearingAidFind.HearingAidFind;
+import com.example.hearoptima_d_01.views.HearingAidInfo.HearingAidList;
 
 public class TestResultInput extends AppCompatActivity implements View.OnClickListener {
 
     AppCompatButton dataInputBtn;
+    AppCompatButton myHearingAidBtn;
     ImageButton returnMenuBtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -23,15 +26,14 @@ public class TestResultInput extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_test_result_input);
 
         dataInputBtn = findViewById(R.id.dataInput);
-//        dataInputBtn.setOnClickListener(this);
+        dataInputBtn.setOnClickListener(this);
         returnMenuBtn = findViewById(R.id.returnMenu);
         returnMenuBtn.setOnClickListener(this);
+        myHearingAidBtn = findViewById(R.id.myHearingAid);
+        myHearingAidBtn.setOnClickListener(this);
     }
     public void onClick(View view) {
-        if (view.getId() == R.id.returnMenu) {
-            Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
-            startActivity(intent);
-        } else if (view.getId() == R.id.myHearingAid) {
+        if (view.getId() == R.id.myHearingAid) {
             Intent intent = new Intent(getApplicationContext(), HearingAidFind.class);
             startActivity(intent);
         }

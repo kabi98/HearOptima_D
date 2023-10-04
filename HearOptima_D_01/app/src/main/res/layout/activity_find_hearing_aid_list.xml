@@ -60,6 +60,42 @@
 
 
     </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="보청기 찾기"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="19dp"
+                android:textStyle="bold"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+            <EditText
+                android:id="@+id/right_PTA_input"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/edit_background"
+                android:hint="   원하는 보청기를 검색해 보세요."
+                android:textColorHint="@color/gray"
+                android:textColor="@color/black"
+                android:textSize="15dp"/>
+
+                <ImageButton
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/gray_x_solid"/>
+            </LinearLayout>
+
+        </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
