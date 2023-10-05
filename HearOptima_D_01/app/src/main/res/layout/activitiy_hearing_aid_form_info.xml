@@ -137,7 +137,7 @@
                                 android:layout_width="150dp"
                                 android:layout_height="150dp"
                                 android:layout_gravity="center"
-                                android:background="@drawable/hearing_Aid_IIC"/>
+                                android:background="@drawable/hearing_aid_iic_2"/>
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -155,7 +155,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="종류 : "
+                                        android:text="형태 : "
                                         android:textColor="@color/black"/>
 
                                     <TextView
@@ -179,6 +179,22 @@
                         </LinearLayout>
                     </LinearLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="16dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/returnMenuBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/blue_button"
+                    android:text="메뉴로 이동"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

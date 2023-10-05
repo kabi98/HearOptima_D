@@ -420,18 +420,17 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="16dp">
 
-                    android:layout_marginBottom="16dp">
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/infoToHomeBtn"
+                        android:id="@+id/returnMenuBtn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/blue_button"
                         android:text="메뉴로 이동"
                         android:textColor="@color/white"
                         android:textSize="17sp"
-                        android:textStyle="bold">
-                    </androidx.appcompat.widget.AppCompatButton>
+                        android:textStyle="bold"/>
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
