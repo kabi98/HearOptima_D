@@ -79,15 +79,24 @@
         </LinearLayout>
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="나의 현재 청력 상태 설문"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textStyle="bold"/>
+
+        <TextView
             android:id="@+id/pttTestText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="25dp"
-            android:text="소리가 들릴 때마다 ‘잘 들립니다’ 버튼을,\n
-안 들리면 ‘안 들립니다’ 버튼을 선택해 주세요."
+            android:text="질문1. 어느 상황이든 1:1 대화에 지장이 있습니다."
             android:textColor="@color/black"
             android:textAlignment="center"
             android:textSize="16sp"
