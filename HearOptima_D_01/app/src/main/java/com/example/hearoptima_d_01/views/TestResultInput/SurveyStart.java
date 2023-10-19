@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hearoptima_d_01.R;
 import com.example.hearoptima_d_01.views.HearingAidFind.HearingAidFind;
+import com.example.hearoptima_d_01.views.HearingAidFind.HearingAidFindAddfilter;
 
 public class SurveyStart extends AppCompatActivity {
 
@@ -37,64 +38,33 @@ public class SurveyStart extends AppCompatActivity {
         setContentView(R.layout.activity_survey_start);
 
         pttTestText = findViewById(R.id.pttTestText);
-        updateQuestion();
-
-        Button alwaysBtn = findViewById(R.id.alwaysBtn);
-        alwaysBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addScore(5);
-                nextQuestion();
-            }
-        });
-
-        Button oftenBtn = findViewById(R.id.oftenBtn);
-        oftenBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addScore(4);
-                nextQuestion();
-            }
-        });
-
-        Button sometimesBtn = findViewById(R.id.sometimesBtn);
-        sometimesBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addScore(3);
-                nextQuestion();
-            }
-        });
-
-        Button almostNoneBtn = findViewById(R.id.almostNoneBtn);
-        almostNoneBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addScore(2);
-                nextQuestion();
-            }
-        });
-
-        Button notAtAllBtn = findViewById(R.id.notAtAllBtn);
-        notAtAllBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addScore(1);
-                nextQuestion();
-            }
-        });
-        //----------------------------------PROGRESS BAR SETTING----------------------------------//
         progress_bar = findViewById(R.id.progress_bar);
         progress_bar.setIndeterminate(false);
         progress_bar.setProgress(0);
+
+        initializeButtons();
+        updateQuestion();
+    }
+
+    private void initializeButtons() {
+        findViewById(R.id.alwaysBtn).setOnClickListener(view -> handleButtonClick(4));
+        findViewById(R.id.oftenBtn).setOnClickListener(view -> handleButtonClick(3));
+        findViewById(R.id.sometimesBtn).setOnClickListener(view -> handleButtonClick(2));
+        findViewById(R.id.almostNoneBtn).setOnClickListener(view -> handleButtonClick(1));
+        findViewById(R.id.notAtAllBtn).setOnClickListener(view -> handleButtonClick(0));
+    }
+
+    private void handleButtonClick(int score) {
+        addScore(score);
+        nextQuestion();
     }
 
     private void updateQuestion() {
         if (currentQuestionIndex < quizQuestions.length) {
             pttTestText.setText(quizQuestions[currentQuestionIndex]);
+            progress_bar.setProgress((currentQuestionIndex + 1) * 100 / quizQuestions.length);
         } else {
-            Intent intent = new Intent(getApplicationContext(), HearingAidFind.class);
-            startActivity(intent);
+            goToResultPage();
         }
     }
 
@@ -103,12 +73,13 @@ public class SurveyStart extends AppCompatActivity {
     }
 
     private void nextQuestion() {
-        if (currentQuestionIndex < quizQuestions.length - 1) {
-            currentQuestionIndex++;
-            updateQuestion();
-        } else {
-            Intent intent = new Intent(getApplicationContext(), HearingAidFind.class);
-            startActivity(intent);
-        }
+        currentQuestionIndex++;
+        updateQuestion();
+    }
+
+    private void goToResultPage() {
+        Intent intent = new Intent(getApplicationContext(), SurveyResult.class);
+        intent.putExtra("TOTAL_SCORE", totalScore);
+        startActivity(intent);
     }
 }

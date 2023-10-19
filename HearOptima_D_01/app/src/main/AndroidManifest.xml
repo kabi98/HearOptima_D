@@ -13,29 +13,45 @@
         android:theme="@style/Theme.HearOptima_D_01"
         tools:targetApi="31">
         <activity
-            android:name=".views.HearingAidFind.HearingAidFind"
-            android:exported="false" />
-        <activity
-            android:name=".views.HearingAidInfo.HearingAidList"
-            android:exported="false" />
-        <activity
-            android:name=".views.TestResultInput.SurveyStart"
-            android:exported="false" />
-        <activity
-            android:name=".views.TestResultInput.TestResultInput"
-            android:exported="false" />
-        <activity
-            android:name=".views.TestResultInput.DataInputChoice"
-            android:exported="false" />
-        <activity
             android:name=".views.Common.LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
         <activity
             android:name=".views.Common.MenuActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
+        <activity
+            android:name=".views.HearingAidFind.HearingAidFind"
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
+        <activity
+            android:name=".views.HearingAidFind.HearingAidFindAddfilter"
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
+        <activity
+            android:name=".views.HearingAidInfo.HearingAidList"
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
+        <activity
+            android:name=".views.TestResultInput.DataInputChoice"
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
+        <activity
+            android:name=".views.TestResultInput.SurveyResult"
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
+        <activity
+            android:name=".views.TestResultInput.SurveyStart"
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
+        <activity
+            android:name=".views.TestResultInput.TestResultInput"
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
         <activity
             android:name=".views.Common.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

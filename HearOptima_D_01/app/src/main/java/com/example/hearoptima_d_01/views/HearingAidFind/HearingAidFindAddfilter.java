@@ -12,14 +12,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hearoptima_d_01.R;
-import com.example.hearoptima_d_01.views.HearingAidInfo.HearingAidList;
-import com.example.hearoptima_d_01.views.TestResultInput.DataInputChoice;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HearingAidFind extends AppCompatActivity implements View.OnClickListener {
-
+public class HearingAidFindAddfilter extends AppCompatActivity implements View.OnClickListener{
     RecyclerView recyclerView;
     HearingAidAdapter adapter;
     Spinner sortSpinner;
@@ -27,7 +24,7 @@ public class HearingAidFind extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_find_hearing_aid_list);
+        setContentView(R.layout.activity_find_hearing_aid_list_add_filter);
 
         // RecyclerView 설정
         recyclerView = findViewById(R.id.recyclerView);

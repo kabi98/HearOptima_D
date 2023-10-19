@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.hearoptima_d_01.R;
+import com.example.hearoptima_d_01.views.HearingAidFind.HearingAidFindAddfilter;
 
 public class LoginActivity extends AppCompatActivity {
 

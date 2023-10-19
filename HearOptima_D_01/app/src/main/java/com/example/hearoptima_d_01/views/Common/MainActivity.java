@@ -22,8 +22,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         loginBtn = findViewById(R.id.loginBtn);
         loginBtn.setOnClickListener(this);
 
-        joinBtn = findViewById(R.id.joinBtn);
-        joinBtn.setOnClickListener(this);
     }
 
     @Override

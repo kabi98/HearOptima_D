@@ -29,12 +29,10 @@ public class TestResultInput extends AppCompatActivity implements View.OnClickLi
         dataInputBtn.setOnClickListener(this);
         returnMenuBtn = findViewById(R.id.returnMenu);
         returnMenuBtn.setOnClickListener(this);
-        myHearingAidBtn = findViewById(R.id.myHearingAid);
-        myHearingAidBtn.setOnClickListener(this);
     }
     public void onClick(View view) {
-        if (view.getId() == R.id.myHearingAid) {
-            Intent intent = new Intent(getApplicationContext(), HearingAidFind.class);
+        if (view.getId() == R.id.dataInput) {
+            Intent intent = new Intent(getApplicationContext(), SurveyResult.class);
             startActivity(intent);
         }
     }
