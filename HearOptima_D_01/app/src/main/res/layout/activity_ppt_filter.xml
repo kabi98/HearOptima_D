@@ -144,7 +144,7 @@
                             android:layout_margin="5dp"
                             android:orientation="horizontal">
 
-                            <androidx.appcompat.widget.AppCompatButton
+                            <androidx.appcompat.widget.AppCompatCheckBox
                                 android:id="@+id/hearingAidFormIIC"
                                 android:layout_width="90dp"
                                 android:layout_height="48dp"
@@ -156,7 +156,7 @@
                                 android:layout_weight="1"
                                 app:layout_constraintEnd_toEndOf="parent" />
 
-                            <androidx.appcompat.widget.AppCompatButton
+                            <androidx.appcompat.widget.AppCompatCheckBox
                                 android:id="@+id/hearingAidFormCIC"
                                 android:layout_width="90dp"
                                 android:layout_height="48dp"
@@ -168,7 +168,7 @@
                                 android:layout_weight="1"
                                 app:layout_constraintEnd_toEndOf="parent"/>
 
-                            <androidx.appcompat.widget.AppCompatButton
+                            <androidx.appcompat.widget.AppCompatCheckBox
                                 android:id="@+id/hearingAidFormITE"
                                 android:layout_width="90dp"
                                 android:layout_height="48dp"
@@ -186,7 +186,7 @@
                             android:layout_margin="5dp"
                             android:orientation="horizontal">
 
-                            <androidx.appcompat.widget.AppCompatButton
+                            <androidx.appcompat.widget.AppCompatCheckBox
                                 android:id="@+id/hearingAidFormITC"
                                 android:layout_width="90dp"
                                 android:layout_height="48dp"
@@ -198,7 +198,7 @@
                                 android:layout_weight="1"
                                 app:layout_constraintEnd_toEndOf="parent" />
 
-                            <androidx.appcompat.widget.AppCompatButton
+                            <androidx.appcompat.widget.AppCompatCheckBox
                                 android:id="@+id/hearingAidForm5"
                                 android:layout_width="90dp"
                                 android:layout_height="48dp"
@@ -269,7 +269,7 @@
                             android:layout_margin="5dp"
                             android:orientation="horizontal">
 
-                            <androidx.appcompat.widget.AppCompatButton
+                            <androidx.appcompat.widget.AppCompatCheckBox
                                 android:id="@+id/hearingAidBrandPhonak"
                                 android:layout_width="90dp"
                                 android:layout_height="48dp"
@@ -281,7 +281,7 @@
                                 android:layout_weight="1"
                                 app:layout_constraintEnd_toEndOf="parent" />
 
-                            <androidx.appcompat.widget.AppCompatButton
+                            <androidx.appcompat.widget.AppCompatCheckBox
                                 android:id="@+id/hearingAidBrandStarkey"
                                 android:layout_width="90dp"
                                 android:layout_height="48dp"
@@ -292,7 +292,7 @@
                                 android:textStyle="bold"
                                 android:layout_weight="1"
                                 app:layout_constraintEnd_toEndOf="parent"/>
-                            <androidx.appcompat.widget.AppCompatButton
+                            <androidx.appcompat.widget.AppCompatCheckBox
                                 android:id="@+id/hearingAidBrandOticon"
                                 android:layout_width="90dp"
                                 android:layout_height="48dp"
@@ -310,7 +310,7 @@
                             android:layout_margin="5dp"
                             android:orientation="horizontal">
 
-                            <androidx.appcompat.widget.AppCompatButton
+                            <androidx.appcompat.widget.AppCompatCheckBox
                                 android:id="@+id/hearingAidBrandSignia"
                                 android:layout_width="90dp"
                                 android:layout_height="48dp"
@@ -322,7 +322,7 @@
                                 android:layout_weight="1"
                                 app:layout_constraintEnd_toEndOf="parent" />
 
-                            <androidx.appcompat.widget.AppCompatButton
+                            <androidx.appcompat.widget.AppCompatCheckBox
                                 android:id="@+id/hearingAidBrandBeltone"
                                 android:layout_width="90dp"
                                 android:layout_height="48dp"
@@ -333,7 +333,7 @@
                                 android:textStyle="bold"
                                 android:layout_weight="1"
                                 app:layout_constraintEnd_toEndOf="parent"/>
-                            <androidx.appcompat.widget.AppCompatButton
+                            <androidx.appcompat.widget.AppCompatCheckBox
                                 android:id="@+id/hearingAidBrandWidex"
                                 android:layout_width="90dp"
                                 android:layout_height="48dp"
@@ -351,7 +351,7 @@
                             android:layout_margin="5dp"
                             android:orientation="horizontal">
 
-                            <androidx.appcompat.widget.AppCompatButton
+                            <androidx.appcompat.widget.AppCompatCheckBox
                                 android:id="@+id/hearingAidBrandDaehan"
                                 android:layout_width="90dp"
                                 android:layout_height="48dp"
@@ -363,7 +363,7 @@
                                 android:layout_weight="1"
                                 app:layout_constraintEnd_toEndOf="parent" />
 
-                            <androidx.appcompat.widget.AppCompatButton
+                            <androidx.appcompat.widget.AppCompatCheckBox
                                 android:id="@+id/hearingAidBrandSegi"
                                 android:layout_width="90dp"
                                 android:layout_height="48dp"
@@ -374,17 +374,18 @@
                                 android:textStyle="bold"
                                 android:layout_weight="1"
                                 app:layout_constraintEnd_toEndOf="parent"/>
-                            <androidx.appcompat.widget.AppCompatButton
+
+                            <androidx.appcompat.widget.AppCompatCheckBox
                                 android:id="@+id/hearingAidBrandResound"
                                 android:layout_width="90dp"
                                 android:layout_height="48dp"
+                                android:layout_weight="1"
                                 android:background="@drawable/button_round_blue"
                                 android:text="리사운드"
                                 android:textColor="@color/white"
                                 android:textSize="15sp"
                                 android:textStyle="bold"
-                                android:layout_weight="1"
-                                app:layout_constraintEnd_toEndOf="parent"/>
+                                app:layout_constraintEnd_toEndOf="parent" />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -392,7 +393,7 @@
                             android:layout_margin="5dp"
                             android:orientation="horizontal">
 
-                            <androidx.appcompat.widget.AppCompatButton
+                            <androidx.appcompat.widget.AppCompatCheckBox
                                 android:id="@+id/hearingAidBrandUnitron"
                                 android:layout_width="90dp"
                                 android:layout_height="48dp"
@@ -475,7 +476,7 @@
                             android:layout_margin="5dp"
                             android:orientation="horizontal">
 
-                            <androidx.appcompat.widget.AppCompatButton
+                            <androidx.appcompat.widget.AppCompatCheckBox
                                 android:id="@+id/wireless_O"
                                 android:layout_width="90dp"
                                 android:layout_height="48dp"
@@ -487,7 +488,7 @@
                                 android:layout_weight="1"
                                 app:layout_constraintEnd_toEndOf="parent" />
 
-                            <androidx.appcompat.widget.AppCompatButton
+                            <androidx.appcompat.widget.AppCompatCheckBox
                                 android:id="@+id/wireless_X"
                                 android:layout_width="90dp"
                                 android:layout_height="48dp"
@@ -558,7 +559,7 @@
                             android:layout_margin="5dp"
                             android:orientation="horizontal">
 
-                            <androidx.appcompat.widget.AppCompatButton
+                            <androidx.appcompat.widget.AppCompatCheckBox
                                 android:layout_width="90dp"
                                 android:layout_height="48dp"
                                 android:background="@drawable/button_round_blue"
@@ -569,7 +570,7 @@
                                 android:layout_weight="1"
                                 app:layout_constraintEnd_toEndOf="parent" />
 
-                            <androidx.appcompat.widget.AppCompatButton
+                            <androidx.appcompat.widget.AppCompatCheckBox
                                 android:layout_width="90dp"
                                 android:layout_height="48dp"
                                 android:background="@drawable/button_round_blue"
@@ -580,7 +581,7 @@
                                 android:layout_weight="1"
                                 app:layout_constraintEnd_toEndOf="parent"/>
 
-                            <androidx.appcompat.widget.AppCompatButton
+                            <androidx.appcompat.widget.AppCompatCheckBox
                                 android:layout_width="90dp"
                                 android:layout_height="48dp"
                                 android:background="@drawable/button_round_blue"
@@ -597,7 +598,7 @@
                             android:layout_margin="5dp"
                             android:orientation="horizontal">
 
-                            <androidx.appcompat.widget.AppCompatButton
+                            <androidx.appcompat.widget.AppCompatCheckBox
                                 android:layout_width="90dp"
                                 android:layout_height="48dp"
                                 android:background="@drawable/button_round_blue"
@@ -608,7 +609,7 @@
                                 android:layout_weight="1"
                                 app:layout_constraintEnd_toEndOf="parent" />
 
-                            <androidx.appcompat.widget.AppCompatButton
+                            <androidx.appcompat.widget.AppCompatCheckBox
                                 android:layout_width="90dp"
                                 android:layout_height="48dp"
                                 android:background="@drawable/button_round_blue"
@@ -618,7 +619,7 @@
                                 android:textStyle="bold"
                                 android:layout_weight="1"
                                 app:layout_constraintEnd_toEndOf="parent"/>
-                            <androidx.appcompat.widget.AppCompatButton
+                            <androidx.appcompat.widget.AppCompatCheckBox
                                 android:layout_width="90dp"
                                 android:layout_height="48dp"
                                 android:background="@drawable/button_round_blue"

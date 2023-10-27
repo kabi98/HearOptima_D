@@ -242,6 +242,7 @@
                         android:text="나만의 보청기 추천"
                         android:textColor="@color/white"
                         android:textSize="15sp"
+                        android:layout_weight="1"
                         android:textStyle="bold" />
 
                     <androidx.appcompat.widget.AppCompatButton
@@ -253,6 +254,7 @@
                         android:textColor="@color/white"
                         android:layout_marginLeft="30dp"
                         android:textSize="15sp"
+                        android:layout_weight="1"
                         android:textStyle="bold"/>
 
 

@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hearoptima_d_01.R;
+import com.example.hearoptima_d_01.views.Common.MenuActivity;
 import com.example.hearoptima_d_01.views.HearingAidFind.HearingAidFind;
 import com.example.hearoptima_d_01.views.HearingAidFind.HearingAidFindAddfilter;
 
@@ -18,6 +19,7 @@ public class SurveyStart extends AppCompatActivity {
     TextView pttTestText;
     ProgressBar progress_bar;
     int totalScore = 0;
+    Button returnMenuBtn;
 
     // 제공된 문제 리스트
     String[] quizQuestions = {
@@ -44,6 +46,16 @@ public class SurveyStart extends AppCompatActivity {
 
         initializeButtons();
         updateQuestion();
+        returnMenuBtn = findViewById(R.id.returnMenuBtn);
+        returnMenuBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // MenuActivity로 이동
+                Intent intent = new Intent(SurveyStart.this, MenuActivity.class);
+                startActivity(intent);
+                finish();  // 필요하다면 현재 액티비티를 종료
+            }
+        });
     }
 
     private void initializeButtons() {
