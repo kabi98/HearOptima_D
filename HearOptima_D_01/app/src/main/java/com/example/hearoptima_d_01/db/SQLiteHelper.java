@@ -15,13 +15,16 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public class SQLiteHelper extends android.database.sqlite.SQLiteOpenHelper{
+
     Context m_Context = null;
+
     public SQLiteHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
         Log.v("SQLiteHelper", "SQLiteHelper() ver : " + version);
         this.m_Context = context;
-        checkdataBaseAndCopy();
+        checkDatabaseAndCopy();
     }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.v("SQLiteHelper", "onCreate()");
@@ -104,14 +107,14 @@ public class SQLiteHelper extends android.database.sqlite.SQLiteOpenHelper{
         Log.v("SQLiteHelper", "onUpgrade() old : " + oldVersion
                 + " new : " + newVersion);
 
-//        db.execSQL(" drop table IF EXISTS sentence_word; ");
-//        db.execSQL(" drop table IF EXISTS audiometry_track; ");
-//        db.execSQL(" drop table IF EXISTS audiometry_unit; ");
-//        db.execSQL(" drop table IF EXISTS audiometry_set; ");
-//        db.execSQL(" drop table IF EXISTS hrtest_unit; ");
-//        db.execSQL(" drop table IF EXISTS hrtest_set; ");
+        db.execSQL(" drop table IF EXISTS sentence_word; ");
+        db.execSQL(" drop table IF EXISTS audiometry_track; ");
+        db.execSQL(" drop table IF EXISTS audiometry_unit; ");
+        db.execSQL(" drop table IF EXISTS audiometry_set; ");
+        db.execSQL(" drop table IF EXISTS hrtest_unit; ");
+        db.execSQL(" drop table IF EXISTS hrtest_set; ");
         db.execSQL(" drop table IF EXISTS account; ");
-//        db.execSQL(" drop table IF EXISTS sentence_unit; ");
+        db.execSQL(" drop table IF EXISTS sentence_unit; ");
 
         onCreate(db);
 
@@ -120,7 +123,7 @@ public class SQLiteHelper extends android.database.sqlite.SQLiteOpenHelper{
     }
 
     //------------------------------------ DATABASES FOLDERS FILE CHECK -------------------------//
-    private void checkdataBaseAndCopy(){
+    private void checkDatabaseAndCopy(){
         // 해당 폴더(경로 : DATABASES 폴더 하위에 DATABASE_NAME과 같은 데이터베이스가 있는지 체크
         String DB_PATH = "/data/data/" + m_Context.getPackageName() + "/databases/";
         File dbFile = new File(DB_PATH + TConst.DB_FILE);
@@ -157,7 +160,6 @@ public class SQLiteHelper extends android.database.sqlite.SQLiteOpenHelper{
             // 입력 스트림의 읽은 byte의 값이 0 작으면 : 파일 복사 완료 -> 조건문
             while((mLength = inputStream.read(mBuffer)) > 0){
                 // outputStream.write 기능으로 읽어온 byte를 써준다.
-                outputStream.write(mBuffer,0,mLength);
                 outputStream.write(mBuffer,0,mLength);
             }
             // 스트림 버퍼에 있는 데이터 강제적으로 출력

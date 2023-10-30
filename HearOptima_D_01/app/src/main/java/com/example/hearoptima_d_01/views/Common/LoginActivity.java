@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.hearoptima_d_01.R;
+import com.example.hearoptima_d_01.db.AccountDAO;
 import com.example.hearoptima_d_01.db.SQLiteControl;
 import com.example.hearoptima_d_01.db.SQLiteHelper;
 import com.example.hearoptima_d_01.entity.Utils.Account;
@@ -64,6 +65,41 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         GlobalVar.g_AccLogin = new Account();
         String strLoginId = m_EditLoginId.getText().toString().trim();
+        String strLoginPassword = m_EditLoginPassword.getText().toString().trim();
+
+        Log.v(m_TAG,
+                String.format("LogIn Id %s, Pass %s", strLoginId, strLoginPassword));
+
+        AccountDAO accountDAO = new AccountDAO(m_Context);
+        Account accSelect = accountDAO.selectLogin(strLoginId, strLoginPassword);
+        accountDAO.releaseAndClose();
+
+        if(accSelect != null){
+            Toast toast = Toast.makeText(getApplicationContext(), "로그인 성공 : 메뉴 화면으로 이동합니다.",Toast.LENGTH_SHORT);
+            toast.show();
+            GlobalVar.g_AccLogin = accSelect;
+            Log.v(m_TAG, GlobalVar.g_AccLogin.toString());
+
+            Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+            startActivity(intent);
+
+        } else {
+            Toast toast = Toast.makeText(getApplicationContext(), "로그인 실패 : 아이디와 비밀번호를 확인하세요.",Toast.LENGTH_SHORT);
+            toast.show();
+
+        }
+
+    }
+
+
+
+/*
+
+    private void getInfoAndCheckLogIn() {
+        Log.v(m_TAG, "getInfoAndCheckLogIn");
+
+        GlobalVar.g_AccLogin = new Account();
+        String strLoginId = m_EditLoginId.getText().toString().trim();
         String strLoginPaassword = m_EditLoginPassword.getText().toString().trim();
 
         Log.v(m_TAG, String.format("LogIn %s, Pass %s", strLoginId, strLoginPaassword));
@@ -88,4 +124,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             toast.show();
         }
     }
+
+
+ */
 }
