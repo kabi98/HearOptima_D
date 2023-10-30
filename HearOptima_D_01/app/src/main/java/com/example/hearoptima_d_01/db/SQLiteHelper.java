@@ -15,14 +15,15 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public class SQLiteHelper extends android.database.sqlite.SQLiteOpenHelper{
+    String m_TAG = "SQLiteHelper";
 
     Context m_Context = null;
 
     public SQLiteHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
         Log.v("SQLiteHelper", "SQLiteHelper() ver : " + version);
-//        this.m_Context = context;
-//        checkDatabaseAndCopy();
+        this.m_Context = context;
+        checkDatabaseAndCopy();
     }
 
     @Override
@@ -115,6 +116,54 @@ public class SQLiteHelper extends android.database.sqlite.SQLiteOpenHelper{
         Log.v("SQLiteHelper", "onUpgrade() - Finish");
 
     }
+
+    //------------------------------------ DATABASES FOLDERS FILE CHECK -------------------------//
+    private void checkDatabaseAndCopy(){
+        // 해당 폴더(경로 : DATABASES 폴더 하위에 DATABASE_NAME과 같은 데이터베이스가 있는지 체크
+        String DB_PATH = "/data/data/" + m_Context.getPackageName() + "/databases/";
+        File dbFile = new File(DB_PATH + TConst.DB_FILE);
+        if(!dbFile.exists()){
+            // 파일이 존재 하지 않을 때 dbCopy 메소드를 실행
+            copyDatabaseFileFromAssets();
+            // 복사 완료후 Log로 확인
+            Log.v(m_TAG,"DataBase is Copied");
+        }
+    }
+
+    //------------------------------------ DATABASES COPY METHOD ---------------------------------//
+    private void copyDatabaseFileFromAssets(){
+
+        try{
+            String DB_PATH = "/data/data/" + m_Context.getPackageName() + "/databases/";
+            File folder = new File(DB_PATH);
+            if(!folder.exists()){
+                folder.mkdir();
+            }
+
+            InputStream inputStream = m_Context.getAssets().open(TConst.DB_FILE);
+            String out_filename =DB_PATH+TConst.DB_FILE;
+            OutputStream outputStream = new FileOutputStream(out_filename);
+
+            int iLen;
+            byte[] byteBuf = new byte[inputStream.available()];
+            while((iLen = inputStream.read(byteBuf)) != -1) {
+                outputStream.write(byteBuf, 0, iLen);
+            }
+
+            outputStream.flush();
+            outputStream.close();
+            inputStream.close();
+
+            outputStream = null;
+            inputStream = null;
+
+        } catch (IOException e) {
+            Log.v(m_TAG,"copyDatabaseFileFromAssets Exception : " + e.toString());
+            throw new RuntimeException(e);
+
+        }
+    }
+
 
 //    //------------------------------------ DATABASES FOLDERS FILE CHECK -------------------------//
 //    private void checkDatabaseAndCopy(){
