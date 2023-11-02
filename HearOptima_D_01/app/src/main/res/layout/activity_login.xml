@@ -18,20 +18,29 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
         app:layout_constraintVertical_bias="0.111">
+
+        <TextView
+            android:text="로그인"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
 
         <EditText
             android:id="@+id/EditId"
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/edit_background"
-            android:hint="아이디"
+            android:background="@drawable/custom_gray_background"
+            android:drawableStart="@drawable/id_icon2"
+            android:drawablePadding="10dp"
+            android:hint="아이디를 입력하세요."
             android:inputType="textNoSuggestions|text"
             android:padding="12dp"
             android:text=""
-            android:textColorHint="@color/gray"
+            android:textColorHint="@color/gray3"
             android:textSize="18sp" />
 
         <EditText
@@ -39,9 +48,11 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/edit_background"
-            android:hint="비밀번호"
-            android:textColorHint="@color/gray"
+            android:background="@drawable/custom_gray_background"
+            android:drawableStart="@drawable/ps_icon2"
+            android:drawablePadding="10dp"
+            android:hint="비밀번호를 입력하세요."
+            android:textColorHint="@color/gray3"
             android:inputType="textNoSuggestions|textPassword"
             android:padding="12dp"
             android:textSize="18sp" />
@@ -52,7 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="@drawable/button_round_blue"
+            android:background="@drawable/custom_purple_background"
             android:text="로그인"
             android:textColor="@color/white"
             android:textSize="17sp"

@@ -69,10 +69,64 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:orientation="vertical"
-                    android:background="@drawable/custom_sky_background"
+                    android:background="@drawable/normal_background"
+                    android:layout_marginTop="16dp"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_weight="9">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:orientation="horizontal"
+                            android:layout_weight="9">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/pretendardbold"
+                                android:textSize="23sp"
+                                android:textColor="@color/black"
+                                android:text="정상"></TextView>
+                            <TextView
+                                android:layout_marginStart="8dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/pretendardbold"
+                                android:textSize="17dp"
+                                android:textColor="@color/black"
+                                android:text="(~25 dBHL)"></TextView>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/pretendardbold"
+                            android:textSize="15sp"
+                            android:textColor="@color/black"
+                            android:text="· 작은 소리까지 들을 수 있습니다."
+                            android:paddingBottom="10dp"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/mild_background"
+                    android:layout_marginTop="16dp"
                     android:layout_height="wrap_content">
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -90,7 +144,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/pretendardbold"
                             android:textSize="23sp"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:text="경도 난청"></TextView>
                         <TextView
                             android:layout_marginStart="8dp"
@@ -98,56 +152,29 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/pretendardbold"
                             android:textSize="17dp"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:text="(21~40 dBHL)"></TextView>
                     </LinearLayout>
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:text="추천 보청기"
-                            android:textColor="@color/blue_1"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textStyle="bold"
-                            android:background="@drawable/custom_menu_background"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
                         android:orientation="vertical">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/pretendardbold"
                             android:textSize="15sp"
-                            android:textColor="@color/white"
-                            android:text="· 1:1 대화에 지장이 거의 없습니다."></TextView>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textSize="15sp"
-                            android:textColor="@color/white"
-                            android:text="· 작은 소리, 속삭이는 소리를 잘 듣지 못합니다. "></TextView>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="16dp"
-                            android:fontFamily="@font/pretendardbold"
-
-                            android:textSize="15sp"
-                            android:textColor="@color/white"
-                            android:text="· 3~5m 떨어진 곳에서 대화하거나 집단으로 대화할 때 보통의 회화 청취가 곤란합니다."></TextView>
+                            android:textColor="@color/black"
+                            android:text="· 1:1 대화에 지장이 거의 없습니다.\n· 작은 소리, 속삭이는 소리를 잘 듣지 못합니다. \n· 3~5m 떨어진 곳에서 대화하거나 집단으로 대화할 때 보통의 회화 청취가 곤란합니다."
+                            android:paddingBottom="10dp"/>
                     </LinearLayout>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:orientation="vertical"
-                    android:background="@drawable/custom_sky2_background"
+                    android:background="@drawable/moderate_background"
                     android:layout_marginTop="16dp"
                     android:layout_height="wrap_content">
                     <LinearLayout
@@ -178,23 +205,11 @@
                             android:textColor="@color/black"
                             android:text="(41~55 dBHL)"></TextView>
                     </LinearLayout>
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:text="추천 보청기"
-                            android:textColor="@color/blue_1"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textStyle="bold"
-                            android:background="@drawable/custom_menu_background"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
                         android:orientation="vertical">
                         <TextView
                             android:layout_width="wrap_content"
@@ -202,30 +217,15 @@
                             android:fontFamily="@font/pretendardbold"
                             android:textSize="15sp"
                             android:textColor="@color/black"
-                            android:text="· 1m 정도 떨어진 곳에서는 큰 소리는 알아들을 수 있습니다."></TextView>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textSize="16sp"
-                            android:textColor="@color/black"
-                            android:text="· 집단으로 대화하는 것은 알아 듣기가 곤란합니다."></TextView>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="16dp"
-                            android:fontFamily="@font/pretendardbold"
-
-                            android:textSize="16sp"
-                            android:textColor="@color/black"
-                            android:text="· 고주파 난청의 경우, 마찰음의 발음(ㅅ,ㅊ,ㅆ,ㅉ)을 \n  알아듣기 어렵습니다."></TextView>
+                            android:text="· 1m 정도 떨어진 곳에서는 큰 소리는 알아들을 수 있습니다.\n· 집단으로 대화하는 것은 알아 듣기가 곤란합니다.\n· 고주파 난청의 경우, 마찰음의 발음(ㅅ,ㅊ,ㅆ,ㅉ)을 \n  알아듣기 어렵습니다."
+                            android:paddingBottom="10dp"/>
                     </LinearLayout>
 
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:orientation="vertical"
-                    android:background="@drawable/custom_gray_background"
+                    android:background="@drawable/moderately_background"
                     android:layout_marginTop="16dp"
                     android:layout_height="wrap_content">
                     <LinearLayout
@@ -255,24 +255,12 @@
                             android:textColor="@color/black"
                             android:text="(56~70 dBHL)"></TextView>
                     </LinearLayout>
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:text="추천 보청기"
-                            android:textColor="@color/blue_1"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textStyle="bold"
-                            android:background="@drawable/custom_menu_background"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
+                        android:layout_marginBottom="10dp"
                         android:orientation="vertical">
                         <TextView
                             android:layout_width="wrap_content"
@@ -280,15 +268,14 @@
                             android:fontFamily="@font/pretendardbold"
                             android:textSize="15sp"
                             android:textColor="@color/black"
-                            android:text="· 큰소리만 들을 수 있고 군중 속이나 강의실에서는\n  언어 이해가 곤란합니다."></TextView>
-
+                            android:text="· 큰소리만 들을 수 있고 군중 속이나 강의실에서는\n  언어 이해가 곤란합니다."/>
                     </LinearLayout>
 
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:orientation="vertical"
-                    android:background="@drawable/custom_wpink_background"
+                    android:background="@drawable/severe_background"
                     android:layout_marginTop="16dp"
                     android:layout_height="wrap_content">
                     <LinearLayout
@@ -318,23 +305,11 @@
                             android:textColor="@color/black"
                             android:text="(71~90 dBHL)"></TextView>
                     </LinearLayout>
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:text="추천 보청기"
-                            android:textColor="@color/blue_1"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textStyle="bold"
-                            android:background="@drawable/custom_menu_background"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
                         android:orientation="vertical">
                         <TextView
                             android:layout_width="wrap_content"
@@ -342,31 +317,15 @@
                             android:fontFamily="@font/pretendardbold"
                             android:textSize="15sp"
                             android:textColor="@color/black"
-                            android:text="· 귀 가까이에서 말하면 들을 수 있습니다."></TextView>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textSize="16sp"
-                            android:textColor="@color/black"
-
-                            android:text="· 일상 대화 시 모음 식별은 가능하나, 자음 식별은 불가능합니다."></TextView>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textSize="16sp"
-                            android:textColor="@color/black"
-
-                            android:text="· 매우 큰소리에만 반응하며, 언어의 이해는 거의 불가능합니다."></TextView>
+                            android:text="· 귀 가까이에서 말하면 들을 수 있습니다.\n· 일상 대화 시 모음 식별은 가능하나, 자음 식별은 불가능합니다.\n· 매우 큰소리에만 반응하며, 언어의 이해는 거의 불가능합니다."
+                            android:paddingBottom="10dp"/>
                     </LinearLayout>
 
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:orientation="vertical"
-                    android:background="@drawable/custom_pink_background"
+                    android:background="@drawable/profound_background"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:layout_height="wrap_content">
@@ -397,24 +356,12 @@
                             android:textColor="@color/black"
                             android:text="(56~70 dBHL)"></TextView>
                     </LinearLayout>
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:text="추천 보청기"
-                            android:textColor="@color/blue_1"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textStyle="bold"
-                            android:background="@drawable/custom_menu_background"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
+                        android:layout_marginBottom="10dp"
                         android:orientation="vertical">
                         <TextView
                             android:layout_width="wrap_content"
@@ -427,12 +374,6 @@
                     </LinearLayout>
 
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp">
-
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/returnMenuBtn"
                         android:layout_width="match_parent"
@@ -442,7 +383,7 @@
                         android:textColor="@color/white"
                         android:textSize="17sp"
                         android:textStyle="bold"></androidx.appcompat.widget.AppCompatButton>
-                </LinearLayout>
+
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

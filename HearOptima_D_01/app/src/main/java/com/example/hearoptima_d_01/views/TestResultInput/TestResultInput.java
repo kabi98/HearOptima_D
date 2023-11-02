@@ -35,8 +35,6 @@ public class TestResultInput extends AppCompatActivity implements View.OnClickLi
 
         dataInputBtn = findViewById(R.id.dataInput);
         dataInputBtn.setOnClickListener(this);
-        returnMenuBtn = findViewById(R.id.returnMenu);
-        returnMenuBtn.setOnClickListener(this);
 
         rightACTInput = findViewById(R.id.right_ACT_input);
         rightBCTInput = findViewById(R.id.right_BCT_input);
