@@ -12,8 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hearoptima_d_01.R;
-import com.example.hearoptima_d_01.views.HearingAidInfo.HearingAidList;
-import com.example.hearoptima_d_01.views.TestResultInput.DataInputChoice;
 
 import java.util.ArrayList;
 import java.util.List;

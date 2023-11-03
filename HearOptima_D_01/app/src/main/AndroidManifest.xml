@@ -29,11 +29,15 @@
             android:exported="false"
             android:theme="@style/NoActionBarTheme"/>
         <activity
-            android:name=".views.HearingAidInfo.HearingAidList"
+            android:name=".views.HearingAidInfo.CoChlearImplantInfo"
             android:exported="false"
             android:theme="@style/NoActionBarTheme"/>
         <activity
-            android:name=".views.TestResultInput.DataInputChoice"
+            android:name=".views.HearingAidInfo.HearingAidInfo"
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
+        <activity
+            android:name=".views.HearingAidInfo.HearingLossInfo"
             android:exported="false"
             android:theme="@style/NoActionBarTheme"/>
         <activity

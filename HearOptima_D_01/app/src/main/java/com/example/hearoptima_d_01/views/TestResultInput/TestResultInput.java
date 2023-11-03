@@ -5,15 +5,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.hearoptima_d_01.R;
 import com.example.hearoptima_d_01.views.Common.MenuActivity;
-import com.example.hearoptima_d_01.views.HearingAidFind.HearingAidFind;
-import com.example.hearoptima_d_01.views.HearingAidInfo.HearingAidList;
+import com.example.hearoptima_d_01.views.HearingAidFind.HearingAidFindAddfilter;
+import com.example.hearoptima_d_01.views.HearingAidInfo.CoChlearImplantInfo;
+import com.example.hearoptima_d_01.views.HearingAidInfo.HearingAidInfo;
+import com.example.hearoptima_d_01.views.HearingAidInfo.HearingLossInfo;
 
 public class TestResultInput extends AppCompatActivity implements View.OnClickListener {
 
@@ -26,6 +27,10 @@ public class TestResultInput extends AppCompatActivity implements View.OnClickLi
     EditText leftACTInput;
     EditText leftBCTInput;
     EditText leftWRSInput;
+    ImageButton HomeImageBtn;
+    ImageButton HearingAidSearchImageBtn;
+    ImageButton HearingAidInfoImageBtn;
+    ImageButton MyPageImageBtn;
 
 
     @Override
@@ -42,6 +47,18 @@ public class TestResultInput extends AppCompatActivity implements View.OnClickLi
         leftACTInput = findViewById(R.id.left_ACT_input);
         leftBCTInput = findViewById(R.id.left_BCT_input);
         leftWRSInput = findViewById(R.id.left_WRS_input);
+
+        HomeImageBtn = findViewById(R.id.HomeImage);
+        HomeImageBtn.setOnClickListener(this);
+
+        HearingAidSearchImageBtn = findViewById(R.id.HearingAidSearchImage);
+        HearingAidSearchImageBtn.setOnClickListener(this);
+
+        HearingAidInfoImageBtn = findViewById(R.id.HearingAidInfoImage);
+        HearingAidInfoImageBtn.setOnClickListener(this);
+
+        MyPageImageBtn = findViewById(R.id.MyPageImage);
+        MyPageImageBtn.setOnClickListener(this);
     }
     public void onClick(View view) {
         if (view.getId() == R.id.dataInput) {
@@ -66,6 +83,17 @@ public class TestResultInput extends AppCompatActivity implements View.OnClickLi
             intent.putExtra("LEFT_WRS_VALUE", leftWRSValueInt);
 
             startActivity(intent);
+        }
+        if (view.getId() == R.id.HomeImage){
+            Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+            startActivity(intent);
+        } else if (view.getId() == R.id.HearingAidSearchImage) {
+            Intent intent = new Intent(getApplicationContext(), HearingAidFindAddfilter.class);
+            startActivity(intent);
+        } else if (view.getId() == R.id.HearingAidInfoImage) {
+            Intent intent = new Intent(getApplicationContext(), HearingLossInfo.class);
+            startActivity(intent);
+
         }
     }
 

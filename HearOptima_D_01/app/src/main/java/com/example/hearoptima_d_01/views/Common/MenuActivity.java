@@ -3,15 +3,15 @@ package com.example.hearoptima_d_01.views.Common;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.hearoptima_d_01.R;
-import com.example.hearoptima_d_01.views.HearingAidFind.HearingAidFind;
 import com.example.hearoptima_d_01.views.HearingAidFind.HearingAidFindAddfilter;
-import com.example.hearoptima_d_01.views.HearingAidInfo.HearingAidList;
-import com.example.hearoptima_d_01.views.TestResultInput.DataInputChoice;
+import com.example.hearoptima_d_01.views.HearingAidInfo.CoChlearImplantInfo;
+import com.example.hearoptima_d_01.views.HearingAidInfo.HearingAidInfo;
 import com.example.hearoptima_d_01.views.TestResultInput.SurveyStart;
 import com.example.hearoptima_d_01.views.TestResultInput.TestResultInput;
 
@@ -23,6 +23,10 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     AppCompatButton findHearingAidBtn;
     AppCompatButton infoHearingAidBtn;
     AppCompatButton infocochlearImplantBtn;
+    ImageButton HomeImageBtn;
+    ImageButton HearingAidSearchImageBtn;
+    ImageButton HearingAidInfoImageBtn;
+    ImageButton MyPageImageBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -43,6 +47,18 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
         infocochlearImplantBtn = findViewById(R.id.infocochlearImplant);
         infocochlearImplantBtn.setOnClickListener(this);
+
+        HomeImageBtn = findViewById(R.id.HomeImage);
+        HomeImageBtn.setOnClickListener(this);
+
+        HearingAidSearchImageBtn = findViewById(R.id.HearingAidSearchImage);
+        HearingAidSearchImageBtn.setOnClickListener(this);
+
+        HearingAidInfoImageBtn = findViewById(R.id.HearingAidInfoImage);
+        HearingAidInfoImageBtn.setOnClickListener(this);
+
+        MyPageImageBtn = findViewById(R.id.MyPageImage);
+        MyPageImageBtn.setOnClickListener(this);
     }
 
     @Override
@@ -56,12 +72,12 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         } else if (view.getId() == R.id.findHearingAid) {
             Intent intent = new Intent(getApplicationContext(), HearingAidFindAddfilter.class);
             startActivity(intent);
-//        } else if (view.getId() == R.id.infohearingAid) {
-//            Intent intent = new Intent(getApplicationContext(), .class);
-//            startActivity(intent);
-//        } else if (view.getId() == R.id.infocochlearImplant) {
-//            Intent intent = new Intent(getApplicationContext(), .class);
-//            startActivity(intent);
+        } else if (view.getId() == R.id.infohearingAid) {
+            Intent intent = new Intent(getApplicationContext(), HearingAidInfo.class);
+            startActivity(intent);
+        } else if (view.getId() == R.id.infocochlearImplant) {
+            Intent intent = new Intent(getApplicationContext(), CoChlearImplantInfo.class);
+            startActivity(intent);
         }
     }
 }

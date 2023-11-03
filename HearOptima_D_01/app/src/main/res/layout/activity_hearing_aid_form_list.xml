@@ -4,435 +4,449 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
-    <LinearLayout
+    tools:context=".views.Common.MenuActivity"
+    android:background="@drawable/hearoptima_d_menu_background">
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginTop="0dp"
-            android:background="@color/white"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="-1dp">
-            <ImageButton
-                android:id="@+id/imageButton2"
-                android:layout_width="23dp"
-                android:layout_height="25dp"
-                android:scaleType="fitCenter"
-                android:padding="0dp"
-                android:layout_weight="0"
-                android:layout_marginStart="20dp"
-                android:layout_gravity="center"
-                android:background="@drawable/backbtn"
-                android:contentDescription="TODO" />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="198dp"
+            tools:layout_editor_absoluteY="106dp">
 
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:scaleType="fitCenter"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/hearoptimad_blue" />
-
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="23dp"
-                android:layout_height="23dp"
-                android:scaleType="fitCenter"
-                android:background="@color/white"
-                android:padding="0dp"
-                android:layout_weight="0"
-                android:layout_marginEnd="20dp"
-                android:layout_gravity="center"
-                app:srcCompat="@drawable/homebtn"
-                android:contentDescription="TODO" />
-        </LinearLayout>
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/blue"
-            android:textAlignment="center"
-            android:textSize="25sp"
-            android:text="보청기 형태 알아보기">
-        </TextView>
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:orientation="vertical"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="56dp">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/backBtn"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/backwhitebtn"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="청력 보조기구 안내"
+                    android:textColor="@color/white"
+                    android:textSize="17dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:layout_weight="9"/>
+
+                <ImageButton
+                    android:id="@+id/imgBtnStartHistory"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/line3"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="3dp"
+                android:text="\n"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/hearoptima_d_menu_background4">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:background="@drawable/custom_sky_background"
-                    android:layout_height="wrap_content">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginTop="16dp"
-                            android:orientation="horizontal"
-                            android:layout_weight="9">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/pretendardbold"
-                                android:textSize="23sp"
-                                android:textColor="@color/white"
-                                android:text="초소형 보청기(IIC)"></TextView>
-                        </LinearLayout>
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:text="상세보기"
-                            android:textColor="@color/blue_1"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textStyle="bold"
-                            android:background="@drawable/custom_menu_background"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textSize="15sp"
-                            android:textColor="@color/white"
-                            android:text="· 거의 보이지 않음"></TextView>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textSize="15sp"
-                            android:textColor="@color/white"
-                            android:text="· 경도~중도 난청에 사용 가능 "></TextView>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="16dp"
-                            android:fontFamily="@font/pretendardbold"
-
-                            android:textSize="15sp"
-                            android:textColor="@color/white"
-                            android:text="· 배터리 수명이 짧을 수 있음"></TextView>
-                    </LinearLayout>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:background="@drawable/custom_sky2_background"
-                    android:layout_marginTop="16dp"
-                    android:layout_height="wrap_content">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_weight="9">
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginTop="16dp"
-                            android:orientation="horizontal"
-                            android:layout_weight="9">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/pretendardbold"
-                                android:textSize="23sp"
-                                android:textColor="@color/black"
-                                android:text="고막형 보청기(CIC)"></TextView>
-                        </LinearLayout>
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:text="상세보기"
-                            android:textColor="@color/blue_1"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textStyle="bold"
-                            android:background="@drawable/custom_menu_background"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textSize="15sp"
-                            android:textColor="@color/black"
-                            android:text="· 거의 보이지 않음"></TextView>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textSize="16sp"
-                            android:textColor="@color/black"
-                            android:text="· 경도~중도 난청에 사용 가능"></TextView>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="16dp"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textSize="16sp"
-                            android:textColor="@color/black"
-                            android:text="· 배터리 수명이 짧을 수 있음"></TextView>
-                    </LinearLayout>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:background="@drawable/custom_gray_background"
-                    android:layout_marginTop="16dp"
-                    android:layout_height="wrap_content">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginTop="16dp"
-                            android:orientation="horizontal"
-                            android:layout_weight="9">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/pretendardbold"
-                                android:textSize="23sp"
-                                android:textColor="@color/black"
-                                android:text="귓속형 보청기(ITE)"></TextView>
-                        </LinearLayout>
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:text="상세보기"
-                            android:textColor="@color/blue_1"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textStyle="bold"
-                            android:background="@drawable/custom_menu_background"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textSize="15sp"
-                            android:textColor="@color/black"
-                            android:text="· 크기가 큰 편으로 기술과 기능 통합이 쉬움"></TextView>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textSize="15sp"
-                            android:textColor="@color/black"
-                            android:text="· 다양한 기능 포함"></TextView>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textSize="15sp"
-                            android:textColor="@color/black"
-                            android:text="· 배터리 수명이 긴 편"></TextView>
-
-
-                    </LinearLayout>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:background="@drawable/custom_wpink_background"
-                    android:layout_marginTop="16dp"
-                    android:layout_height="wrap_content">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginTop="16dp"
-                            android:orientation="horizontal"
-                            android:layout_weight="9">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/pretendardbold"
-                                android:textSize="23sp"
-                                android:textColor="@color/black"
-                                android:text="외이도형 보청기(ITC)"></TextView>
-                        </LinearLayout>
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:text="상세보기"
-                            android:textColor="@color/blue_1"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textStyle="bold"
-                            android:background="@drawable/custom_menu_background"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textSize="15sp"
-                            android:textColor="@color/black"
-                            android:text="· 완전히 귀 안에 숨기기는 어려움"></TextView>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textSize="16sp"
-                            android:textColor="@color/black"
-                            android:text="· 중간 크기를 가지고 다양한 기술적 특징을 포함"></TextView>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textSize="16sp"
-                            android:textColor="@color/black"
-                            android:text="· CIC 보청기에 비해 배터리 수명이 긴 편"></TextView>
-                    </LinearLayout>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:background="@drawable/custom_pink_background"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:layout_height="wrap_content">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginTop="16dp"
-                            android:orientation="horizontal"
-                            android:layout_weight="9">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/pretendardbold"
-                                android:textSize="23sp"
-                                android:textColor="@color/black"
-                                android:text="귀걸이형 보청기(BTE)"></TextView>
-                        </LinearLayout>
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:text="상세보기"
-                            android:textColor="@color/blue_1"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textStyle="bold"
-                            android:background="@drawable/custom_menu_background"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textSize="15sp"
-                            android:textColor="@color/black"
-                            android:text="· 크기가 큰 편으로 고급 기능을 포함하기 쉬움"></TextView>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textSize="15sp"
-                            android:textColor="@color/black"
-                            android:text="· 내구성이 좋고 고장 날 확률이 낮음"></TextView>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/pretendardbold"
-                            android:textSize="15sp"
-                            android:textColor="@color/black"
-                            android:text="· 큰 배터리를 사용하므로 수명이 김"></TextView>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
+                android:layout_marginEnd="16dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
 
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/returnMenuBtn"
+                    <Button
+                        android:id="@+id/hearingLossInfobtn"
+                        android:layout_width="60dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/white_btn"
+                        android:textColor="@color/black"
+                        android:text="난청"/>
+                    <Button
+                        android:id="@+id/hearingAidInfobtn"
+                        android:layout_width="70dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/purple_btn"
+                        android:text="보청기"
+                        android:layout_marginLeft="8dp"/>
+                    <Button
+                        android:id="@+id/cochlearImplantInfobtn"
+                        android:layout_width="80dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/white_btn"
+                        android:text="인공와우"
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="8dp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/blue_button"
-                        android:text="메뉴로 이동"
-                        android:textColor="@color/white"
-                        android:textSize="17sp"
-                        android:textStyle="bold"/>
+                        android:orientation="vertical"
+                        android:background="@drawable/white_btn"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="16dp"
+                                android:orientation="horizontal"
+                                android:layout_weight="9">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/pretendardbold"
+                                    android:textSize="23sp"
+                                    android:textColor="@color/black"
+                                    android:text="초소형 보청기(IIC)"></TextView>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/pretendardbold"
+                                android:textSize="15sp"
+                                android:textColor="@color/gray3"
+                                android:layout_marginBottom="10dp"
+                                android:text="· 거의 보이지 않음\n· 경도~중도 난청에 사용 가능\n· 배터리 수명이 짧을 수 있음"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:background="@drawable/white_btn"
+                        android:layout_marginTop="16dp"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_weight="9">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="16dp"
+                                android:orientation="horizontal"
+                                android:layout_weight="9">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/pretendardbold"
+                                    android:textSize="23sp"
+                                    android:textColor="@color/black"
+                                    android:text="고막형 보청기(CIC)"></TextView>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/pretendardbold"
+                                android:textSize="15sp"
+                                android:textColor="@color/gray3"
+                                android:layout_marginBottom="10dp"
+                                android:text="· 거의 보이지 않음\n· 경도~중도 난청에 사용 가능\n· 배터리 수명이 짧을 수 있음"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-        </ScrollView>
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:layout_marginTop="-9dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/white_btn"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal"
+                        android:layout_weight="9">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/pretendardbold"
+                            android:textSize="23sp"
+                            android:textColor="@color/black"
+                            android:text="귓속형 보청기(ITE)"></TextView>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendardbold"
+                        android:textSize="15sp"
+                        android:textColor="@color/gray3"
+                        android:layout_marginBottom="10dp"
+                        android:text="· 크기가 큰 편으로 기술과 기능 통합이 쉬움\n· 다양한 기능 포함\n· 배터리 수명이 긴 편"/>
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/white_btn"
+                android:layout_marginTop="16dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal"
+                        android:layout_weight="9">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/pretendardbold"
+                            android:textSize="23sp"
+                            android:textColor="@color/black"
+                            android:text="외이도형 보청기(ITC)"></TextView>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendardbold"
+                        android:textSize="15sp"
+                        android:textColor="@color/gray3"
+                        android:layout_marginBottom="10dp"
+                        android:text="· 완전히 귀 안에 숨기기는 어려움\n· 중간 크기를 가지고 다양한 기술적 특징을 포함\n· CIC 보청기에 비해 배터리 수명이 긴 편"/>
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/white_btn"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal"
+                        android:layout_weight="9">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/pretendardbold"
+                            android:textSize="23sp"
+                            android:textColor="@color/black"
+                            android:text="귀걸이형 보청기(BTE)"></TextView>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendardbold"
+                        android:textSize="15sp"
+                        android:textColor="@color/gray3"
+                        android:text="· 크기가 큰 편으로 고급 기능을 포함하기 쉬움\n· 내구성이 좋고 고장 날 확률이 낮음\n· 큰 배터리를 사용하므로 수명이 김"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70sp"
+            android:orientation="horizontal"
+            android:background="@drawable/custom_menu_background">
+            <LinearLayout
+                android:layout_weight="0.25"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageButton
+                    android:id="@+id/HomeImage"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/home_btn"/>
+                <TextView
+                    android:id="@+id/HomeText"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pretendardbold"
+                    android:textColor="#a6a6a6"
+                    android:textSize="14dp"
+                    android:text="홈"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="0.25"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageButton
+                    android:id="@+id/HearingAidSearchImage"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/hearingaid_btn"/>
+                <TextView
+                    android:id="@+id/HearingAidSearchText"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pretendardbold"
+                    android:textColor="#a6a6a6"
+                    android:textSize="14dp"
+                    android:text="보청기 찾기"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="0.25"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageButton
+                    android:id="@+id/HearingAidInfoImage"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/hearingaidinfo_press_btn" />
+
+                <TextView
+                    android:id="@+id/HearingAidInfoText"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pretendardbold"
+                    android:textColor="#895FE3"
+                    android:textSize="14dp"
+                    android:text="보조기구안내"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="0.25"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageButton
+                    android:id="@+id/MyPageImage"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/mypage_btn"/>
+                <TextView
+                    android:id="@+id/MyPageText"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pretendardbold"
+                    android:textColor="#a6a6a6"
+                    android:textSize="14dp"
+                    android:text="마이페이지"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
