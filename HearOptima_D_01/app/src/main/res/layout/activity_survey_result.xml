@@ -9,59 +9,75 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="198dp"
-        tools:layout_editor_absoluteY="106dp">
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="56dp">
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="198dp"
+            tools:layout_editor_absoluteY="106dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="56dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageButton
+                        android:id="@+id/backstepBtn"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:background="@drawable/backwhitebtn"
+                        android:textSize="14dp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" "
+                        android:textColor="@color/white"
+                        android:textSize="25dp"
+                        android:layout_weight="9"/>
+
+                    <ImageButton
+                        android:id="@+id/imgBtnStartHistory"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:background="@drawable/line3"
+                        android:textSize="14dp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                </LinearLayout>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="HearOptima D"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="나만의 청력보조기구 찾기 결과"
                     android:textColor="@color/white"
-                    android:textSize="25dp"
-                    android:layout_weight="9"/>
-
-                <ImageButton
-                    android:id="@+id/imgBtnStartHistory"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:background="@drawable/line3"
-                    android:textSize="14dp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent" />
-
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="청력 상태를 확인하고\n청각의료 보조기기를 추천받으세요"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"/>
             </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:layout_marginBottom="3dp"
-                android:text="지금 바로 나에게 딱 맞는 \n청력보조기구 추천을 받아보세요!"
-                android:textColor="@color/white"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@color/white">
+                android:orientation="vertical"
+                android:background="@color/white">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -72,80 +88,102 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintVertical_bias="1.0"
                     android:background="@drawable/hearoptima_d_menu_background1">
-
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="35dp"
                         android:paddingStart="20dp"
-                        android:text="맞춤 청력 보조기구 찾기"
+                        android:text="ㅇㅇㅇ"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         tools:ignore="MissingConstraints" />
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp">
-
                         <TextView
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:paddingStart="8dp"
-                            android:text="청력 테스트 결과를 입력하면 추천이 더욱 정확해집니다."
-                            android:textColor="@color/gray3"
-                            android:textSize="14sp"
+                            android:layout_marginTop="35dp"
+                            android:text="님의 청력 상태는"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
                             android:textStyle="bold"
                             tools:ignore="MissingConstraints" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
+                    </LinearLayout>
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
                         android:orientation="horizontal">
-
+                        <TextView
+                            android:id="@+id/hearingLossClassification"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="20dp"
+                            android:text="중도난청(41~55dB)"
+                            android:textColor="@color/purple"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            tools:ignore="MissingConstraints" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="으로 예상됩니다."
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            tools:ignore="MissingConstraints" />
                     </LinearLayout>
                 </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/haveTestResult"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/havetestresult"
-                    android:gravity="left|center_vertical"
-                    android:text="     청력 테스트 \n     결과 입력\n\n\n\n\n"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    android:orientation="vertical"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/custom_menu_background2">
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/notHavaTestResult"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/nothavetestresult"
-                    android:gravity="left|center_vertical"
-                    android:text="     청력 상태 \n     설문 조사\n\n\n\n\n"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/resultExpectation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:text=" 중도 난청"
+                        android:textColor="@color/purple"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/hearingLossInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="8dp"
+                        android:text="난청에 대한 설명"
+                        android:textColor="@color/gray3"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:textStyle="bold"
+                        tools:ignore="MissingConstraints"/>
+                </LinearLayout>
+                <ImageView
+                    android:id="@+id/hearingLossView"
+                    android:src="@drawable/moderate_hearing_loss"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"/>
+
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
                     android:paddingStart="20dp"
-                    android:text="보청기 제품 찾기"
+                    android:text="청력 상태에 맞춰 보청기를 추천해드릴게요"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -169,78 +207,29 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            tools:ignore="MissingConstraints">
+                            tools:ignore="MissingConstraints"
+                            android:background="@drawable/custom_menu_background2">
 
-                            <androidx.appcompat.widget.AppCompatButton
-                                android:id="@+id/findHearingAid"
+                            <TextView
+                                android:id="@+id/hearingAidList"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@drawable/findhearingaid"
-                                android:gravity="left|center_vertical"
-                                android:text="                          보청기 제품 찾기\n"
-                                android:textColor="@color/black"
-                                android:textSize="20dp"
-                                android:textStyle="bold" />
+                                android:paddingStart="8dp"
+                                android:text="보청기 리스트"
+                                android:textColor="@color/gray3"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginBottom="10dp"
+                                tools:ignore="MissingConstraints"/>
                         </LinearLayout>
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="20dp"
-                    android:text="청력보조기구 안내"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    tools:ignore="MissingConstraints" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        tools:ignore="MissingConstraints">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <androidx.appcompat.widget.AppCompatButton
-                                android:id="@+id/infohearingAid"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/infohearingaid"
-                                android:gravity="left|center_vertical"
-                                android:text="                          보청기\n"
-                                android:textColor="@color/black"
-                                android:textSize="20dp"
-                                android:textStyle="bold" />
-
-                            <androidx.appcompat.widget.AppCompatButton
-                                android:id="@+id/infocochlearImplant"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/infocochlearimplant"
-                                android:gravity="left|center_vertical"
-                                android:text="                          인공와우\n"
-                                android:textColor="@color/black"
-                                android:textSize="20dp"
-                                android:layout_marginBottom="60dp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
             </LinearLayout>
-    </LinearLayout>
+        </LinearLayout>
     </ScrollView>
     <LinearLayout
         android:layout_width="match_parent"
@@ -264,14 +253,14 @@
                     android:layout_marginTop="8dp"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-                    android:background="@drawable/home_press_btn"/>
+                    android:background="@drawable/home_btn"/>
                 <TextView
                     android:id="@+id/HomeText"
                     android:textAlignment="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pretendardbold"
-                    android:textColor="#895FE3"
+                    android:textColor="#a6a6a6"
                     android:textSize="14dp"
                     android:text="홈"/>
             </LinearLayout>

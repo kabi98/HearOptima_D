@@ -130,7 +130,7 @@
                         android:background="@drawable/custom_gray_background"
                         android:textColor="@color/gray2"
                         android:textSize="17dp"
-                        android:text="전혀없음 (0점)" />
+                        android:text="항상있음 (4점)" />
 
                     <Button
                         android:id="@+id/oftenBtn"
@@ -140,7 +140,7 @@
                         android:background="@drawable/custom_gray_background"
                         android:textColor="@color/gray2"
                         android:textSize="17dp"
-                        android:text="거의없음 (1점)" />
+                        android:text="자주있음 (3점)" />
 
                     <Button
                         android:id="@+id/sometimesBtn"
@@ -160,7 +160,7 @@
                         android:background="@drawable/custom_gray_background"
                         android:textColor="@color/gray2"
                         android:textSize="17dp"
-                        android:text="자주있음 (3점)" />
+                        android:text="거의없음 (1점)" />
 
                     <Button
                         android:id="@+id/notAtAllBtn"
@@ -170,7 +170,7 @@
                         android:background="@drawable/custom_gray_background"
                         android:textColor="@color/gray2"
                         android:textSize="17dp"
-                        android:text="항상있음 (4점)" />
+                        android:text="전혀없음 (0점)" />
                 </LinearLayout>
 
                 <androidx.appcompat.widget.AppCompatButton
