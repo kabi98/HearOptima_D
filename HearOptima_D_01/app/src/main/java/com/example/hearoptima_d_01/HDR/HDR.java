@@ -12,13 +12,53 @@ public class HDR { //Hearing Device Recommender
     private float leftWRS = 0;
     private float rightWRS = 0;
 
-    public HDR() {
-        this.setLeftACPTA(25); //Normal 0~25
-        this.setRightACPTA(25);
-        this.setLeftBCPTA(25);
-        this.setRightBCPTA(25);
-        this.setLeftWRS(90); //Normal 90~100%
-        this.setRightWRS(90);
+
+//    public HDR() {
+//        this.leftACPTA = 25; //Normal 0~25
+//        this.rightACPTA = 25;
+//        this.leftBCPTA = 25;
+//        this.rightBCPTA = 25;
+//        this.leftWRS = 90; //Normal 90~100%
+//        this.rightWRS = 90;
+//    }
+
+    public void setLeftACPTA(float leftACPTA) {
+        this.leftACPTA = leftACPTA;
+    }
+    private float getLeftACPTA() {
+        return leftACPTA;
+    }
+    public void setLeftBCPTA(float leftBCPTA) {
+        this.leftBCPTA = leftBCPTA;
+    }
+    private float getLeftBCPTA() {
+        return leftBCPTA;
+    }
+    public void setLeftWRS(float wrs) {
+        this.leftWRS = wrs;
+    }
+    private float getLeftWRS() {
+        return leftWRS;
+    }
+
+
+    public void setRightACPTA(float rightACPTA) {
+        this.rightACPTA = rightACPTA;
+    }
+    private float getRightACPTA() {
+        return rightACPTA;
+    }
+    public void setRightBCPTA(float rightBCPTA) {
+        this.rightBCPTA = rightBCPTA;
+    }
+    private float getRightBCPTA() {
+        return rightBCPTA;
+    }
+    public void setRightWRS(float wrs) {
+        this.rightWRS = wrs;
+    }
+    public float getRightWRS() {
+        return rightWRS;
     }
 
     private boolean checkSingleSidedDeafness() {
@@ -241,51 +281,7 @@ public class HDR { //Hearing Device Recommender
         this.rightBCPTA = calculatePTA(hz500, hz1000, hz2000);
     }
 
-    public void setLeftWRS(float wrs) {
-        this.leftWRS = wrs;
-    }
 
-    public void setRightWRS(float wrs) {
-        this.rightWRS = wrs;
-    }
 
-    private float getLeftACPTA() {
-        return leftACPTA;
-    }
 
-    public void setLeftACPTA(float leftACPTA) {
-        this.leftACPTA = leftACPTA;
-    }
-
-    private float getRightACPTA() {
-        return rightACPTA;
-    }
-
-    public void setRightACPTA(float rightACPTA) {
-        this.rightACPTA = rightACPTA;
-    }
-
-    private float getLeftBCPTA() {
-        return leftBCPTA;
-    }
-
-    public void setLeftBCPTA(float leftBCPTA) {
-        this.leftBCPTA = leftBCPTA;
-    }
-
-    private float getRightBCPTA() {
-        return rightBCPTA;
-    }
-
-    public void setRightBCPTA(float rightBCPTA) {
-        this.rightBCPTA = rightBCPTA;
-    }
-
-    private float getLeftWRS() {
-        return leftWRS;
-    }
-
-    public float getRightWRS() {
-        return rightWRS;
-    }
 }
