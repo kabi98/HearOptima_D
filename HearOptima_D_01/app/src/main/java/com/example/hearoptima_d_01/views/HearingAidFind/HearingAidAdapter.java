@@ -32,7 +32,9 @@ public class HearingAidAdapter extends RecyclerView.Adapter<HearingAidAdapter.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         HearingAid hearingAid = hearingAids.get(position);
         holder.imageView.setImageResource(hearingAid.getImageResourceId());
-        holder.textView.setText(hearingAid.getName());
+        holder.nameView.setText(hearingAid.getName());
+        holder.brandView.setText(hearingAid.getBrand());
+        holder.priceView.setText(hearingAid.getPrice());
     }
 
     @Override
@@ -42,12 +44,16 @@ public class HearingAidAdapter extends RecyclerView.Adapter<HearingAidAdapter.Vi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
-        TextView textView;
+        TextView nameView;
+        TextView brandView;
+        TextView priceView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageView);
-            textView = itemView.findViewById(R.id.textView);
+            nameView = itemView.findViewById(R.id.nameView);
+            brandView = itemView.findViewById(R.id.brandView);
+            priceView = itemView.findViewById(R.id.priceView);
         }
     }
 }

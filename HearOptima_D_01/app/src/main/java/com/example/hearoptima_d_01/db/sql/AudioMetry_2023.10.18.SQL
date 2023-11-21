@@ -129,7 +129,7 @@ INSERT INTO survey_list (sl_id, sl_question, sl_answer, hrsu_id) VALUES ('26', '
 INSERT INTO survey_list (sl_id, sl_question, sl_answer, hrsu_id) VALUES ('27', 'Q6', 'A6', '4');
 INSERT INTO survey_list (sl_id, sl_question, sl_answer, hrsu_id) VALUES ('28', 'Q7', 'A7', '4');
 
-INSERT INTO hraid_image (hri_id, hri_file_name, hri_file_ext, hri_content) VALUES ('1', 'ks_sl_a1_001', 'jpg', 'sl_a1');
+INSERT INTO hraid_image (hri_id, hri_file_name, hri_file_ext, hri_content) VALUES ('1', 'evolv_ai_itc', 'jpg', ' ');
 INSERT INTO hraid_image (hri_id, hri_file_name, hri_file_ext, hri_content) VALUES ('2', 'ks_sl_a1_002', 'jpg', 'sl_a1');
 INSERT INTO hraid_image (hri_id, hri_file_name, hri_file_ext, hri_content) VALUES ('3', 'ks_sl_a1_003', 'jpg', 'sl_a1');
 INSERT INTO hraid_image (hri_id, hri_file_name, hri_file_ext, hri_content) VALUES ('4', 'ks_sl_a1_004', 'jpg', 'sl_a1');
@@ -141,8 +141,8 @@ INSERT INTO hraid_inform_image (hrii_id, hrii_file_name, hrii_file_ext, hrii_con
 INSERT INTO hraid_inform_image (hrii_id, hrii_file_name, hrii_file_ext, hrii_content) VALUES ('4', 'ks_sl_a1_009', 'jpg', 'sl_a1');
 INSERT INTO hraid_inform_image (hrii_id, hrii_file_name, hrii_file_ext, hrii_content) VALUES ('5', 'ks_sl_a1_010', 'jpg', 'sl_a1');
 
-INSERT INTO hearing_aid (ha_id, ha_name, ha_type, ha_brand, ha_bluetooth, ha_content, ha_insurance, ha_min_price, ha_max_price, ha_etc, hri_id, hrii_id) VALUES ('1', 'SKY M', '귀걸이형(BTE)', '포낙', '가능', '21 dB HL (경도난청)', '가능', '1200000', '3000000', '기타', '1', '1');
-INSERT INTO hearing_aid (ha_id, ha_name, ha_type, ha_brand, ha_bluetooth, ha_content, ha_insurance, ha_min_price, ha_max_price, ha_etc, hri_id, hrii_id) VALUES ('2', 'Audeo P', '오픈형/충전형', '포낙', '가능', '18 dB HL (정상)', '가능', '1800000', '5000000', '기타', '2', '2');
-INSERT INTO hearing_aid (ha_id, ha_name, ha_type, ha_brand, ha_bluetooth, ha_content, ha_insurance, ha_min_price, ha_max_price, ha_etc, hri_id, hrii_id) VALUES ('3', 'Audeo M', '오픈형 충전식', '포낙', '가능', '100 dB HL (심도난청)', '가능', '200000', '700000', '기타', '3', '3');
-INSERT INTO hearing_aid (ha_id, ha_name, ha_type, ha_brand, ha_bluetooth, ha_content, ha_insurance, ha_min_price, ha_max_price, ha_etc, hri_id, hrii_id) VALUES ('4', 'Virto', '귓속형(ITE)', '포낙', '가능', '53 dB HL (중도난청)', '가능', '3000000', '8000000', '기타', '4', '4');
-INSERT INTO hearing_aid (ha_id, ha_name, ha_type, ha_brand, ha_bluetooth, ha_content, ha_insurance, ha_min_price, ha_max_price, ha_etc, hri_id, hrii_id) VALUES ('5', 'Naida', '귀걸이형(BTE)', '포낙', '가능', '100 % (매우 우수)', '가능', '900000', '1500000', '기타', '5', '5');
+INSERT INTO hearing_aid (ha_id, ha_name, ha_type, ha_brand, ha_bluetooth, ha_content, ha_insurance, ha_min_price, ha_max_price, ha_etc, hri_id, hrii_id) VALUES ('1', 'SKY M', '귀걸이형(BTE)', '포낙', '가능', ' ', '가능', '1200000', '3000000', '기타', '1', '1');
+INSERT INTO hearing_aid (ha_id, ha_name, ha_type, ha_brand, ha_bluetooth, ha_content, ha_insurance, ha_min_price, ha_max_price, ha_etc, hri_id, hrii_id) VALUES ('2', 'Audeo P', '오픈형/충전형', '포낙', '가능', ' ', '가능', '1800000', '5000000', '기타', '2', '2');
+INSERT INTO hearing_aid (ha_id, ha_name, ha_type, ha_brand, ha_bluetooth, ha_content, ha_insurance, ha_min_price, ha_max_price, ha_etc, hri_id, hrii_id) VALUES ('3', 'Audeo M', '오픈형 충전식', '포낙', '가능', ' ', '가능', '200000', '700000', '기타', '3', '3');
+INSERT INTO hearing_aid (ha_id, ha_name, ha_type, ha_brand, ha_bluetooth, ha_content, ha_insurance, ha_min_price, ha_max_price, ha_etc, hri_id, hrii_id) VALUES ('4', 'Virto', '귓속형(ITE)', '포낙', '가능', ' ', '가능', '3000000', '8000000', '기타', '4', '4');
+INSERT INTO hearing_aid (ha_id, ha_name, ha_type, ha_brand, ha_bluetooth, ha_content, ha_insurance, ha_min_price, ha_max_price, ha_etc, hri_id, hrii_id) VALUES ('5', 'Naida', '귀걸이형(BTE)', '포낙', '가능', ' ', '가능', '900000', '1500000', '기타', '5', '5');

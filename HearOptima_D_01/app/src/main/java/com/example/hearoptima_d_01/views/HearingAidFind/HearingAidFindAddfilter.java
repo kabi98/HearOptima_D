@@ -24,7 +24,7 @@ public class HearingAidFindAddfilter extends AppCompatActivity implements View.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_find_hearing_aid_list_add_filter);
+        setContentView(R.layout.activity_find_hearing_aid_list);
 
         // RecyclerView 설정
         recyclerView = findViewById(R.id.recyclerView);
@@ -64,9 +64,9 @@ public class HearingAidFindAddfilter extends AppCompatActivity implements View.O
 
     private List<HearingAid> getDummyData() {
         List<HearingAid> hearingAids = new ArrayList<>();
-        hearingAids.add(new HearingAid(R.drawable.hearing_aid_1, "보청기1"));
-        hearingAids.add(new HearingAid(R.drawable.hearing_aid_2, "보청기2"));
-        hearingAids.add(new HearingAid(R.drawable.hearing_aid_3, "보청기3"));
+        hearingAids.add(new HearingAid(R.drawable.hearing_aid_1, "보청기1", "1","1,300,000~"));
+        hearingAids.add(new HearingAid(R.drawable.hearing_aid_2, "보청기2","2","1,200,000~"));
+        hearingAids.add(new HearingAid(R.drawable.hearing_aid_3, "보청기3","3","4,100,000~"));
         return hearingAids;
     }
 

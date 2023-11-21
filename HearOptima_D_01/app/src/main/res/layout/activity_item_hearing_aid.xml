@@ -26,15 +26,41 @@
                 android:id="@+id/imageView"
                 android:layout_width="80dp"
                 android:layout_height="80dp" />
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingStart="16dp"
-                android:textSize="16sp"
-                android:textColor="@color/black"/>
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/nameView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="16dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/gray3"/>
+
+                <TextView
+                    android:id="@+id/brandView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="16dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/priceView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="16dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/red"/>
+            </LinearLayout>
+
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

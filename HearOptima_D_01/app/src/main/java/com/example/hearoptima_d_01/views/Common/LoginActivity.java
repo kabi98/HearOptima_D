@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +28,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     AppCompatButton loginBtn;
     AppCompatButton m_AppBtnLogin;
+    ImageButton m_AppBtnJoin;
     EditText m_EditLoginId;
     EditText m_EditLoginPassword;
 
@@ -40,6 +42,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         m_AppBtnLogin = findViewById(R.id.btnLogin);
         m_AppBtnLogin.setOnClickListener(this);
+
+        m_AppBtnJoin = findViewById(R.id.btnJoin);
+        m_AppBtnJoin.setOnClickListener(this);
 
         m_EditLoginId = findViewById(R.id.EditId);
         m_EditLoginPassword = findViewById(R.id.EditPw);
@@ -58,6 +63,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             getInfoAndCheckLogIn();
             GlobalVar.g_AccJoin = new Account();
         }
+//        else if (view.getId() == R.id.btnJoin) {
+//            Intent intent = new Intent(getApplicationContext(), JoinActivity.class);
+//            startActivity(intent);
+//        }
     }
 
     private void getInfoAndCheckLogIn() {
