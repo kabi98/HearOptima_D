@@ -198,8 +198,8 @@ public class JoinActivity extends AppCompatActivity
         if( 1 == iRetInsert ){
             Log.v(m_TAG, String.format("insertAccount is Success "));
             GlobalVar.g_AccJoin = accInsert;
-//            Intent intent = new Intent(getApplicationContext(), JoinResultActivity.class);
-//            startActivity(intent);
+            Intent intent = new Intent(getApplicationContext(), JoinResultActivity.class);
+            startActivity(intent);
             finish();
 
         } else {
