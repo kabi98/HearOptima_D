@@ -41,7 +41,7 @@ public class JoinActivity extends AppCompatActivity
     ToggleButton m_ToggleFemale;
     AppCompatButton m_AppBtnJoin;
 
-    int m_ResIdBlueButton;
+    int m_ResIdPurpleButton;
     int m_ResIdGrayButton;
 
     @Override
@@ -82,7 +82,7 @@ public class JoinActivity extends AppCompatActivity
         m_ToggleFemale.setOnCheckedChangeListener(this);
 
         m_AppBtnJoin = findViewById(R.id.AppBtnJoinJoin);
-        m_ResIdBlueButton = getResources().getIdentifier("blue_button","drawable", getPackageName());
+        m_ResIdPurpleButton = getResources().getIdentifier("purple_btn","drawable", getPackageName());
         m_ResIdGrayButton = getResources().getIdentifier("gray_button","drawable", getPackageName());
         checkJoinBtnClickable();
 
@@ -153,7 +153,7 @@ public class JoinActivity extends AppCompatActivity
 
         if(isAccountInfoAllChecked()){
             m_AppBtnJoin.setClickable(true);
-            m_AppBtnJoin.setBackgroundResource(m_ResIdBlueButton);
+            m_AppBtnJoin.setBackgroundResource(m_ResIdPurpleButton);
             m_AppBtnJoin.setOnClickListener(this);
 
         } else {

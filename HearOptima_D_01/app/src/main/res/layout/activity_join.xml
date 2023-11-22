@@ -194,7 +194,7 @@
                 android:clickable="false"
                 android:fontFamily="@font/pretendardbold"
                 android:text="가입하기"
-                android:textColor="@color/gray3"
+                android:textColor="@color/black"
                 android:textSize="17dp" />
         </LinearLayout>
 
