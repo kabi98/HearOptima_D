@@ -1,4 +1,4 @@
-package com.example.hearoptima_d_01.entity.HearingAid;
+package com.example.hearoptima_d_01.entity;
 
 public class MyHearingAidGroup {
     int mhag_id;

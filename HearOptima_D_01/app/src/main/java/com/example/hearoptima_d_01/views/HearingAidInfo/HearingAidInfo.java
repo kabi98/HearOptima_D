@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hearoptima_d_01.R;
 import com.example.hearoptima_d_01.views.Common.MenuActivity;
-import com.example.hearoptima_d_01.views.HearingAidFind.HearingAidFindAddfilter;
+import com.example.hearoptima_d_01.views.HearingAidFind.HearingAidFind;
 
 public class HearingAidInfo extends AppCompatActivity implements View.OnClickListener {
 
@@ -66,7 +66,7 @@ public class HearingAidInfo extends AppCompatActivity implements View.OnClickLis
             Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
             startActivity(intent);
         } else if (view.getId() == R.id.HearingAidSearchImage) {
-            Intent intent = new Intent(getApplicationContext(), HearingAidFindAddfilter.class);
+            Intent intent = new Intent(getApplicationContext(), HearingAidFind.class);
             startActivity(intent);
         } else if (view.getId() == R.id.hearingLossInfobtn2 || view.getId() == R.id.hearingLossInfobtn1) {
             showHearingLossInfo();

@@ -3,7 +3,6 @@ package com.example.hearoptima_d_01.views.TestResultInput;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -12,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hearoptima_d_01.R;
 import com.example.hearoptima_d_01.views.Common.MenuActivity;
-import com.example.hearoptima_d_01.views.HearingAidFind.HearingAidFindAddfilter;
+import com.example.hearoptima_d_01.views.HearingAidFind.HearingAidFind;
 import com.example.hearoptima_d_01.views.HearingAidInfo.HearingLossInfo;
 
 public class SurveyResult extends AppCompatActivity implements View.OnClickListener {
@@ -55,7 +54,7 @@ public class SurveyResult extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
             startActivity(intent);
         } else if (view.getId() == R.id.HearingAidSearchImage) {
-            Intent intent = new Intent(getApplicationContext(), HearingAidFindAddfilter.class);
+            Intent intent = new Intent(getApplicationContext(), HearingAidFind.class);
             startActivity(intent);
         } else if (view.getId() == R.id.HearingAidInfoImage) {
             Intent intent = new Intent(getApplicationContext(), HearingLossInfo.class);

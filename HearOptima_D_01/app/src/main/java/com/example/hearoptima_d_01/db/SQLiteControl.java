@@ -4,8 +4,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.example.hearoptima_d_01.entity.HearingAid.MyHearingAidGroup;
+import com.example.hearoptima_d_01.entity.FilterDTO;
+import com.example.hearoptima_d_01.entity.MyHearingAidGroup;
+import com.example.hearoptima_d_01.entity.HraidImage;
 import com.example.hearoptima_d_01.entity.Utils.Account;
+import com.example.hearoptima_d_01.entity.FilterDTO;
+import com.example.hearoptima_d_01.entity.Filter;
+import com.example.hearoptima_d_01.entity.HearingAid;
+import com.example.hearoptima_d_01.entity.HraidImage;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -28,6 +34,322 @@ public class SQLiteControl {
             Log.v(m_TAG, "db_close Exception" + e);
         }
     }
+
+    public ArrayList<HearingAid> selectFilterHearingAid(FilterDTO dto) {
+        Log.v("SQLiteControl", "selectOrderByDescName");
+
+        ArrayList<HearingAid> aids = new ArrayList<>();
+        try {
+            sqlite = helper.getReadableDatabase();
+
+            String strSQL = "  SELECT ha_id,ha_name,ha_type,ha_brand,ha_bluetooth,ha_content,ha_insurance,ha_min_price,ha_max_price,ha_etc,hri_id,hrii_id from hearing_aid ";
+            strSQL += " where ";
+
+            ArrayList<Filter> shapes = dto.getShapes();
+            Log.v("TEST LOG","SQL shapes VALUES : " + shapes.toString());
+            strSQL += " ( ";
+            for(int i=0; i<shapes.size(); i++){
+
+                if(i!=0){
+                    strSQL += " OR ";
+                }
+                strSQL += " ha_type == '"+shapes.get(i).getValue()+"'";
+            }
+            strSQL += ") AND (";
+            ArrayList<Filter> brands = dto.getBrands();
+            Log.v("TEST LOG","SQL BRANDS VALUES : " + brands.toString());
+            for(int i=0; i<brands.size(); i++){
+                if(i!=0){
+                    strSQL += " OR ";
+                }
+                strSQL += " ha_brand == '"+brands.get(i).getValue()+"'";
+            }
+            strSQL += " ) ;";
+
+            Log.v("SQLiteControl",strSQL);
+            Cursor cursor = sqlite.rawQuery(strSQL, null);
+            Log.v("SQLiteControl",
+                    String.format("selectAllHearingAid Result = %d", cursor.getCount()));
+            if (cursor.getCount() <= 0)
+                return null;
+
+            for (int i = 0; i < cursor.getCount(); i++) {
+                cursor.moveToNext();
+                int ha_id = cursor.getInt(0);
+                String ha_name= cursor.getString(1);
+                String ha_type = cursor.getString(2);
+                String ha_brand = cursor.getString(3);
+                String ha_bluetooth = cursor.getString(4);
+                String ha_content = cursor.getString(5);
+                String ha_insurance = cursor.getString(6);
+                int ha_min_price = cursor.getInt(7);
+                int ha_max_price = cursor.getInt(8);
+                String ha_etc = cursor.getString(9);
+                int hri_id = cursor.getInt(10);
+                int hrii_id = cursor.getInt(11);
+
+                HearingAid aidOne = new HearingAid(ha_id,ha_name,ha_type,ha_brand,ha_bluetooth,ha_content,ha_insurance,ha_min_price,ha_max_price,ha_etc,hri_id,hrii_id);
+
+                aids.add(aidOne);
+            }
+            cursor.close();
+            return aids;
+
+        } catch (Exception e) {
+            return null;
+        }
+    };
+
+    public HraidImage selectImageFile(int _hri_id){
+        try{
+            sqlite = helper.getWritableDatabase();
+            String strSQL = " select hri_id, hri_file_name,hri_file_ext,hri_content from hraid_image "
+                    + " WHERE hri_id = ? ; ";
+            String[] params = {Integer.toString(_hri_id)};
+            Cursor cursor = sqlite.rawQuery(strSQL,params);
+            if (cursor.getCount() > 0){
+                Log.v("TEST LOG","value : "+  cursor.getCount());
+                cursor.moveToNext();
+                int hri_id = cursor.getInt(0);
+                String hri_file_name = cursor.getString(1);
+                String hri_file_ext = cursor.getString(2);
+                String hri_content = cursor.getString(3);
+                HraidImage hraidImage = new HraidImage(hri_id,hri_file_name,hri_file_ext,hri_content);
+                cursor.close();
+                return hraidImage;
+            }
+        }catch (Exception e) {
+            return null;
+        }
+        return null;
+
+
+    }
+    //----------------------------------------이름 오름 차순----------------------------------------//
+    public ArrayList<HearingAid> selectOrderByAscName() {
+        Log.v("SQLiteControl", "selectOrderByDescName");
+
+
+        ArrayList<HearingAid> aids = new ArrayList<>();
+        try {
+            sqlite = helper.getReadableDatabase();
+
+            String strSQL = "  SELECT ha_id,ha_name,ha_type,ha_brand,ha_bluetooth,ha_content,ha_insurance,ha_min_price,ha_max_price,ha_etc,hri_id,hrii_id from hearing_aid order by ha_name Desc ; ";
+            Cursor cursor = sqlite.rawQuery(strSQL, null);
+
+            Log.v("SQLiteControl",
+                    String.format("selectAllHearingAid Result = %d", cursor.getCount()));
+            if (cursor.getCount() <= 0)
+                return null;
+
+            for (int i = 0; i < cursor.getCount(); i++) {
+                cursor.moveToNext();
+                int ha_id = cursor.getInt(0);
+                String ha_name= cursor.getString(1);
+                String ha_type = cursor.getString(2);
+                String ha_brand = cursor.getString(3);
+                String ha_bluetooth = cursor.getString(4);
+                String ha_content = cursor.getString(5);
+                String ha_insurance = cursor.getString(6);
+                int ha_min_price = cursor.getInt(7);
+                int ha_max_price = cursor.getInt(8);
+                String ha_etc = cursor.getString(9);
+                int hri_id = cursor.getInt(10);
+                int hrii_id = cursor.getInt(11);
+
+                HearingAid aidOne = new HearingAid(ha_id,ha_name,ha_type,ha_brand,ha_bluetooth,ha_content,ha_insurance,ha_min_price,ha_max_price,ha_etc,hri_id,hrii_id);
+
+                aids.add(aidOne);
+            }
+            cursor.close();
+            return aids;
+
+        } catch (Exception e) {
+            return null;
+        }
+    };
+    //----------------------------------------이름 내림 차순----------------------------------------//
+
+    //----------------------------------------이름 내름 차순----------------------------------------//
+    public ArrayList<HearingAid> selectOrderByDescName() {
+        Log.v("SQLiteControl", "selectOrderByDescName");
+
+
+        ArrayList<HearingAid> aids = new ArrayList<>();
+        try {
+            sqlite = helper.getReadableDatabase();
+
+            String strSQL = "  SELECT ha_id,ha_name,ha_type,ha_brand,ha_bluetooth,ha_content,ha_insurance,ha_min_price,ha_max_price,ha_etc,hri_id,hrii_id from hearing_aid order by ha_name Desc ; ";
+            Cursor cursor = sqlite.rawQuery(strSQL, null);
+
+            Log.v("SQLiteControl",
+                    String.format("selectAllHearingAid Result = %d", cursor.getCount()));
+            if (cursor.getCount() <= 0)
+                return null;
+
+            for (int i = 0; i < cursor.getCount(); i++) {
+                cursor.moveToNext();
+                int ha_id = cursor.getInt(0);
+                String ha_name= cursor.getString(1);
+                String ha_type = cursor.getString(2);
+                String ha_brand = cursor.getString(3);
+                String ha_bluetooth = cursor.getString(4);
+                String ha_content = cursor.getString(5);
+                String ha_insurance = cursor.getString(6);
+                int ha_min_price = cursor.getInt(7);
+                int ha_max_price = cursor.getInt(8);
+                String ha_etc = cursor.getString(9);
+                int hri_id = cursor.getInt(10);
+                int hrii_id = cursor.getInt(11);
+
+                HearingAid aidOne = new HearingAid(ha_id,ha_name,ha_type,ha_brand,ha_bluetooth,ha_content,ha_insurance,ha_min_price,ha_max_price,ha_etc,hri_id,hrii_id);
+
+                aids.add(aidOne);
+            }
+            cursor.close();
+            return aids;
+
+        } catch (Exception e) {
+            return null;
+        }
+    };
+    //----------------------------------------이름 내림 차순----------------------------------------//
+
+
+
+
+    //----------------------------------------가격 오름 차순----------------------------------------//
+    public ArrayList<HearingAid> selectOrderByAscPrice() {
+        Log.v("SQLiteControl", "selectOrderByAscPrice");
+
+
+        ArrayList<HearingAid> aids = new ArrayList<>();
+        try {
+            sqlite = helper.getReadableDatabase();
+
+            String strSQL = "  SELECT ha_id,ha_name,ha_type,ha_brand,ha_bluetooth,ha_content,ha_insurance,ha_min_price,ha_max_price,ha_etc,hri_id,hrii_id from hearing_aid order by ha_max_price asc ; ";
+            Cursor cursor = sqlite.rawQuery(strSQL, null);
+
+            Log.v("SQLiteControl",
+                    String.format("selectAllHearingAid Result = %d", cursor.getCount()));
+            if (cursor.getCount() <= 0)
+                return null;
+
+            for (int i = 0; i < cursor.getCount(); i++) {
+                cursor.moveToNext();
+                int ha_id = cursor.getInt(0);
+                String ha_name= cursor.getString(1);
+                String ha_type = cursor.getString(2);
+                String ha_brand = cursor.getString(3);
+                String ha_bluetooth = cursor.getString(4);
+                String ha_content = cursor.getString(5);
+                String ha_insurance = cursor.getString(6);
+                int ha_min_price = cursor.getInt(7);
+                int ha_max_price = cursor.getInt(8);
+                String ha_etc = cursor.getString(9);
+                int hri_id = cursor.getInt(10);
+                int hrii_id = cursor.getInt(11);
+
+                HearingAid aidOne = new HearingAid(ha_id,ha_name,ha_type,ha_brand,ha_bluetooth,ha_content,ha_insurance,ha_min_price,ha_max_price,ha_etc,hri_id,hrii_id);
+
+                aids.add(aidOne);
+            }
+            cursor.close();
+            return aids;
+
+        } catch (Exception e) {
+            return null;
+        }
+    };
+    //----------------------------------------가격 오름 차순----------------------------------------//
+    //----------------------------------------가격 내름 차순----------------------------------------//
+    public ArrayList<HearingAid> selectOrderByDescPrice() {
+        Log.v("SQLiteControl", "selectOrderByAscPrice");
+
+
+        ArrayList<HearingAid> aids = new ArrayList<>();
+        try {
+            sqlite = helper.getReadableDatabase();
+
+            String strSQL = "  SELECT ha_id,ha_name,ha_type,ha_brand,ha_bluetooth,ha_content,ha_insurance,ha_min_price,ha_max_price,ha_etc,hri_id,hrii_id from hearing_aid order by ha_max_price Desc ; ";
+            Cursor cursor = sqlite.rawQuery(strSQL, null);
+
+            Log.v("SQLiteControl",
+                    String.format("selectAllHearingAid Result = %d", cursor.getCount()));
+            if (cursor.getCount() <= 0)
+                return null;
+
+            for (int i = 0; i < cursor.getCount(); i++) {
+                cursor.moveToNext();
+                int ha_id = cursor.getInt(0);
+                String ha_name= cursor.getString(1);
+                String ha_type = cursor.getString(2);
+                String ha_brand = cursor.getString(3);
+                String ha_bluetooth = cursor.getString(4);
+                String ha_content = cursor.getString(5);
+                String ha_insurance = cursor.getString(6);
+                int ha_min_price = cursor.getInt(7);
+                int ha_max_price = cursor.getInt(8);
+                String ha_etc = cursor.getString(9);
+                int hri_id = cursor.getInt(10);
+                int hrii_id = cursor.getInt(11);
+
+                HearingAid aidOne = new HearingAid(ha_id,ha_name,ha_type,ha_brand,ha_bluetooth,ha_content,ha_insurance,ha_min_price,ha_max_price,ha_etc,hri_id,hrii_id);
+
+                aids.add(aidOne);
+            }
+            cursor.close();
+            return aids;
+
+        } catch (Exception e) {
+            return null;
+        }
+    };
+    //----------------------------------------가격 오름 차순----------------------------------------//
+    public ArrayList<HearingAid> selectAllHearingAid() {
+        Log.v("SQLiteControl", "selectAllHearingAid");
+
+
+        ArrayList<HearingAid> aids = new ArrayList<>();
+        try {
+            sqlite = helper.getReadableDatabase();
+
+            String strSQL = "  SELECT ha_id,ha_name,ha_type,ha_brand,ha_bluetooth,ha_content,ha_insurance,ha_min_price,ha_max_price,ha_etc,hri_id,hrii_id from hearing_aid ; ";
+            Cursor cursor = sqlite.rawQuery(strSQL, null);
+
+            Log.v("SQLiteControl",
+                    String.format("selectAllHearingAid Result = %d", cursor.getCount()));
+            if (cursor.getCount() <= 0)
+                return null;
+
+            for (int i = 0; i < cursor.getCount(); i++) {
+                cursor.moveToNext();
+                int ha_id = cursor.getInt(0);
+                String ha_name= cursor.getString(1);
+                String ha_type = cursor.getString(2);
+                String ha_brand = cursor.getString(3);
+                String ha_bluetooth = cursor.getString(4);
+                String ha_content = cursor.getString(5);
+                String ha_insurance = cursor.getString(6);
+                int ha_min_price = cursor.getInt(7);
+                int ha_max_price = cursor.getInt(8);
+                String ha_etc = cursor.getString(9);
+                int hri_id = cursor.getInt(10);
+                int hrii_id = cursor.getInt(11);
+
+                HearingAid aidOne = new HearingAid(ha_id,ha_name,ha_type,ha_brand,ha_bluetooth,ha_content,ha_insurance,ha_min_price,ha_max_price,ha_etc,hri_id,hrii_id);
+
+                aids.add(aidOne);
+
+
+            }
+            cursor.close();
+            return aids;
+
+        } catch (Exception e) {
+            return null;
+        }
+    };
 
     public Account selectLogin(String strPhonId, String strPwd){
         Log.v(m_TAG, String.format("selectLogin strPhone %s, Pass %s", strPhonId, strPwd));

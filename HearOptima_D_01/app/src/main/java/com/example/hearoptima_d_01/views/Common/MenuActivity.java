@@ -10,7 +10,6 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.hearoptima_d_01.R;
 import com.example.hearoptima_d_01.views.HearingAidFind.HearingAidFind;
-import com.example.hearoptima_d_01.views.HearingAidFind.HearingAidFindAddfilter;
 import com.example.hearoptima_d_01.views.HearingAidInfo.CoChlearImplantInfo;
 import com.example.hearoptima_d_01.views.HearingAidInfo.HearingAidInfo;
 import com.example.hearoptima_d_01.views.TestResultInput.SurveyStart;

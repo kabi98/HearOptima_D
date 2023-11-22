@@ -14,24 +14,26 @@
         tools:ignore="MissingConstraints">
 
         <LinearLayout
+            android:id="@+id/aidsLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="10dp"
             android:padding="16dp"
-            android:background="@drawable/custom_menu_background"
-            >
+            android:background="@drawable/custom_menu_background">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/aidsImage"
                 android:layout_width="80dp"
                 android:layout_height="80dp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <TextView
-                    android:id="@+id/nameView"
+                    android:id="@+id/brandName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -40,7 +42,7 @@
                     android:textColor="@color/gray3"/>
 
                 <TextView
-                    android:id="@+id/brandView"
+                    android:id="@+id/productName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -50,17 +52,15 @@
                     android:textColor="@color/black"/>
 
                 <TextView
-                    android:id="@+id/priceView"
+                    android:id="@+id/priceText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingStart="16dp"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="@color/red"/>
+                    android:textColor="#E06044"/>
             </LinearLayout>
-
-
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
