@@ -93,7 +93,7 @@ public class SurveyStart extends AppCompatActivity {
         } else if (currentQuestionIndex <= 4) {
             resultMessage = "일상생활에 약간의 지장이 있을 수 있습니다.";
         } else {
-            resultMessage = "일상생활에 큰 어려움이 있을 수 있습니다";
+            resultMessage = "일상생활에 큰 어려움이 있을 수 있습니다.";
         }
 
         // 결과 메시지를 전달하여 결과 페이지로 이동

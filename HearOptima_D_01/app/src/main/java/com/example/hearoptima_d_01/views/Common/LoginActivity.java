@@ -63,10 +63,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             getInfoAndCheckLogIn();
             GlobalVar.g_AccJoin = new Account();
         }
-//        else if (view.getId() == R.id.btnJoin) {
-//            Intent intent = new Intent(getApplicationContext(), JoinActivity.class);
-//            startActivity(intent);
-//        }
+        else if (view.getId() == R.id.btnJoin) {
+            Intent intent = new Intent(getApplicationContext(), JoinActivity.class);
+            startActivity(intent);
+        }
     }
 
     private void getInfoAndCheckLogIn() {

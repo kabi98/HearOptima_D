@@ -17,6 +17,10 @@
             android:exported="false"
             android:theme="@style/NoActionBarTheme"/>
         <activity
+            android:name=".views.Common.JoinActivity"
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
+        <activity
             android:name=".views.Common.LoginActivity"
             android:exported="false"
             android:theme="@style/NoActionBarTheme"/>
