@@ -36,47 +36,53 @@ public class SQLiteControl {
     }
 
     public ArrayList<HearingAid> selectFilterHearingAid(FilterDTO dto) {
-        Log.v("SQLiteControl", "selectOrderByDescName");
+        Log.v("SQLiteControl", "selectFilterHearingAid");
 
         ArrayList<HearingAid> aids = new ArrayList<>();
         try {
             sqlite = helper.getReadableDatabase();
 
-            String strSQL = "  SELECT ha_id,ha_name,ha_type,ha_brand,ha_bluetooth,ha_content,ha_insurance,ha_min_price,ha_max_price,ha_etc,hri_id,hrii_id from hearing_aid ";
-            strSQL += " where ";
-
+            StringBuilder strSQL = new StringBuilder("SELECT ha_id, ha_name, ha_type, ha_brand, ha_bluetooth, ha_content, ha_insurance, ha_min_price, ha_max_price, ha_etc, hri_id, hrii_id FROM hearing_aid");
             ArrayList<Filter> shapes = dto.getShapes();
-            Log.v("TEST LOG","SQL shapes VALUES : " + shapes.toString());
-            strSQL += " ( ";
-            for(int i=0; i<shapes.size(); i++){
-
-                if(i!=0){
-                    strSQL += " OR ";
-                }
-                strSQL += " ha_type == '"+shapes.get(i).getValue()+"'";
-            }
-            strSQL += ") AND (";
             ArrayList<Filter> brands = dto.getBrands();
-            Log.v("TEST LOG","SQL BRANDS VALUES : " + brands.toString());
-            for(int i=0; i<brands.size(); i++){
-                if(i!=0){
-                    strSQL += " OR ";
-                }
-                strSQL += " ha_brand == '"+brands.get(i).getValue()+"'";
-            }
-            strSQL += " ) ;";
+            boolean hasShapeFilters = shapes != null && !shapes.isEmpty();
+            boolean hasBrandFilters = brands != null && !brands.isEmpty();
 
-            Log.v("SQLiteControl",strSQL);
-            Cursor cursor = sqlite.rawQuery(strSQL, null);
-            Log.v("SQLiteControl",
-                    String.format("selectAllHearingAid Result = %d", cursor.getCount()));
-            if (cursor.getCount() <= 0)
-                return null;
+            // Adding WHERE clause if any filter is applied
+            if (hasShapeFilters || hasBrandFilters) {
+                strSQL.append(" WHERE ");
+
+                if (hasShapeFilters) {
+                    strSQL.append(" ( ");
+                    for (int i = 0; i < shapes.size(); i++) {
+                        strSQL.append(i != 0 ? " OR " : "");
+                        strSQL.append("ha_type = '").append(shapes.get(i).getValue()).append("'");
+                    }
+                    strSQL.append(" ) ");
+                }
+
+                if (hasBrandFilters) {
+                    if (hasShapeFilters) strSQL.append(" AND ");
+                    strSQL.append(" ( ");
+                    for (int i = 0; i < brands.size(); i++) {
+                        strSQL.append(i != 0 ? " OR " : "");
+                        strSQL.append("ha_brand = '").append(brands.get(i).getValue()).append("'");
+                    }
+                    strSQL.append(" ) ");
+                }
+            }
+
+            strSQL.append(";");
+            Log.v("SQLiteControl", strSQL.toString());
+            Cursor cursor = sqlite.rawQuery(strSQL.toString(), null);
+            Log.v("SQLiteControl", String.format("selectFilterHearingAid Result = %d", cursor.getCount()));
+
+            if (cursor.getCount() <= 0) return null;
 
             for (int i = 0; i < cursor.getCount(); i++) {
                 cursor.moveToNext();
                 int ha_id = cursor.getInt(0);
-                String ha_name= cursor.getString(1);
+                String ha_name = cursor.getString(1);
                 String ha_type = cursor.getString(2);
                 String ha_brand = cursor.getString(3);
                 String ha_bluetooth = cursor.getString(4);
@@ -88,17 +94,16 @@ public class SQLiteControl {
                 int hri_id = cursor.getInt(10);
                 int hrii_id = cursor.getInt(11);
 
-                HearingAid aidOne = new HearingAid(ha_id,ha_name,ha_type,ha_brand,ha_bluetooth,ha_content,ha_insurance,ha_min_price,ha_max_price,ha_etc,hri_id,hrii_id);
-
+                HearingAid aidOne = new HearingAid(ha_id, ha_name, ha_type, ha_brand, ha_bluetooth, ha_content, ha_insurance, ha_min_price, ha_max_price, ha_etc, hri_id, hrii_id);
                 aids.add(aidOne);
             }
             cursor.close();
-            return aids;
-
         } catch (Exception e) {
+            Log.e("SQLiteControl", "Error in selectFilterHearingAid: " + e.getMessage());
             return null;
         }
-    };
+        return aids;
+    }
 
     public HraidImage selectImageFile(int _hri_id){
         try{
