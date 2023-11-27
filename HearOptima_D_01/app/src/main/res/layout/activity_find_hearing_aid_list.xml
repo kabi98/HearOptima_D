@@ -132,7 +132,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/pretendardextrabold"
                                     android:textColor="@color/black"
-                                    android:text="총 32개">
+                                    android:text="총 0개">
                                 </TextView>
                             </LinearLayout>
                             <LinearLayout
@@ -225,13 +225,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"></EditText>
 
+
                 </LinearLayout>
+
+
                 <!-- 보청기 찾기 검색 페이지 End-->
             </FrameLayout>
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent" >
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent">
                 <LinearLayout
                     android:layout_weight="1"
                     android:background="@drawable/dropshadow"

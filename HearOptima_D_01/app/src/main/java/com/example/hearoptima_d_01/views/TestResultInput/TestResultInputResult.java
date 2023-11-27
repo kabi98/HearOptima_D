@@ -23,21 +23,21 @@ public class TestResultInputResult extends AppCompatActivity {
         setContentView(R.layout.activity_test_result_input_result);
 
         // Initialize Views
-        rightResultExpectation = findViewById(R.id.rightResultExpectation);
-        rightResultExpectation2 = findViewById(R.id.rightResultExpectation2);
-        rightHearingLossClassification = findViewById(R.id.rightHearingLossClassification);
-        rightHearingLossInfo = findViewById(R.id.rightHearingLossInfo);
-        rightHearingAidList = findViewById(R.id.rightHearingAidList);
-        rightHearingLossView = findViewById(R.id.rightHearingLossView);
-
-        leftResultExpectation = findViewById(R.id.leftResultExpectation);
-        leftResultExpectation2 = findViewById(R.id.leftResultExpectation2);
-        leftHearingLossClassification = findViewById(R.id.leftHearingLossClassification);
-        leftHearingLossInfo = findViewById(R.id.leftHearingLossInfo);
-        leftHearingAidList = findViewById(R.id.leftHearingAidList);
-        leftHearingLossView = findViewById(R.id.leftHearingLossView);
-
-        returnMenuBtn = findViewById(R.id.returnMenuBtn);
+//        rightResultExpectation = findViewById(R.id.rightResultExpectation);
+//        rightResultExpectation2 = findViewById(R.id.rightResultExpectation2);
+//        rightHearingLossClassification = findViewById(R.id.rightHearingLossClassification);
+//        rightHearingLossInfo = findViewById(R.id.rightHearingLossInfo);
+//        rightHearingAidList = findViewById(R.id.rightHearingAidList);
+//        rightHearingLossView = findViewById(R.id.rightHearingLossView);
+//
+//        leftResultExpectation = findViewById(R.id.leftResultExpectation);
+//        leftResultExpectation2 = findViewById(R.id.leftResultExpectation2);
+//        leftHearingLossClassification = findViewById(R.id.leftHearingLossClassification);
+//        leftHearingLossInfo = findViewById(R.id.leftHearingLossInfo);
+//        leftHearingAidList = findViewById(R.id.leftHearingAidList);
+//        leftHearingLossView = findViewById(R.id.leftHearingLossView);
+//
+//        returnMenuBtn = findViewById(R.id.returnMenuBtn);
 
         // Get data passed from previous activity
         int rightValue = getIntent().getIntExtra("RIGHT_ACT_VALUE", 0);

@@ -33,6 +33,10 @@
             android:exported="false"
             android:theme="@style/NoActionBarTheme"/>
         <activity
+            android:name=".views.HearingAidFind.HearingAidGoodsInfoActivity"
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
+        <activity
             android:name=".views.HearingAidFind.HearingAidFind"
             android:exported="false"
             android:theme="@style/NoActionBarTheme"/>

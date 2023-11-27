@@ -1,5 +1,6 @@
 package com.example.hearoptima_d_01.db;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
@@ -12,6 +13,7 @@ import com.example.hearoptima_d_01.entity.FilterDTO;
 import com.example.hearoptima_d_01.entity.Filter;
 import com.example.hearoptima_d_01.entity.HearingAid;
 import com.example.hearoptima_d_01.entity.HraidImage;
+import com.example.hearoptima_d_01.global.TConst;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -45,11 +47,16 @@ public class SQLiteControl {
             StringBuilder strSQL = new StringBuilder("SELECT ha_id, ha_name, ha_type, ha_brand, ha_bluetooth, ha_content, ha_insurance, ha_min_price, ha_max_price, ha_etc, hri_id, hrii_id FROM hearing_aid");
             ArrayList<Filter> shapes = dto.getShapes();
             ArrayList<Filter> brands = dto.getBrands();
+            int minPrice = dto.getMinPrice();
+            int maxPrice = dto.getMaxPrice();
+
             boolean hasShapeFilters = shapes != null && !shapes.isEmpty();
             boolean hasBrandFilters = brands != null && !brands.isEmpty();
+            boolean hasPriceFilters = (minPrice >= 0) && (maxPrice > 0);
 
             // Adding WHERE clause if any filter is applied
-            if (hasShapeFilters || hasBrandFilters) {
+            boolean anyFilterApplied = hasShapeFilters || hasBrandFilters || hasPriceFilters;
+            if (anyFilterApplied) {
                 strSQL.append(" WHERE ");
 
                 if (hasShapeFilters) {
@@ -70,14 +77,23 @@ public class SQLiteControl {
                     }
                     strSQL.append(" ) ");
                 }
+
+                if (hasPriceFilters) {
+                    if (hasShapeFilters || hasBrandFilters) strSQL.append(" AND ");
+                    strSQL.append(" (ha_max_price BETWEEN ").append(minPrice).append(" AND ").append(maxPrice).append(") ");
+                }
             }
+
 
             strSQL.append(";");
             Log.v("SQLiteControl", strSQL.toString());
             Cursor cursor = sqlite.rawQuery(strSQL.toString(), null);
             Log.v("SQLiteControl", String.format("selectFilterHearingAid Result = %d", cursor.getCount()));
 
-            if (cursor.getCount() <= 0) return null;
+            if (cursor.getCount() <= 0) {
+                cursor.close();
+                return aids;
+            }
 
             for (int i = 0; i < cursor.getCount(); i++) {
                 cursor.moveToNext();
@@ -520,5 +536,18 @@ public class SQLiteControl {
             Log.v(m_TAG, "selectMyHearingAidGroup Exception " + e);
             return null;
         }
+    }
+    public Cursor getData(long ha_id) {
+        SQLiteDatabase database = helper.getReadableDatabase();
+        Cursor cursor = database.rawQuery(
+                "SELECT * FROM hearing_aid " +
+                        "JOIN hraid_image ON hearing_aid.hri_id = hraid_image.hri_id " +
+                        "JOIN hraid_inform_image ON hearing_aid.hrii_id = hraid_inform_image.hrii_id " +
+                        "WHERE hearing_aid.ha_id = " + ha_id, null);
+        return cursor;
+    }
+
+    public SQLiteControl(Context context) {
+        helper = new SQLiteHelper(context, TConst.DB_FILE, null, 2);
     }
 }

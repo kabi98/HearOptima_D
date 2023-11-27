@@ -1,5 +1,6 @@
 package com.example.hearoptima_d_01.views.HearingAidFind;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -50,6 +51,16 @@ public class HearingAidAdapter extends RecyclerView.Adapter<HearingAidAdapter.Vi
         Log.v("TEST LOG",m_TAG +" brandName : " + holder.brandName.getText());
         Log.v("TEST LOG",m_TAG +" productName : " + holder.productName.getText());
         Log.v("TEST LOG",m_TAG +" priceText : " + holder.priceText.getText());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 인텐트를 생성하여 상세보기 페이지로 이동
+                Intent detailIntent = new Intent(v.getContext(), HearingAidGoodsInfoActivity.class);
+//                detailIntent.putExtra("EXTRA_DATA", dataList.get(position)); // 보청기 정보 전달
+                v.getContext().startActivity(detailIntent);
+            }
+        });
 
     }
 

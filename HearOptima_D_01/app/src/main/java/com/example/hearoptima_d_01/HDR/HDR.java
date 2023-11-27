@@ -192,6 +192,7 @@ public class HDR { //Hearing Device Recommender
                 rightOI == OI.Active || rightOI == OI.Traditional) {
             if(leftOI == OI.Active) {
                 if(checkSingleSidedDeafness()) {
+                    String LeftActiveOsseointegratedImplant_Single = "왼쪽만 난청 : 액티브 골전도 보청기";
                     outList.add(HDR_RANGE.LeftActiveOsseointegratedImplant_Single);
                     outList.add(HDR_RANGE.LeftBoneConductionHearingAids_Single);
                 }
@@ -254,6 +255,7 @@ public class HDR { //Hearing Device Recommender
             }
         }
         else {
+            String Normal = "정상";
             outList.add(HDR_RANGE.Normal);
         }
         return outList;
@@ -280,8 +282,4 @@ public class HDR { //Hearing Device Recommender
     public void setRightBCPTA(float hz500, float hz1000, float hz2000) {
         this.rightBCPTA = calculatePTA(hz500, hz1000, hz2000);
     }
-
-
-
-
 }
