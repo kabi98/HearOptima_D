@@ -84,5 +84,7 @@ public class GlobalVar {
 //
 //    public static HrTestGroup T_GROUP = new HrTestGroup();
 //    public static HrTestSet T_SET = new HrTestSet();
+
+    public static int Gha_id =0;
 }
 

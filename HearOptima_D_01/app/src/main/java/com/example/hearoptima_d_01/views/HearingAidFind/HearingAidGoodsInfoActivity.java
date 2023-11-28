@@ -14,6 +14,7 @@ import com.example.hearoptima_d_01.db.SQLiteControl;
 import com.example.hearoptima_d_01.db.SQLiteHelper;
 import com.example.hearoptima_d_01.entity.HraidImage;
 import com.example.hearoptima_d_01.entity.HraidInfoImage;
+import com.example.hearoptima_d_01.global.GlobalVar;
 
 public class HearingAidGoodsInfoActivity extends AppCompatActivity {
 
@@ -39,7 +40,7 @@ public class HearingAidGoodsInfoActivity extends AppCompatActivity {
 
         m_SqlCon = new SQLiteControl(this);
 
-        long ha_id = 40; // ha_id 1에 대한 데이터를 가져온다고 가정
+        long ha_id = GlobalVar.Gha_id; // ha_id 1에 대한 데이터를 가져온다고 가정
         Cursor cursor = m_SqlCon.getData(ha_id);
         if (cursor != null && cursor.moveToFirst()) {
             int ha_nameIndex = cursor.getColumnIndex("ha_name");

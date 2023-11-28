@@ -2,26 +2,30 @@ package com.example.hearoptima_d_01.HDR;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.hearoptima_d_01.R;
+import com.example.hearoptima_d_01.views.HearingAidFind.HearingAidFind;
 import com.example.hearoptima_d_01.views.TestResultInput.TestResultInput;
 
 import java.util.List;
 
 public class HDRResultActivity extends AppCompatActivity {
 
-    private TextView resultTextView, resultTextView2;
+    private TextView rightresultTextView, leftresultTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_result_input_result);
 
-        resultTextView = findViewById(R.id.resultTextView);
-        resultTextView2 = findViewById(R.id.resultTextView2); // 오른쪽 결과 텍스트 뷰
+        rightresultTextView = findViewById(R.id.rightresultTextView);
+        leftresultTextView = findViewById(R.id.leftresultTextView); // 오른쪽 결과 텍스트 뷰
+        AppCompatButton dataInputButton = findViewById(R.id.dataInput);
 
         TextView resultExpectation = findViewById(R.id.ResultExpectation);
         TextView resultExpectation2 = findViewById(R.id.ResultExpectation2);
@@ -32,38 +36,103 @@ public class HDRResultActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int leftACPTA = intent.getIntExtra("LEFT_ACT_VALUE", 0);
         int rightACPTA = intent.getIntExtra("RIGHT_ACT_VALUE", 0);
+        int leftBCPTA = intent.getIntExtra("LEFT_BCT_VALUE", 0);
+        int rightBCPTA = intent.getIntExtra("RIGHT_BCT_VALUE", 0);
+        int leftWRS = intent.getIntExtra("LEFT_WRS_VALUE",0);
+        int rightWRS = intent.getIntExtra("RIGHT_WRS_VALUE",0);
+
         hdr.setLeftACPTA(leftACPTA);
         hdr.setRightACPTA(rightACPTA);
-        hdr.setLeftBCPTA(intent.getIntExtra("LEFT_BCT_VALUE", 0));
-        hdr.setRightBCPTA(intent.getIntExtra("RIGHT_BCT_VALUE", 0));
-        hdr.setLeftWRS(intent.getIntExtra("LEFT_WRS_VALUE", 0));
-        hdr.setRightWRS(intent.getIntExtra("RIGHT_WRS_VALUE", 0));
+        hdr.setLeftBCPTA(leftBCPTA);
+        hdr.setRightBCPTA(rightBCPTA);
+        hdr.setLeftWRS(leftWRS);
+        hdr.setRightWRS(rightWRS);
 
         List<HDR_RANGE> outputList = hdr.calculate();
-
+        StringBuilder outputText = new StringBuilder();
         StringBuilder leftResultText = new StringBuilder();
-        for(HDR_RANGE out : outputList) {
-            leftResultText.append(out).append("\n");
-        }
-        leftResultText.append(getClassification(leftACPTA));
-
-        resultTextView.setText(leftResultText.toString());
-
         StringBuilder rightResultText = new StringBuilder();
-        rightResultText.append(getClassification(rightACPTA));
 
-        resultTextView2.setText(rightResultText.toString());
+        for (HDR_RANGE out : outputList) {
+            outputText.append(out.toString()).append("\n");
+            String outputString = out.toString();
+            boolean isCochlearImplantation = outputString.equals("CochlearImplantation");
+            boolean isCochlearImplantationSingle = outputString.equals("CochlearImplantation_Single");
+
+            if (outputString.equals("한쪽 인공와우")) {
+                if (leftACPTA > rightACPTA && leftWRS < rightWRS) {
+                    leftResultText.append(outputString).append("\n");
+                } else if (rightACPTA > leftACPTA && rightWRS < leftWRS) {
+                    rightResultText.append(outputString).append("\n");
+                }
+            } else if (outputString.equals("인공와우")) {
+                leftResultText.append(outputString).append("\n");
+                rightResultText.append(outputString).append("\n");
+            } else if (outputString.equals("크로스 보청기") || outputString.equals("바이크로스 보청기")) {
+                if (leftACPTA > rightACPTA) {
+                    leftResultText.append(outputString).append("\n");
+                } else {
+                    rightResultText.append(outputString).append("\n");
+                }
+            } else {
+                if (outputString.contains("오른쪽")) {
+                    rightResultText.append(outputString).append("\n");
+                } else if (outputString.contains("왼쪽")) {
+                    leftResultText.append(outputString).append("\n");
+                }
+            }
+        }
+
+//        for (HDR_RANGE out : outputList) {
+//            String outputString = out.toString();
+//            if (outputString.contains("오른쪽")) {
+//                rightResultText.append(outputString).append("\n");
+//            } else if (outputString.contains("왼쪽")) {
+//                leftResultText.append(outputString).append("\n");
+//            }
+//        }
+//        leftResultText.append(getClassification(leftACPTA));
+        leftresultTextView.setText(rightResultText.toString());
+//        rightResultText.append(getClassification(rightACPTA));
+        rightresultTextView.setText(leftResultText.toString());
 
         String leftClassification = getClassification(leftACPTA);
         String rightClassification = getClassification(rightACPTA);
 
-        resultExpectation.setText(leftClassification);
-        resultExpectation2.setText(rightClassification);
+        if (leftACPTA > rightACPTA) {
+            // leftACPTA가 rightACPTA보다 클 경우
+            resultExpectation.setText(leftClassification);
+            resultExpectation2.setText(leftClassification);
+        } else if (rightACPTA > leftACPTA) {
+            // rightACPTA가 leftACPTA보다 클 경우
+            resultExpectation.setText(rightClassification);
+            resultExpectation2.setText(rightClassification);
+        } else {
+            resultExpectation.setText(rightClassification);
+            resultExpectation2.setText(rightClassification);
+        }
 
         String leftHearingLossInfo = getHearingLossInfo(leftACPTA);
         String rightHearingLossInfo = getHearingLossInfo(rightACPTA);
 
-        resultExpectationInfo.setText(leftHearingLossInfo + "\n" + rightHearingLossInfo);
+        if (leftACPTA > rightACPTA) {
+            // leftACPTA가 rightACPTA보다 높은 경우
+            resultExpectationInfo.setText(leftHearingLossInfo);
+        } else if (rightACPTA > leftACPTA) {
+            // rightACPTA가 leftACPTA보다 높은 경우
+            resultExpectationInfo.setText(rightHearingLossInfo);
+        } else {
+            resultExpectationInfo.setText(rightHearingLossInfo);
+        }
+        dataInputButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // HearingAidFind 클래스로 이동하는 Intent 생성
+                Intent intent = new Intent(HDRResultActivity.this, HearingAidFind.class);
+                startActivity(intent); // 액티비티 시작
+            }
+        });
+
     }
 
     private String getClassification(int value) {
@@ -86,7 +155,7 @@ public class HDRResultActivity extends AppCompatActivity {
 
     private String getHearingLossInfo(int value) {
         if (value <= 20) {
-            return "정상";
+            return "정상입니다";
         } else if (value <= 40) {
             return "- 1:1 대화에는 거의 지장이 없음\n" +
                     "- 작은 소리, 속삭이는 소리를 잘 듣지 못함\n" +
@@ -137,21 +206,21 @@ public class HDRResultActivity extends AppCompatActivity {
             return "데이터 미입력";
         }
     }
-    private void setImageForHearingLoss(ImageView hearingLossView, int value) {
-        if (value <= 20) {
-            hearingLossView.setImageResource(R.drawable.normal_hearing);
-        } else if (value <= 40) {
-            hearingLossView.setImageResource(R.drawable.mild_hearing_loss);
-        } else if (value <= 55) {
-            hearingLossView.setImageResource(R.drawable.moderate_hearing_loss);
-        } else if (value <= 70) {
-            hearingLossView.setImageResource(R.drawable.moderately_severe_hearing_loss);
-        } else if (value <= 90) {
-            hearingLossView.setImageResource(R.drawable.severe_hearing_loss);
-        } else if (value <= 200) {
-            hearingLossView.setImageResource(R.drawable.profound_hearing_loss);
-        } else {
-            hearingLossView.setImageResource(0); // 기본 이미지 또는 에러 이미지 설정
-        }
-    }
+//    private void setImageForHearingLoss(ImageView hearingLossView, int value) {
+//        if (value <= 20) {
+//            hearingLossView.setImageResource(R.drawable.normal_hearing);
+//        } else if (value <= 40) {
+//            hearingLossView.setImageResource(R.drawable.mild_hearing_loss);
+//        } else if (value <= 55) {
+//            hearingLossView.setImageResource(R.drawable.moderate_hearing_loss);
+//        } else if (value <= 70) {
+//            hearingLossView.setImageResource(R.drawable.moderately_severe_hearing_loss);
+//        } else if (value <= 90) {
+//            hearingLossView.setImageResource(R.drawable.severe_hearing_loss);
+//        } else if (value <= 200) {
+//            hearingLossView.setImageResource(R.drawable.profound_hearing_loss);
+//        } else {
+//            hearingLossView.setImageResource(0); // 기본 이미지 또는 에러 이미지 설정
+//        }
+//    }
 }

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hearoptima_d_01.R;
 import com.example.hearoptima_d_01.entity.AidsView;
+import com.example.hearoptima_d_01.global.GlobalVar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,6 +56,10 @@ public class HearingAidAdapter extends RecyclerView.Adapter<HearingAidAdapter.Vi
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.v("ItemViewOnClick","*******************ItemViewOnClick"+position);
+                Log.v("DataList.ididid","id ="+dataList.get(position).toString());
+                Log.v("아이디좀보여줘","id ="+dataList.get(position).getHa_id());
+                GlobalVar.Gha_id = dataList.get(position).getHa_id();
                 // 인텐트를 생성하여 상세보기 페이지로 이동
                 Intent detailIntent = new Intent(v.getContext(), HearingAidGoodsInfoActivity.class);
 //                detailIntent.putExtra("EXTRA_DATA", dataList.get(position)); // 보청기 정보 전달

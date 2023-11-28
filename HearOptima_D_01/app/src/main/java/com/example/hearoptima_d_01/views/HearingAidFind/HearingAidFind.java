@@ -221,6 +221,7 @@ public class HearingAidFind extends AppCompatActivity implements View.OnClickLis
             AidsTotalnum.setText("총 " + data.size()+"개");
             for(int i=0; i<aids.size(); i++){
                 AidsView aidsOne = new AidsView();
+                aidsOne.setHa_id(data.get(i).getHa_id());
                 aidsOne.setBrand(data.get(i).getHa_brand());
                 aidsOne.setProduct(data.get(i).getHa_name());
                 aidsOne.setMaxPrice(data.get(i).getHa_max_price());

@@ -1,4 +1,4 @@
-package com.example.hearoptima_d_01.HDR;
+package com.example.soncord_1;
 
 import android.util.Log;
 
@@ -14,66 +14,13 @@ public class HDR { //Hearing Device Recommender
     private float leftWRS = 0;
     private float rightWRS = 0;
 
-
-//    public HDR() {
-//        this.leftACPTA = 25; //Normal 0~25
-//        this.rightACPTA = 25;
-//        this.leftBCPTA = 25;
-//        this.rightBCPTA = 25;
-//        this.leftWRS = 90; //Normal 90~100%
-//        this.rightWRS = 90;
-//    }
-
-    public void setLeftACPTA(float leftACPTA) {
-        this.leftACPTA = leftACPTA;
-        Log.v("왼쪽 값들", "setLeftACPTA: " + leftACPTA); // leftACPTA 설정 로그
-    }
-    private float getLeftACPTA() {
-        Log.v("왼쪽 값들", "getLeftACPTA: " + leftACPTA); // leftACPTA 반환 로그
-        return leftACPTA;
-    }
-    public void setLeftBCPTA(float leftBCPTA) {
-        this.leftBCPTA = leftBCPTA;
-        Log.v("왼쪽 값들", "setLeftBCPTA: " + leftBCPTA); // leftBCPTA 설정 로그
-    }
-    private float getLeftBCPTA() {
-        Log.v("왼쪽 값들", "getLeftBCPTA: " + leftBCPTA); // leftBCPTA 반환 로그
-        return leftBCPTA;
-    }
-    public void setLeftWRS(float wrs) {
-        this.leftWRS = wrs;
-        Log.v("왼쪽 값들", "setLeftWRS: " + wrs); // leftWRS 설정 로그
-    }
-    private float getLeftWRS() {
-        Log.v("왼쪽 값들", "getLeftWRS: " + leftWRS); // leftWRS 반환 로그
-        return leftWRS;
-
-    }
-
-
-    public void setRightACPTA(float rightACPTA) {
-        this.rightACPTA = rightACPTA;
-        Log.v("오른쪽 값들", "setRightACPTA: " + rightACPTA); // leftACPTA 설정 로그
-    }
-    private float getRightACPTA() {
-        Log.v("오른쪽 값들", "getRightACPTA: " + rightACPTA); // leftACPTA 반환 로그
-        return rightACPTA;
-    }
-    public void setRightBCPTA(float rightBCPTA) {
-        this.rightBCPTA = rightBCPTA;
-        Log.v("오른쪽 값들", "setRightBCPTA: " + rightBCPTA); // leftBCPTA 설정 로그
-    }
-    private float getRightBCPTA() {
-        Log.v("오른쪽 값들", "getRightBCPTA: " + rightBCPTA); // leftBCPTA 반환 로그
-        return rightBCPTA;
-    }
-    public void setRightWRS(float wrs) {
-        this.rightWRS = wrs;
-        Log.v("오른쪽 값들", "setRightWRS: " + wrs); // leftWRS 설정 로그
-    }
-    public float getRightWRS() {
-        Log.v("오른쪽 값들", "getRightWRS: " + rightWRS); // leftWRS 반환 로그
-        return rightWRS;
+    public HDR() {
+        this.setLeftACPTA(25); //Normal 0~25
+        this.setRightACPTA(25);
+        this.setLeftBCPTA(25);
+        this.setRightBCPTA(25);
+        this.setLeftWRS(90); //Normal 90~100%
+        this.setRightWRS(90);
     }
 
     private boolean checkSingleSidedDeafness() {
@@ -88,7 +35,7 @@ public class HDR { //Hearing Device Recommender
     private boolean checkBiCROS() {
         boolean retVal = false;
 
-        if(getBadACPTA() >= 90 && getBadWRS() <= 40 && getGoodACPTA() >= 20 && getBadWRS() >= 50) {
+        if(getBadACPTA() >= 90 && getGoodWRS() <= 40 && getGoodACPTA() >= 20 && getBadWRS() >= 50) {
             retVal = true;
         }
         return retVal;
@@ -207,7 +154,6 @@ public class HDR { //Hearing Device Recommender
                 rightOI == OI.Active || rightOI == OI.Traditional) {
             if(leftOI == OI.Active) {
                 if(checkSingleSidedDeafness()) {
-                    String LeftActiveOsseointegratedImplant_Single = "왼쪽만 난청 : 액티브 골전도 보청기";
                     outList.add(HDR_RANGE.LeftActiveOsseointegratedImplant_Single);
                     outList.add(HDR_RANGE.LeftBoneConductionHearingAids_Single);
                 }
@@ -270,7 +216,6 @@ public class HDR { //Hearing Device Recommender
             }
         }
         else {
-            String Normal = "정상";
             outList.add(HDR_RANGE.Normal);
         }
         return outList;
@@ -296,5 +241,53 @@ public class HDR { //Hearing Device Recommender
 
     public void setRightBCPTA(float hz500, float hz1000, float hz2000) {
         this.rightBCPTA = calculatePTA(hz500, hz1000, hz2000);
+    }
+
+    public void setLeftWRS(float wrs) {
+        this.leftWRS = wrs;
+    }
+
+    public void setRightWRS(float wrs) {
+        this.rightWRS = wrs;
+    }
+
+    private float getLeftACPTA() {
+        return leftACPTA;
+    }
+
+    public void setLeftACPTA(float leftACPTA) {
+        this.leftACPTA = leftACPTA;
+    }
+
+    private float getRightACPTA() {
+        return rightACPTA;
+    }
+
+    public void setRightACPTA(float rightACPTA) {
+        this.rightACPTA = rightACPTA;
+    }
+
+    private float getLeftBCPTA() {
+        return leftBCPTA;
+    }
+
+    public void setLeftBCPTA(float leftBCPTA) {
+        this.leftBCPTA = leftBCPTA;
+    }
+
+    private float getRightBCPTA() {
+        return rightBCPTA;
+    }
+
+    public void setRightBCPTA(float rightBCPTA) {
+        this.rightBCPTA = rightBCPTA;
+    }
+
+    private float getLeftWRS() {
+        return leftWRS;
+    }
+
+    public float getRightWRS() {
+        return rightWRS;
     }
 }

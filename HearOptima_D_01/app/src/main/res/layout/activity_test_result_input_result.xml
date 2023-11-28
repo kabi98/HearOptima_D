@@ -150,6 +150,7 @@
                             android:textSize="23sp"
                             android:textColor="@color/purple"
                             android:text="중도 난청"></TextView>
+
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -211,40 +212,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="16dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:orientation="vertical"
-                            android:layout_weight="1">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/pretendardbold"
-                                android:textSize="23sp"
-                                android:textColor="@color/purple"
-                                android:layout_gravity="center"
-                                android:text="오른쪽"></TextView>
-                            <TextView
-                                android:id="@+id/resultTextView"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/pretendardbold"
-                                android:textSize="23sp"
-                                android:textColor="@color/black"
-                                android:layout_gravity="center"
-                                android:text="오른쪽"></TextView>
-                        </LinearLayout>
-                        <View
-                            android:layout_marginStart="16dp"
-                            android:layout_marginEnd="16dp"
-                            android:layout_width="1dp"
-                            android:layout_height="match_parent"
-                            android:background="#D7D7D7"></View>
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
+                            android:layout_gravity="center"
                             android:layout_weight="1">
                             <TextView
                                 android:layout_width="wrap_content"
@@ -255,11 +228,41 @@
                                 android:layout_gravity="center"
                                 android:text="왼쪽"></TextView>
                             <TextView
-                                android:id="@+id/resultTextView2"
+                                android:id="@+id/rightresultTextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/pretendardbold"
+                                android:textSize="15sp"
+                                android:textColor="@color/black"
+                                android:layout_gravity="center"
+                                android:text="오른쪽"></TextView>
+                        </LinearLayout>
+                        <View
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#D7D7D7"></View>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_gravity="center"
+                            android:layout_weight="1">
+                            <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/pretendardbold"
                                 android:textSize="23sp"
+                                android:textColor="@color/purple"
+                                android:layout_gravity="center"
+                                android:text="오른쪽"></TextView>
+                            <TextView
+                                android:id="@+id/leftresultTextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/pretendardbold"
+                                android:textSize="15sp"
                                 android:textColor="@color/black"
                                 android:layout_gravity="center"
                                 android:text="오른쪽"></TextView>

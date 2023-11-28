@@ -6,6 +6,8 @@ public class AidsView {
     String product;
     int maxPrice;
 
+    int ha_id;
+
     public AidsView() {
     }
 
@@ -14,6 +16,7 @@ public class AidsView {
         this.brand = brand;
         this.product = product;
         this.maxPrice = maxPrice;
+        this.ha_id = ha_id;
     }
 
     @Override
@@ -23,6 +26,7 @@ public class AidsView {
                 ", brand='" + brand + '\'' +
                 ", product='" + product + '\'' +
                 ", maxPrice=" + maxPrice +
+                ", ha_id=" + ha_id +
                 '}';
     }
 
@@ -57,4 +61,7 @@ public class AidsView {
     public void setMaxPrice(int maxPrice) {
         this.maxPrice = maxPrice;
     }
+
+    public int getHa_id() {return ha_id;}
+    public void setHa_id(int ha_id) {this.ha_id=ha_id;}
 }
