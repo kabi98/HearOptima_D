@@ -277,10 +277,10 @@
                 </LinearLayout>
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/dataInput"
-                    android:layout_width="120dp"
+                    android:layout_width="150dp"
                     android:layout_height="48dp"
                     android:background="@drawable/button_round_purple"
-                    android:text="보청기 찾기"
+                    android:text="청력보조기구 찾기"
                     android:textColor="@color/white"
                     android:textSize="15sp"
                     android:textStyle="bold"

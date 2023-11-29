@@ -79,7 +79,7 @@ public class HDR { //Hearing Device Recommender
     private boolean checkSingleSidedDeafness() {
         boolean retVal = false;
 
-        if(getBadACPTA() >= 90 && getGoodWRS() <= 40 && getGoodACPTA() < 20) {
+        if(getBadACPTA() >= 90 && getBadWRS() <= 40 && getGoodACPTA() < 20) {
             retVal = true;
         }
         return retVal;
@@ -88,7 +88,7 @@ public class HDR { //Hearing Device Recommender
     private boolean checkBiCROS() {
         boolean retVal = false;
 
-        if(getBadACPTA() >= 90 && getBadWRS() <= 40 && getGoodACPTA() >= 20 && getBadWRS() >= 50) {
+        if(getBadACPTA() >= 90 && getBadWRS() <= 40 && getGoodACPTA() >= 20 && getGoodWRS() >= 50) {
             retVal = true;
         }
         return retVal;

@@ -111,6 +111,21 @@ public class HearingAidFind extends AppCompatActivity implements View.OnClickLis
             brandButtons[i].setOnCheckedChangeListener(this);
 
         }
+        loadAllHearingAids();
+
+        // shapeButtons 배열 초기화
+        shapeButtons[0] = findViewById(R.id.shape1);
+        shapeButtons[1] = findViewById(R.id.shape2);
+        shapeButtons[2] = findViewById(R.id.shape3);
+        shapeButtons[3] = findViewById(R.id.shape4);
+        shapeButtons[4] = findViewById(R.id.shape5);
+        shapeButtons[5] = findViewById(R.id.shape6);
+
+        int dataValue = getIntent().getIntExtra("DAT_VALUE", -1);
+        Log.d("HearingAidFind", "Received dataValue: " + dataValue);
+        if (dataValue != -1) {
+            applyInitialFilter(dataValue);
+        }
     }
     private final RangeSlider.OnChangeListener rangeSliderChangeListener = new RangeSlider.OnChangeListener() {
         @SuppressLint("RestrictedApi")
@@ -276,4 +291,72 @@ public class HearingAidFind extends AppCompatActivity implements View.OnClickLis
 
                 }
             };
+    private void loadAllHearingAids() {
+        aids = m_SqlCon.selectAllHearingAid(); // 데이터베이스에서 모든 보청기를 가져옵니다
+        if (aids != null) {
+            setDataLists(aids);
+        }
+    }
+
+    private void applyInitialFilter(int dataValue) {
+        Log.d("HearingAidFind dataValue", "Received dataValue: " + dataValue);
+
+        // 모든 버튼을 초기 상태로 설정
+        for(int i = 0; i < shapeButtons.length; i++) {
+            if (shapeButtons[i] != null) {
+                shapeButtons[i].setChecked(false);
+            }
+        }
+
+        // dataValue에 따라 특정 형태의 버튼을 활성화
+        if (dataValue <= 20) {
+            // "정상"인 경우 특별한 필터 설정이 필요하지 않을 수 있음
+        } else if (dataValue <= 40 || dataValue <= 55) {
+            for(int i = 0; i <= 5; i++) {
+                if (shapeButtons[i] != null) {
+                    shapeButtons[i].setChecked(true);
+                }
+                if (shapeButtons[i] != null) {
+                    boolean isChecked = shapeButtons[i].isChecked();
+                    Log.d("HearingAidFind ShapeButton", "Button " + i + " isChecked: " + isChecked);
+                }
+            }
+        } else if (dataValue <= 70 || dataValue <= 90) {
+            // "외이도형", "귀걸이형" 활성화
+            shapeButtons[1].setChecked(true); // 귀걸이형
+            shapeButtons[3].setChecked(true); // 외이도형
+            shapeButtons[5].setChecked(true); // 오픈형
+            if (shapeButtons[1] != null) shapeButtons[1].setChecked(true); // 귀걸이형
+            if (shapeButtons[3] != null) shapeButtons[3].setChecked(true); // 외이도형
+            if (shapeButtons[5] != null) shapeButtons[5].setChecked(true); // 오픈형
+        } else if (dataValue <= 200) {
+            // "귀걸이형"만 활성화
+            shapeButtons[1].setChecked(true); // 귀걸이형
+            if (shapeButtons[1] != null) shapeButtons[1].setChecked(true); // 귀걸이형
+        } else {
+            // "데이터 잘못 입력" 처리
+            Log.d("HearingAidFind", "잘못된 데이터 값: " + dataValue);
+        }
+
+        // 필터 적용된 데이터 불러오기
+        filterAndLoadData();
+    }
+
+    private void filterAndLoadData() {
+        // 선택된 필터에 따라 데이터를 불러오는 로직
+        // 예: 선택된 버튼에 따라 dto 객체에 필터 값을 설정하고 데이터를 불러옵니다.
+        ArrayList<Filter> shapes = new ArrayList<>();
+        for (int i = 0; i < shapeButtons.length; i++) {
+            if (shapeButtons[i].isChecked()) {
+                Filter filter = new Filter();
+                filter.setId(true);
+                filter.setItem("shape");
+                filter.setValue(shapeButtons[i].getText().toString());
+                shapes.add(filter);
+            }
+        }
+        dto.setShapes(shapes);
+        aids = m_SqlCon.selectFilterHearingAid(dto);
+        setDataLists(aids);
+    }
 }

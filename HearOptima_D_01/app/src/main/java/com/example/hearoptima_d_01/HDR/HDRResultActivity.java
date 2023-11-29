@@ -2,6 +2,7 @@ package com.example.hearoptima_d_01.HDR;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -12,6 +13,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import com.example.hearoptima_d_01.R;
 import com.example.hearoptima_d_01.views.Common.MenuActivity;
 import com.example.hearoptima_d_01.views.HearingAidFind.HearingAidFind;
+import com.example.hearoptima_d_01.views.HearingAidInfo.CoChlearImplantInfo;
 import com.example.hearoptima_d_01.views.HearingAidInfo.HearingAidInfo;
 import com.example.hearoptima_d_01.views.TestResultInput.TestResultInput;
 
@@ -20,6 +22,9 @@ import java.util.List;
 public class HDRResultActivity extends AppCompatActivity {
 
     private TextView rightresultTextView, leftresultTextView;
+    boolean hasCochlearImplantation = false;
+
+    int datavalue = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +51,8 @@ public class HDRResultActivity extends AppCompatActivity {
         int leftWRS = intent.getIntExtra("LEFT_WRS_VALUE",0);
         int rightWRS = intent.getIntExtra("RIGHT_WRS_VALUE",0);
 
+        datavalue = Math.max(leftACPTA, rightACPTA);
+
         hdr.setLeftACPTA(leftACPTA);
         hdr.setRightACPTA(rightACPTA);
         hdr.setLeftBCPTA(leftBCPTA);
@@ -61,18 +68,21 @@ public class HDRResultActivity extends AppCompatActivity {
         for (HDR_RANGE out : outputList) {
             outputText.append(out.toString()).append("\n");
             String outputString = out.toString();
-            boolean isCochlearImplantation = outputString.equals("CochlearImplantation");
-            boolean isCochlearImplantationSingle = outputString.equals("CochlearImplantation_Single");
+
 
             if (outputString.equals("한쪽 인공와우")) {
                 if (leftACPTA > rightACPTA && leftWRS < rightWRS) {
                     leftResultText.append(outputString).append("\n");
+                    hasCochlearImplantation = true;
                 } else if (rightACPTA > leftACPTA && rightWRS < leftWRS) {
                     rightResultText.append(outputString).append("\n");
+                    hasCochlearImplantation = true;
                 }
+
             } else if (outputString.equals("인공와우")) {
                 leftResultText.append(outputString).append("\n");
                 rightResultText.append(outputString).append("\n");
+                hasCochlearImplantation = true;
             } else if (outputString.equals("크로스 보청기") || outputString.equals("바이크로스 보청기")) {
                 if (leftACPTA > rightACPTA) {
                     leftResultText.append(outputString).append("\n");
@@ -83,6 +93,9 @@ public class HDRResultActivity extends AppCompatActivity {
                 if (outputString.contains("오른쪽")) {
                     rightResultText.append(outputString).append("\n");
                 } else if (outputString.contains("왼쪽")) {
+                    leftResultText.append(outputString).append("\n");
+                } else if(outputString.contains("정상")){
+                    rightResultText.append(outputString).append("\n");
                     leftResultText.append(outputString).append("\n");
                 }
             }
@@ -132,9 +145,18 @@ public class HDRResultActivity extends AppCompatActivity {
         dataInputButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // HearingAidFind 클래스로 이동하는 Intent 생성
-                Intent intent = new Intent(HDRResultActivity.this, HearingAidFind.class);
-                startActivity(intent); // 액티비티 시작
+//                // HearingAidFind 클래스로 이동하는 Intent 생성
+//                Intent intent = new Intent(HDRResultActivity.this, HearingAidFind.class);
+//                startActivity(intent); // 액티비티 시작
+                Intent intent;
+                if (hasCochlearImplantation){
+                    intent = new Intent(HDRResultActivity.this, CoChlearImplantInfo.class);
+                } else {
+                    intent = new Intent(HDRResultActivity.this, HearingAidFind.class);
+                    Log.d("HDRResultActivity datavalue", "datavalue: " + datavalue);
+                    intent.putExtra("DAT_VALUE", datavalue);
+                }
+                startActivity(intent);
             }
         });
         homeImageButton.setOnClickListener(new View.OnClickListener() {
@@ -226,21 +248,4 @@ public class HDRResultActivity extends AppCompatActivity {
             return "데이터 미입력";
         }
     }
-//    private void setImageForHearingLoss(ImageView hearingLossView, int value) {
-//        if (value <= 20) {
-//            hearingLossView.setImageResource(R.drawable.normal_hearing);
-//        } else if (value <= 40) {
-//            hearingLossView.setImageResource(R.drawable.mild_hearing_loss);
-//        } else if (value <= 55) {
-//            hearingLossView.setImageResource(R.drawable.moderate_hearing_loss);
-//        } else if (value <= 70) {
-//            hearingLossView.setImageResource(R.drawable.moderately_severe_hearing_loss);
-//        } else if (value <= 90) {
-//            hearingLossView.setImageResource(R.drawable.severe_hearing_loss);
-//        } else if (value <= 200) {
-//            hearingLossView.setImageResource(R.drawable.profound_hearing_loss);
-//        } else {
-//            hearingLossView.setImageResource(0); // 기본 이미지 또는 에러 이미지 설정
-//        }
-//    }
 }

@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.hearoptima_d_01.R;
 import com.example.hearoptima_d_01.views.Common.MenuActivity;
@@ -22,7 +23,7 @@ public class SurveyResult extends AppCompatActivity implements View.OnClickListe
     ImageButton HearingAidSearchImageBtn;
     ImageButton HearingAidInfoImageBtn;
     ImageButton MyPageImageBtn;
-    ImageButton MyHearingAid;
+    AppCompatButton MyHearingAid;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_result);

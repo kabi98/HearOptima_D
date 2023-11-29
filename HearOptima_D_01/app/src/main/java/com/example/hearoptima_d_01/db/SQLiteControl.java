@@ -550,4 +550,5 @@ public class SQLiteControl {
     public SQLiteControl(Context context) {
         helper = new SQLiteHelper(context, TConst.DB_FILE, null, 2);
     }
+
 }
