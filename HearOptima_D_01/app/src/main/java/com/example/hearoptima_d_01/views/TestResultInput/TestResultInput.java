@@ -4,13 +4,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.hearoptima_d_01.HDR.HDRResultActivity;
 import com.example.hearoptima_d_01.R;
+import com.example.hearoptima_d_01.views.Common.MenuActivity;
+import com.example.hearoptima_d_01.views.HearingAidFind.HearingAidFind;
+import com.example.hearoptima_d_01.views.HearingAidInfo.HearingAidInfo;
 
-public class TestResultInput extends AppCompatActivity {
+public class TestResultInput extends AppCompatActivity implements View.OnClickListener{
 
     AppCompatButton dataInputBtn;
     EditText rightACTInput;
@@ -19,6 +24,9 @@ public class TestResultInput extends AppCompatActivity {
     EditText leftACTInput;
     EditText leftBCTInput;
     EditText leftWRSInput;
+    ImageButton homeImageButton;
+    ImageButton HearingAidSearchImageBtn;
+    ImageButton hearingAidInfoImageButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,13 +40,33 @@ public class TestResultInput extends AppCompatActivity {
         leftACTInput = findViewById(R.id.left_ACT_input);
         leftBCTInput = findViewById(R.id.left_BCT_input);
         leftWRSInput = findViewById(R.id.left_WRS_input);
+        homeImageButton = findViewById(R.id.HomeImage);
 
-        dataInputBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendData();
-            }
-        });
+        homeImageButton.setOnClickListener(this);
+
+        hearingAidInfoImageButton = findViewById(R.id.HearingAidInfoImage);
+        hearingAidInfoImageButton.setOnClickListener(this);
+
+        HearingAidSearchImageBtn = findViewById(R.id.HearingAidSearchImage);
+        HearingAidSearchImageBtn.setOnClickListener(this);
+
+        dataInputBtn.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view){
+        if(view.getId() == R.id.HomeImage){
+            Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+            startActivity(intent);
+        } else if (view.getId() == R.id.HearingAidInfoImage) {
+            Intent intent = new Intent(getApplicationContext(), HearingAidInfo.class);
+            startActivity(intent);
+        } else if (view.getId() == R.id.HearingAidSearchImage) {
+            Intent intent = new Intent(getApplicationContext(), HearingAidFind.class);
+            startActivity(intent);
+        } else if (view.getId() == R.id.dataInput) {
+            sendData();
+        }
     }
 
     private void sendData() {

@@ -2,20 +2,25 @@ package com.example.hearoptima_d_01.views.TestResultInput;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.hearoptima_d_01.HDR.HDRResultActivity;
 import com.example.hearoptima_d_01.R;
+import com.example.hearoptima_d_01.views.Common.MenuActivity;
+import com.example.hearoptima_d_01.views.HearingAidFind.HearingAidFind;
+import com.example.hearoptima_d_01.views.HearingAidInfo.HearingAidInfo;
 
 public class SurveyStart extends AppCompatActivity {
 
     TextView pttTestText;
     ProgressBar progress_bar;
     int totalScore = 0;
-    Button returnMenuBtn;
 
     // 제공된 문제 리스트
     String[] quizQuestions = {
@@ -40,6 +45,10 @@ public class SurveyStart extends AppCompatActivity {
         progress_bar.setIndeterminate(false);
         progress_bar.setProgress(0);
 
+        ImageButton homeImageButton = findViewById(R.id.HomeImage);
+        ImageButton hearingAidFindButton = findViewById(R.id.HearingAidSearchImage);
+        ImageButton hearingAidInfoImageButton = findViewById(R.id.HearingAidInfoImage);
+
         initializeButtons();
         updateQuestion();
 //        returnMenuBtn = findViewById(R.id.returnMenuBtn);
@@ -52,6 +61,30 @@ public class SurveyStart extends AppCompatActivity {
 //                finish();  // 필요하다면 현재 액티비티를 종료
 //            }
 //        });
+
+        homeImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // MenuActivity로 이동
+                Intent intent = new Intent(SurveyStart.this, MenuActivity.class);
+                startActivity(intent);
+            }
+        });
+        hearingAidInfoImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // HearingAidInfo 클래스로 이동
+                Intent intent = new Intent(SurveyStart.this, HearingAidInfo.class);
+                startActivity(intent);
+            }
+        });
+        hearingAidFindButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(SurveyStart.this, HearingAidFind.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initializeButtons() {
@@ -117,4 +150,5 @@ public class SurveyStart extends AppCompatActivity {
         intent.putExtra("TOTAL_SCORE", totalScore);
         startActivity(intent);
     }
+
 }

@@ -35,6 +35,7 @@ public class HDRResultActivity extends AppCompatActivity {
         leftresultTextView = findViewById(R.id.leftresultTextView); // 오른쪽 결과 텍스트 뷰
         AppCompatButton dataInputButton = findViewById(R.id.dataInput);
         ImageButton homeImageButton = findViewById(R.id.HomeImage);
+        ImageButton hearingAidFindButton = findViewById(R.id.HearingAidSearchImage);
         ImageButton hearingAidInfoImageButton = findViewById(R.id.HearingAidInfoImage);
 
         TextView resultExpectation = findViewById(R.id.ResultExpectation);
@@ -172,6 +173,13 @@ public class HDRResultActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // HearingAidInfo 클래스로 이동
                 Intent intent = new Intent(HDRResultActivity.this, HearingAidInfo.class);
+                startActivity(intent);
+            }
+        });
+        hearingAidFindButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(HDRResultActivity.this, HearingAidFind.class);
                 startActivity(intent);
             }
         });
