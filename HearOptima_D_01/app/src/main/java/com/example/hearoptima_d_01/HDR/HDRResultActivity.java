@@ -3,13 +3,16 @@ package com.example.hearoptima_d_01.HDR;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.hearoptima_d_01.R;
+import com.example.hearoptima_d_01.views.Common.MenuActivity;
 import com.example.hearoptima_d_01.views.HearingAidFind.HearingAidFind;
+import com.example.hearoptima_d_01.views.HearingAidInfo.HearingAidInfo;
 import com.example.hearoptima_d_01.views.TestResultInput.TestResultInput;
 
 import java.util.List;
@@ -26,6 +29,8 @@ public class HDRResultActivity extends AppCompatActivity {
         rightresultTextView = findViewById(R.id.rightresultTextView);
         leftresultTextView = findViewById(R.id.leftresultTextView); // 오른쪽 결과 텍스트 뷰
         AppCompatButton dataInputButton = findViewById(R.id.dataInput);
+        ImageButton homeImageButton = findViewById(R.id.HomeImage);
+        ImageButton hearingAidInfoImageButton = findViewById(R.id.HearingAidInfoImage);
 
         TextView resultExpectation = findViewById(R.id.ResultExpectation);
         TextView resultExpectation2 = findViewById(R.id.ResultExpectation2);
@@ -132,7 +137,22 @@ public class HDRResultActivity extends AppCompatActivity {
                 startActivity(intent); // 액티비티 시작
             }
         });
-
+        homeImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // MenuActivity로 이동
+                Intent intent = new Intent(HDRResultActivity.this, MenuActivity.class);
+                startActivity(intent);
+            }
+        });
+        hearingAidInfoImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // HearingAidInfo 클래스로 이동
+                Intent intent = new Intent(HDRResultActivity.this, HearingAidInfo.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private String getClassification(int value) {

@@ -22,6 +22,7 @@ public class SurveyResult extends AppCompatActivity implements View.OnClickListe
     ImageButton HearingAidSearchImageBtn;
     ImageButton HearingAidInfoImageBtn;
     ImageButton MyPageImageBtn;
+    ImageButton MyHearingAid;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_result);
@@ -43,6 +44,9 @@ public class SurveyResult extends AppCompatActivity implements View.OnClickListe
         MyPageImageBtn = findViewById(R.id.MyPageImage);
         MyPageImageBtn.setOnClickListener(this);
 
+        MyHearingAid = findViewById(R.id.myHearingAid);
+        MyHearingAid.setOnClickListener(this);
+
         ImageButton returnMenuBtn = findViewById(R.id.backstepBtn);
         returnMenuBtn.setOnClickListener(view -> {
             Intent intent = new Intent(SurveyResult.this, SurveyStart.class);
@@ -58,6 +62,9 @@ public class SurveyResult extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         } else if (view.getId() == R.id.HearingAidInfoImage) {
             Intent intent = new Intent(getApplicationContext(), HearingLossInfo.class);
+            startActivity(intent);
+        } else if (view.getId() == R.id.myHearingAid){
+            Intent intent = new Intent(getApplicationContext(), HearingAidFind.class);
             startActivity(intent);
         }
     }

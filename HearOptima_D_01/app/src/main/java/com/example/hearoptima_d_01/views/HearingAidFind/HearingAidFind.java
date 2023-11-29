@@ -29,6 +29,8 @@ import com.example.hearoptima_d_01.entity.FilterDTO;
 import com.example.hearoptima_d_01.entity.HearingAid;
 import com.example.hearoptima_d_01.entity.HraidImage;
 import com.example.hearoptima_d_01.global.TConst;
+import com.example.hearoptima_d_01.views.Common.MenuActivity;
+import com.example.hearoptima_d_01.views.HearingAidInfo.HearingAidInfo;
 import com.google.android.material.slider.RangeSlider;
 
 import java.util.ArrayList;
@@ -39,6 +41,8 @@ public class HearingAidFind extends AppCompatActivity implements View.OnClickLis
     RangeSlider rangeSlider;
     TextView valueToText,valueFromText;
     ImageButton CrossBtn;
+    ImageButton homeImageButton;
+    ImageButton hearingAidInfoImageButton;
     SQLiteControl m_SqlCon;
     SQLiteHelper m_SqlHlp;
     private RecyclerView recyclerView;
@@ -59,6 +63,12 @@ public class HearingAidFind extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_hearing_aid_list);
+
+        homeImageButton = findViewById(R.id.HomeImage);
+        homeImageButton.setOnClickListener(this);
+
+        hearingAidInfoImageButton = findViewById(R.id.HearingAidInfoImage);
+        hearingAidInfoImageButton.setOnClickListener(this);
 
         m_SqlHlp = new SQLiteHelper(HearingAidFind.this, TConst.DB_FILE, null, TConst.DB_VER);
         m_SqlCon = new SQLiteControl(m_SqlHlp);
@@ -197,6 +207,13 @@ public class HearingAidFind extends AppCompatActivity implements View.OnClickLis
                 }
             }
         }
+        if(v.getId() == R.id.HomeImage){
+            Intent intent = new Intent(HearingAidFind.this, MenuActivity.class);
+            startActivity(intent);
+        } else if (v.getId() == R.id.HearingAidInfoImage) {
+            Intent intent = new Intent(HearingAidFind.this, HearingAidInfo.class);
+            startActivity(intent);
+        }
     }
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
@@ -251,7 +268,6 @@ public class HearingAidFind extends AppCompatActivity implements View.OnClickLis
                     int maxNumber = Float.toString(slider.getValues().get(1)).indexOf(".");
                     String minVal = Float.toString(slider.getValues().get(0)).substring(0, miniNumber);
                     String maxVal = Float.toString(slider.getValues().get(1)).substring(0, maxNumber);
-
                 }
 
                 @SuppressLint("RestrictedApi")
@@ -259,68 +275,5 @@ public class HearingAidFind extends AppCompatActivity implements View.OnClickLis
                 public void onStopTrackingTouch(RangeSlider slider) {
 
                 }
-
-
             };
-
-//        // RecyclerView 설정
-//        recyclerView = findViewById(R.id.recyclerView);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        adapter = new HearingAidAdapter(getDummyData());
-//        recyclerView.setAdapter(adapter);
-//
-//        // Spinner 설정
-//        sortSpinner = findViewById(R.id.sort_spinner);
-//        ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.sort_options, R.layout.spinner_item);
-//        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        sortSpinner.setAdapter(spinnerAdapter);
-//
-//        sortSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-//                switch (position) {
-//                    case 0:
-//                        // 최신순으로 정렬하는 코드
-//                        break;
-//                    case 1:
-//                        // 가격순으로 정렬하는 코드
-//                        break;
-//                    case 2:
-//                        // 이름순으로 정렬하는 코드
-//                        break;
-//                }
-//                adapter.notifyDataSetChanged(); // 정렬 후 어댑터에 데이터가 변경되었음을 알림
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parentView) {
-//                // 아무것도 선택되지 않았을 때의 처리
-//            }
-//        });
-//    }
-//
-//    private List<HearingAid> getDummyData() {
-//        List<HearingAid> hearingAids = new ArrayList<>();
-//        hearingAids.add(new HearingAid(R.drawable.hearing_aid_1, "보청기1", "브랜드1", "1,000,000~"));
-//        hearingAids.add(new HearingAid(R.drawable.hearing_aid_2, "보청기2", "브랜드1", "1,200,000~"));
-//        hearingAids.add(new HearingAid(R.drawable.hearing_aid_3, "보청기3", "브랜드1", "1,500,000~"));
-//        hearingAids.add(new HearingAid(R.drawable.hearing_aid_4, "보청기4", "브랜드2","900,000~"));
-//        hearingAids.add(new HearingAid(R.drawable.hearing_aid_5, "보청기5", "브랜드2","700,000~"));
-//        hearingAids.add(new HearingAid(R.drawable.hearing_aid_6, "보청기6", "브랜드2","1,350,000~"));
-//        hearingAids.add(new HearingAid(R.drawable.hearing_aid_7, "보청기7", "브랜드3","1,420,000~"));
-//        hearingAids.add(new HearingAid(R.drawable.hearing_aid_8, "보청기8", "브랜드3","1,600,000~"));
-//        hearingAids.add(new HearingAid(R.drawable.hearing_aid_9, "보청기9", "브랜드3","1,430,000~"));
-//        hearingAids.add(new HearingAid(R.drawable.hearing_aid_10, "보청기10", "브랜드4","1,210,000~"));
-//        hearingAids.add(new HearingAid(R.drawable.hearing_aid_11, "보청기11", "브랜드4","1,542,000~"));
-//        hearingAids.add(new HearingAid(R.drawable.hearing_aid_12, "보청기12", "브랜드4","4,000,000~"));
-//        return hearingAids;
-//    }
-//
-//    @Override
-//    public void onClick(View view) {
-//        if (view.getId() == R.id.filter) {
-//            Intent intent = new Intent(getApplicationContext(), HearingAidFind.class);
-//            startActivity(intent);
-//        }
-//    }
 }
