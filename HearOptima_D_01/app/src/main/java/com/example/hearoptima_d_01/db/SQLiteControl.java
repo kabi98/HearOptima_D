@@ -550,8 +550,19 @@ public class SQLiteControl {
     // 사용자 입력에 따라 검색하는 함수
     public Cursor getHearingAidsWithName(String searchName) {
         SQLiteDatabase db = helper.getReadableDatabase();
+        String query = " SELECT * FROM hearing_aid "
+                + " WHERE ha_name LIKE ? "
+                + " or ha_brand LIKE ? "
+                + " or ha_type LIKE ? ";
+
+        String  strParam[] = {"%" + searchName + "%", "%" + searchName + "%", "%" + searchName + "%"};
+        return db.rawQuery(query, strParam);
+
+/*
+        SQLiteDatabase db = helper.getReadableDatabase();
         String query = "SELECT * FROM hearing_aid WHERE ha_name LIKE ?";
         return db.rawQuery(query, new String[]{"%" + searchName + "%"});
+*/
     }
 
 }

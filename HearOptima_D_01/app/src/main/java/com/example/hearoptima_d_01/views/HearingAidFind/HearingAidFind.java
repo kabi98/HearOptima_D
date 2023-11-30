@@ -31,6 +31,7 @@ import com.example.hearoptima_d_01.entity.Filter;
 import com.example.hearoptima_d_01.entity.FilterDTO;
 import com.example.hearoptima_d_01.entity.HearingAid;
 import com.example.hearoptima_d_01.entity.HraidImage;
+import com.example.hearoptima_d_01.entity.MyHearingAidGroup;
 import com.example.hearoptima_d_01.global.GlobalVar;
 import com.example.hearoptima_d_01.global.TConst;
 import com.example.hearoptima_d_01.views.Common.MenuActivity;
@@ -181,13 +182,58 @@ public class HearingAidFind extends AppCompatActivity implements View.OnClickLis
                 String strHearingAidName = HearingAidNameInput.getText().toString().trim();
                 Log.v("HearingAidNameSearch", "이름"+strHearingAidName);
 
-                /*
-                long ha_id = GlobalVar.Gha_id; // ha_id 1에 대한 데이터를 가져온다고 가정
-                Cursor cursor = m_SqlCon.getData(ha_id);
-                if (cursor != null && cursor.moveToFirst()) {
+
+                Cursor cursor = m_SqlCon.getHearingAidsWithName(strHearingAidName);
+                Log.v("HearingAidNameSearch", "cursor " + cursor );
+
+                if(cursor != null){
+                    Log.v("HearingAidNameSearch", "cursor count " + cursor.getCount());
+
+                    if(cursor.getCount() <= 0) {
+                        cursor.close();
+                        return;
+                    }
+
+                    for(int i=0; i<cursor.getCount(); i++){
+                        cursor.moveToNext();
+                        int ha_nameIndex = cursor.getColumnIndex("ha_name");
+                        int ha_brandIndex = cursor.getColumnIndex("ha_brand");
+
+                        String str_ha_name = cursor.getString(ha_nameIndex);
+                        String str_ha_brand = ha_brandIndex != -1 ? cursor.getString(ha_brandIndex) : null;
+                        Log.v("HearingAidNameSearch", String.format("HearingAidNameSearch name:%s, brand:%s", str_ha_name, str_ha_brand));
+                    }
+
+/*
                     int ha_nameIndex = cursor.getColumnIndex("ha_name");
-                }*/
-        }
+                    int ha_brandIndex = cursor.getColumnIndex("ha_brand");
+
+                    Log.v("HearingAidNameSearch", "ha_nameIndex " + ha_nameIndex );
+                    String str_ha_name = ha_nameIndex != -1 ? cursor.getString(ha_nameIndex) : null;
+                    String str_ha_brand = ha_brandIndex != -1 ? cursor.getString(ha_brandIndex) : null;
+
+                    Log.v("HearingAidNameSearch", "ha_name " + str_ha_name );
+                    Log.v("HearingAidNameSearch", "str_ha_brand " + str_ha_brand );
+*/
+                }
+
+/*
+                if (cursor != null && cursor.moveToFirst()) {
+                    Log.v("HearingAidNameSearch", "cursor.moveToFirst() " + cursor);
+
+                    int ha_nameIndex = cursor.getColumnIndex("ha_name");
+                    int ha_brandIndex = cursor.getColumnIndex("ha_brand");
+
+                    Log.v("HearingAidNameSearch", "ha_nameIndex " + ha_nameIndex );
+                    String ha_name = ha_nameIndex != -1 ? cursor.getString(ha_nameIndex) : null;
+                    String ha_brand = ha_brandIndex != -1 ? cursor.getString(ha_brandIndex) : null;
+
+                    Log.v("HearingAidNameSearch", "ha_name " + ha_name );
+                    Log.v("HearingAidNameSearch", String.format("name: %s, brand:%s ", ha_name, ha_brand ) );
+                }
+*/
+                cursor.close();
+      }
         if (v.getId() == R.id.filter_btn) {
             filter_layout.setVisibility(View.VISIBLE);
         }
