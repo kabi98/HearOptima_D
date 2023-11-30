@@ -188,7 +188,7 @@ public class SQLiteControl {
         } catch (Exception e) {
             return null;
         }
-    };
+    }
     //----------------------------------------이름 내림 차순----------------------------------------//
 
     //----------------------------------------이름 내름 차순----------------------------------------//
@@ -233,7 +233,7 @@ public class SQLiteControl {
         } catch (Exception e) {
             return null;
         }
-    };
+    }
     //----------------------------------------이름 내림 차순----------------------------------------//
 
 
@@ -281,7 +281,7 @@ public class SQLiteControl {
         } catch (Exception e) {
             return null;
         }
-    };
+    }
     //----------------------------------------가격 오름 차순----------------------------------------//
     //----------------------------------------가격 내름 차순----------------------------------------//
     public ArrayList<HearingAid> selectOrderByDescPrice() {
@@ -325,7 +325,7 @@ public class SQLiteControl {
         } catch (Exception e) {
             return null;
         }
-    };
+    }
     //----------------------------------------가격 오름 차순----------------------------------------//
     public ArrayList<HearingAid> selectAllHearingAid() {
         Log.v("SQLiteControl", "selectAllHearingAid");
@@ -370,7 +370,7 @@ public class SQLiteControl {
         } catch (Exception e) {
             return null;
         }
-    };
+    }
 
     public Account selectLogin(String strPhonId, String strPwd){
         Log.v(m_TAG, String.format("selectLogin strPhone %s, Pass %s", strPhonId, strPwd));
@@ -407,6 +407,7 @@ public class SQLiteControl {
             return null;
         }
     }
+
     public Account trySelectLogin(String strPhoneId, String strPwd){
         sqlite = helper.getReadableDatabase();
 
@@ -557,12 +558,82 @@ public class SQLiteControl {
 
         String  strParam[] = {"%" + searchName + "%", "%" + searchName + "%", "%" + searchName + "%"};
         return db.rawQuery(query, strParam);
-
-/*
-        SQLiteDatabase db = helper.getReadableDatabase();
-        String query = "SELECT * FROM hearing_aid WHERE ha_name LIKE ?";
-        return db.rawQuery(query, new String[]{"%" + searchName + "%"});
-*/
     }
 
-}
+
+    public ArrayList<HearingAid> selectFromKeyWord(String strKeyWord) {
+        Log.v("SQLiteControl", "selectFromKeyWord");
+
+        ArrayList<HearingAid> aids = new ArrayList<>();
+        try {
+            sqlite = helper.getReadableDatabase();
+
+            String strSQL = "  SELECT ha_id,ha_name,ha_type,ha_brand,ha_bluetooth,ha_content, "
+                    +" ha_insurance,ha_min_price,ha_max_price,ha_etc,hri_id,hrii_id "
+                    +" from hearing_aid "
+                    + " WHERE ha_name LIKE ? "
+                    + " or ha_brand LIKE ? "
+                    + " or ha_type LIKE ? ";
+            String  strParam[] = {"%" + strKeyWord + "%", "%" + strKeyWord + "%", "%" + strKeyWord + "%"};
+
+            Cursor cursor = sqlite.rawQuery(strSQL, strParam);
+
+            Log.v("SQLiteControl",
+                    String.format("selectAllHearingAid Result = %d", cursor.getCount()));
+            if (cursor.getCount() <= 0) {
+                cursor.close();
+                return null;
+            }
+
+            for (int i = 0; i < cursor.getCount(); i++) {
+                cursor.moveToNext();
+                int ha_id = cursor.getInt(0);
+                String ha_name= cursor.getString(1);
+                String ha_type = cursor.getString(2);
+                String ha_brand = cursor.getString(3);
+                String ha_bluetooth = cursor.getString(4);
+                String ha_content = cursor.getString(5);
+                String ha_insurance = cursor.getString(6);
+                int ha_min_price = cursor.getInt(7);
+                int ha_max_price = cursor.getInt(8);
+                String ha_etc = cursor.getString(9);
+                int hri_id = cursor.getInt(10);
+                int hrii_id = cursor.getInt(11);
+
+                HearingAid aidOne = new HearingAid(ha_id,ha_name,ha_type,ha_brand,ha_bluetooth,ha_content,ha_insurance,ha_min_price,ha_max_price,ha_etc,hri_id,hrii_id);
+
+                aids.add(aidOne);
+            }
+            cursor.close();
+            return aids;
+
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+/*
+    Cursor cursor = m_SqlCon.getHearingAidsWithName(strHearingAidName);
+                Log.v("HearingAidNameSearch", "cursor " + cursor );
+
+                if(cursor != null){
+        Log.v("HearingAidNameSearch", "cursor count " + cursor.getCount());
+
+        if(cursor.getCount() <= 0) {
+            cursor.close();
+            return;
+        }
+
+        for(int i=0; i<cursor.getCount(); i++){
+            cursor.moveToNext();
+            int ha_nameIndex = cursor.getColumnIndex("ha_name");
+            int ha_brandIndex = cursor.getColumnIndex("ha_brand");
+
+            String str_ha_name = cursor.getString(ha_nameIndex);
+            String str_ha_brand = ha_brandIndex != -1 ? cursor.getString(ha_brandIndex) : null;
+            Log.v("HearingAidNameSearch", String.format("HearingAidNameSearch name:%s, brand:%s", str_ha_name, str_ha_brand));
+        }
+
+*/
+
+    }
