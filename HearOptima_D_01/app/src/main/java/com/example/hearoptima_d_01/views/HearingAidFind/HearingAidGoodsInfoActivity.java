@@ -15,12 +15,12 @@ import com.example.hearoptima_d_01.db.SQLiteHelper;
 import com.example.hearoptima_d_01.entity.HraidImage;
 import com.example.hearoptima_d_01.entity.HraidInfoImage;
 import com.example.hearoptima_d_01.global.GlobalVar;
+import com.example.hearoptima_d_01.global.TConst;
 
 public class HearingAidGoodsInfoActivity extends AppCompatActivity {
 
     SQLiteControl m_SqlCon = null;
-    SQLiteHelper helper;
-    SQLiteDatabase sqlite;
+    SQLiteHelper m_SqlHlp;
 
     private ImageView aidGoodsImage, aidGoodsImageInfo;
     private TextView aidBrand, aidShape, aidName, aidPrice;
@@ -38,7 +38,8 @@ public class HearingAidGoodsInfoActivity extends AppCompatActivity {
         aidName = findViewById(R.id.Aidname);
         aidPrice = findViewById(R.id.Aidprice);
 
-        m_SqlCon = new SQLiteControl(this);
+        m_SqlHlp = new SQLiteHelper(HearingAidGoodsInfoActivity.this, TConst.DB_FILE, null, TConst.DB_VER);
+        m_SqlCon = new SQLiteControl(m_SqlHlp);
 
         long ha_id = GlobalVar.Gha_id; // ha_id 1에 대한 데이터를 가져온다고 가정
         Cursor cursor = m_SqlCon.getData(ha_id);
@@ -92,5 +93,7 @@ public class HearingAidGoodsInfoActivity extends AppCompatActivity {
             }
             cursor.close();
         }
+
+        m_SqlCon.db_close();
     }
 }

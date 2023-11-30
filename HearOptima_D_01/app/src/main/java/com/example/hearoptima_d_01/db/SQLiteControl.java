@@ -545,10 +545,13 @@ public class SQLiteControl {
                         "JOIN hraid_inform_image ON hearing_aid.hrii_id = hraid_inform_image.hrii_id " +
                         "WHERE hearing_aid.ha_id = " + ha_id, null);
         return cursor;
-    }
 
-    public SQLiteControl(Context context) {
-        helper = new SQLiteHelper(context, TConst.DB_FILE, null, 2);
+    }
+    // 사용자 입력에 따라 검색하는 함수
+    public Cursor getHearingAidsWithName(String searchName) {
+        SQLiteDatabase db = helper.getReadableDatabase();
+        String query = "SELECT * FROM hearing_aid WHERE ha_name LIKE ?";
+        return db.rawQuery(query, new String[]{"%" + searchName + "%"});
     }
 
 }

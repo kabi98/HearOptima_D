@@ -2,12 +2,15 @@ package com.example.hearoptima_d_01.views.HearingAidFind;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -28,6 +31,7 @@ import com.example.hearoptima_d_01.entity.Filter;
 import com.example.hearoptima_d_01.entity.FilterDTO;
 import com.example.hearoptima_d_01.entity.HearingAid;
 import com.example.hearoptima_d_01.entity.HraidImage;
+import com.example.hearoptima_d_01.global.GlobalVar;
 import com.example.hearoptima_d_01.global.TConst;
 import com.example.hearoptima_d_01.views.Common.MenuActivity;
 import com.example.hearoptima_d_01.views.HearingAidInfo.HearingAidInfo;
@@ -58,6 +62,8 @@ public class HearingAidFind extends AppCompatActivity implements View.OnClickLis
     int[] test_id = {R.id.numTb, R.id.priceTb, R.id.nameTb};
     int[] brand_id = {R.id.brand1,R.id.brand2,R.id.brand3,R.id.brand4,R.id.brand5,R.id.brand6,R.id.brand7,R.id.brand8,R.id.brand9,R.id.brand10};
     Spinner sortSpinner;
+    ImageButton HearingAidNameSearch;
+    EditText HearingAidNameInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +75,11 @@ public class HearingAidFind extends AppCompatActivity implements View.OnClickLis
 
         hearingAidInfoImageButton = findViewById(R.id.HearingAidInfoImage);
         hearingAidInfoImageButton.setOnClickListener(this);
+
+        HearingAidNameSearch = findViewById(R.id.hearingaidnamesearch);
+        HearingAidNameSearch.setOnClickListener(this);
+
+        HearingAidNameInput = findViewById(R.id.hearingaidnameinput);
 
         m_SqlHlp = new SQLiteHelper(HearingAidFind.this, TConst.DB_FILE, null, TConst.DB_VER);
         m_SqlCon = new SQLiteControl(m_SqlHlp);
@@ -161,6 +172,22 @@ public class HearingAidFind extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
+        if(v.getId() == R.id.hearingaidnamesearch){
+            Log.v("HearingAidNameSearch", "찾았다"+v.getId());
+
+                m_SqlHlp = new SQLiteHelper(HearingAidFind.this, TConst.DB_FILE, null, TConst.DB_VER);
+                m_SqlCon = new SQLiteControl(m_SqlHlp);
+                Log.v("HearingAidNameSearch", "들어왔다"+m_SqlCon);
+                String strHearingAidName = HearingAidNameInput.getText().toString().trim();
+                Log.v("HearingAidNameSearch", "이름"+strHearingAidName);
+
+                /*
+                long ha_id = GlobalVar.Gha_id; // ha_id 1에 대한 데이터를 가져온다고 가정
+                Cursor cursor = m_SqlCon.getData(ha_id);
+                if (cursor != null && cursor.moveToFirst()) {
+                    int ha_nameIndex = cursor.getColumnIndex("ha_name");
+                }*/
+        }
         if (v.getId() == R.id.filter_btn) {
             filter_layout.setVisibility(View.VISIBLE);
         }
@@ -207,8 +234,8 @@ public class HearingAidFind extends AppCompatActivity implements View.OnClickLis
                 setDataLists(aids);
             }
 
-
         }
+
         if (v.getId() == R.id.resetBtn) {
             rangeSlider.setValues(0f, 100f);
             for (int i = 0; i < shapeButtons.length; i++) {
@@ -359,4 +386,5 @@ public class HearingAidFind extends AppCompatActivity implements View.OnClickLis
         aids = m_SqlCon.selectFilterHearingAid(dto);
         setDataLists(aids);
     }
+
 }
