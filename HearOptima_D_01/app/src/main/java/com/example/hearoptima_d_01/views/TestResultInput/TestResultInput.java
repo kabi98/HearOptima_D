@@ -2,6 +2,7 @@ package com.example.hearoptima_d_01.views.TestResultInput;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -51,6 +52,7 @@ public class TestResultInput extends AppCompatActivity implements View.OnClickLi
         HearingAidSearchImageBtn.setOnClickListener(this);
 
         dataInputBtn.setOnClickListener(this);
+        Log.d("HDRResultActivity datavalue", "datavalue: ");
     }
 
     @Override

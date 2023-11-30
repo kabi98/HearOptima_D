@@ -147,7 +147,7 @@
                     android:id="@+id/AppBtnJoinMale"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
-                    android:layout_width="150dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pretendardmedium"
                     android:background="@drawable/custom_gray_background"
@@ -156,6 +156,7 @@
                     android:textColor="@color/gray3"
                     android:textSize="18dp"
                     android:textStyle="bold"
+                    android:layout_weight="1"
                     tools:ignore="MissingConstraints"></androidx.appcompat.widget.AppCompatToggleButton>
 
 
@@ -163,7 +164,7 @@
                     android:id="@+id/AppBtnJoinFemale"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
-                    android:layout_width="150dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pretendardmedium"
                     android:background="@drawable/custom_gray_background"
@@ -172,6 +173,7 @@
                     android:textColor="@color/gray3"
                     android:textSize="18dp"
                     android:textStyle="bold"
+                    android:layout_weight="1"
                     tools:ignore="MissingConstraints"></androidx.appcompat.widget.AppCompatToggleButton>
 
             </LinearLayout>
@@ -190,11 +192,11 @@
                 android:id="@+id/AppBtnJoinJoin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custom_gray_background"
+                android:background="@drawable/custom_purple_background"
                 android:clickable="false"
                 android:fontFamily="@font/pretendardbold"
                 android:text="가입하기"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="17dp" />
         </LinearLayout>
 

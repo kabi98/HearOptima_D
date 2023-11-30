@@ -44,6 +44,9 @@ public class JoinActivity extends AppCompatActivity
     int m_ResIdPurpleButton;
     int m_ResIdGrayButton;
 
+    int m_ResIdPurpleBackground;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,8 +85,9 @@ public class JoinActivity extends AppCompatActivity
         m_ToggleFemale.setOnCheckedChangeListener(this);
 
         m_AppBtnJoin = findViewById(R.id.AppBtnJoinJoin);
-        m_ResIdPurpleButton = getResources().getIdentifier("purple_btn","drawable", getPackageName());
-        m_ResIdGrayButton = getResources().getIdentifier("gray_button","drawable", getPackageName());
+        m_ResIdPurpleButton = getResources().getIdentifier("custom_purple_background","drawable", getPackageName());
+        m_ResIdGrayButton = getResources().getIdentifier("custom_gray_background","drawable", getPackageName());
+        m_ResIdPurpleBackground = getResources().getIdentifier("custom_purple_background", "drawable", getPackageName());
         checkJoinBtnClickable();
 
     }
@@ -120,10 +124,20 @@ public class JoinActivity extends AppCompatActivity
         if (isChecked) {
             compoundButton.setTextColor(getColor(R.color.white));
             uncheckOtherToggleButton(compoundButton);
+            if(compoundButton.getId() == R.id.AppBtnJoinMale) {
+                compoundButton.setBackgroundResource(m_ResIdPurpleButton);
+            } else if (compoundButton.getId() == R.id.AppBtnJoinFemale) {
+                compoundButton.setBackgroundResource(m_ResIdPurpleBackground);
+            }
 
         } else {
             compoundButton.setTextColor(getColor(R.color.gray));
             checkOtherToggleButton(compoundButton);
+            if(compoundButton.getId() == R.id.AppBtnJoinMale) {
+                compoundButton.setBackgroundResource(m_ResIdGrayButton);
+            } else if (compoundButton.getId() == R.id.AppBtnJoinFemale) {
+                compoundButton.setBackgroundResource(m_ResIdGrayButton);
+            }
 
         }
         checkJoinBtnClickable();

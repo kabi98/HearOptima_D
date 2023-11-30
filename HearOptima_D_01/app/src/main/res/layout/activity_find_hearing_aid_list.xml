@@ -214,17 +214,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/purple_radius_background"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
                     <EditText
+                        android:id="@+id/hearingaidnameinput"
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="16dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
                         android:hint="검색해주세요."
-                        android:drawableEnd="@drawable/baseline_search_24"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"></EditText>
-
+                    <ImageButton
+                        android:id="@+id/hearingaidnamesearch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="-45dp"
+                        android:background="@drawable/baseline_search_24"/>
 
                 </LinearLayout>
 
