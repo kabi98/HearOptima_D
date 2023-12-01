@@ -94,15 +94,15 @@
                                 <ImageView
                                     android:id="@+id/AidgoodsImage"
                                     android:layout_marginStart="8dp"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="250dp"
+                                    android:layout_height="250dp"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/sky_m"></ImageView>
+                                    android:background="@drawable/no_result"></ImageView>
                                 <TextView
                                     android:id="@+id/Aidbrand"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="스타키"
+                                    android:text="정보가 없습니다."
                                     android:textColor="#979797"
                                     android:textSize="20dp"
                                     android:fontFamily="@font/pretendardextrabold" />
@@ -131,13 +131,13 @@
                                         android:textColor="@color/black"
                                         android:textSize="17dp"
                                         android:background="@drawable/custom_gray_background"
-                                        android:text="고막형">
+                                        android:text="정보가 없습니다.">
                                     </TextView>
                                     <TextView
                                         android:id="@+id/Aidname"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="Evolv_AI_2400_NW_CIC"
+                                        android:text="정보가 없습니다."
                                         android:textSize="25dp"
                                         android:textStyle="bold"
                                         android:fontFamily="@font/pretendardextrabold"/>
@@ -149,14 +149,15 @@
                                             android:id="@+id/Aidprice"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:text="1090000"
+                                            android:text="정보가 없습니다."
                                             android:textSize="20dp"
                                             android:textColor="#E06044"
                                             android:fontFamily="@font/pretendardextrabold"/>
                                         <TextView
+                                            android:id="@+id/won"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:text="원"
+                                            android:text=""
                                             android:textSize="20dp"
                                             android:textColor="#E06044"
                                             android:fontFamily="@font/pretendardextrabold"/>
@@ -167,7 +168,7 @@
                                 android:id="@+id/AidgoodsImageInfo"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@drawable/sky_m_info">
+                                android:background="@drawable/no_result">
                             </ImageView>
                         </LinearLayout>
                     </ScrollView>

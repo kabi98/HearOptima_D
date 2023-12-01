@@ -23,7 +23,7 @@ public class HearingAidGoodsInfoActivity extends AppCompatActivity {
     SQLiteHelper m_SqlHlp;
 
     private ImageView aidGoodsImage, aidGoodsImageInfo;
-    private TextView aidBrand, aidShape, aidName, aidPrice;
+    private TextView aidBrand, aidShape, aidName, aidPrice, won;
     private SQLiteControl sqliteControl;
 
     @Override
@@ -37,6 +37,7 @@ public class HearingAidGoodsInfoActivity extends AppCompatActivity {
         aidShape = findViewById(R.id.Aidshape);
         aidName = findViewById(R.id.Aidname);
         aidPrice = findViewById(R.id.Aidprice);
+        won = findViewById(R.id.won);
 
         m_SqlHlp = new SQLiteHelper(HearingAidGoodsInfoActivity.this, TConst.DB_FILE, null, TConst.DB_VER);
         m_SqlCon = new SQLiteControl(m_SqlHlp);
@@ -75,6 +76,7 @@ public class HearingAidGoodsInfoActivity extends AppCompatActivity {
                 // hri_file_name 이미지를 aidsImage에 설정
                 if (resourceId != 0) {
                     aidGoodsImage.setBackgroundResource(resourceId);
+                    won.setText("원~");
                 } else {
                     // 유효하지 않은 경우, 기본 이미지나 오류 처리
                 }
@@ -87,6 +89,7 @@ public class HearingAidGoodsInfoActivity extends AppCompatActivity {
                 // hrii_file_name 이미지를 aidsInfoImage에 설정
                 if (resourceIdInfo != 0) {
                     aidGoodsImageInfo.setBackgroundResource(resourceIdInfo);
+                    won.setText("원~");
                 } else {
                     // 유효하지 않은 경우, 기본 이미지나 오류 처리
                 }

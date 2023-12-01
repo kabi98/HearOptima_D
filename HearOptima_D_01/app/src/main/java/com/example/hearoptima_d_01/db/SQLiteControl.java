@@ -423,11 +423,11 @@ public class SQLiteControl {
 
             int id = cursor.getInt(0);
             String phone_id = cursor.getString(1);
-            String phone = cursor.getString(1);
-            String pwd = cursor.getString(1);
-            String name = cursor.getString(1);
-            String gender = cursor.getString(1);
-            String birth = cursor.getString(1);
+            String phone = cursor.getString(2);
+            String pwd = cursor.getString(3);
+            String name = cursor.getString(4);
+            String gender = cursor.getString(5);
+            String birth = cursor.getString(6);
 
             Account accOne = new Account(id, phone_id, phone, pwd, name, gender, birth);
 
