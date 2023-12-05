@@ -7,7 +7,7 @@ import android.util.Log;
 import com.example.hearoptima_d_02.entity.FilterDTO;
 import com.example.hearoptima_d_02.entity.MyHearingAidGroup;
 import com.example.hearoptima_d_02.entity.HraidImage;
-import com.example.hearoptima_d_02.entity.Utils.Account;
+import com.example.hearoptima_d_02.entity.Account;
 import com.example.hearoptima_d_02.entity.Filter;
 import com.example.hearoptima_d_02.entity.HearingAid;
 

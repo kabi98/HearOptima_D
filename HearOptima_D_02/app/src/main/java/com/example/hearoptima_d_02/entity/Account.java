@@ -1,4 +1,4 @@
-package com.example.hearoptima_d_02.entity.Utils;
+package com.example.hearoptima_d_02.entity;
 
 public class Account {
     int     acc_id;

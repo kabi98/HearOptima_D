@@ -2,7 +2,7 @@ package com.example.hearoptima_d_02.global;
 //
 //import com.example.hearfi_01.audioTest.PTT.PttThreshold;
 //import com.example.hearfi_01.entity.HearingTest.HrTestGroup;
-import com.example.hearoptima_d_02.entity.Utils.Account;
+import com.example.hearoptima_d_02.entity.Account;
 
 public class GlobalVar {
 

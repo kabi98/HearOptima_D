@@ -19,7 +19,7 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.hearoptima_d_02.R;
 import com.example.hearoptima_d_02.db.AccountDAO;
-import com.example.hearoptima_d_02.entity.Utils.Account;
+import com.example.hearoptima_d_02.entity.Account;
 import com.example.hearoptima_d_02.global.GlobalVar;
 import com.example.hearoptima_d_02.global.TConst;
 

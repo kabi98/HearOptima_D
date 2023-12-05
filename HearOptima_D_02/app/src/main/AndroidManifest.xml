@@ -65,10 +65,6 @@
             android:exported="false"
             android:theme="@style/NoActionBarTheme"/>
         <activity
-            android:name=".views.TestResultInput.TestResultInputResult"
-            android:exported="false"
-            android:theme="@style/NoActionBarTheme"/>
-        <activity
             android:name=".views.Common.MainActivity"
             android:exported="true"
             android:theme="@style/NoActionBarTheme">
