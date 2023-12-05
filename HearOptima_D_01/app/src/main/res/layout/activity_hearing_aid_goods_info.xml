@@ -41,7 +41,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/pretendardbold"
                         android:textAlignment="center"
-                        android:text="보청기 찾기"
+                        android:text="보청기 상세보기"
                         android:textColor="@color/white"
                         android:textSize="20dp"></TextView>
                 </LinearLayout>

@@ -235,7 +235,7 @@
                                 android:textSize="15sp"
                                 android:textColor="@color/black"
                                 android:layout_gravity="center"
-                                android:text="오른쪽"></TextView>
+                                android:text="왼쪽 오티씨 보청기\n왼쪽 기본 보청기"></TextView>
                         </LinearLayout>
                         <View
                             android:layout_marginStart="16dp"
@@ -265,7 +265,7 @@
                                 android:textSize="15sp"
                                 android:textColor="@color/black"
                                 android:layout_gravity="center"
-                                android:text="오른쪽"></TextView>
+                                android:text="오른쪽 오티씨 보청기\n오른쪽 기본 보청기"></TextView>
                         </LinearLayout>
                     </LinearLayout>
                     <LinearLayout

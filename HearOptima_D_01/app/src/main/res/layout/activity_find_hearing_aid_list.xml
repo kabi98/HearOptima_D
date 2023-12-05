@@ -165,7 +165,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="0dp"
                                 android:textOff="이름 오름차순"
-                                android:textOn="이름 내름차순"
+                                android:textOn="이름 내림차순"
                                 android:layout_marginEnd="4dp"
                                 android:background="@drawable/toggle_btn_custom"></androidx.appcompat.widget.AppCompatToggleButton>
                             <androidx.appcompat.widget.AppCompatToggleButton
@@ -174,7 +174,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="0dp"
                                 android:textOff="가격 오름차순"
-                                android:textOn="가격 내름차순"
+                                android:textOn="가격 내림차순"
                                 android:background="@drawable/toggle_btn_custom"></androidx.appcompat.widget.AppCompatToggleButton>
 
                             <androidx.appcompat.widget.AppCompatToggleButton
@@ -184,7 +184,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="0dp"
                                 android:textOff="최신 오름차순"
-                                android:textOn="최신 내름차순"
+                                android:textOn="최신 내림차순"
                                 android:background="@drawable/toggle_btn_custom"></androidx.appcompat.widget.AppCompatToggleButton>
 
                         </LinearLayout>
@@ -237,13 +237,14 @@
 
                 <!-- 보청기 찾기 검색 페이지 End-->
             </FrameLayout>
-            <com.google.android.material.bottomnavigation.BottomNavigationView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
                 app:layout_constraintBottom_toBottomOf="parent">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="70sp"
+                    android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:background="@drawable/custom_menu_background">
                     <LinearLayout
@@ -335,7 +336,7 @@
                             android:text="마이페이지"/>
                     </LinearLayout>
                 </LinearLayout>
-            </com.google.android.material.bottomnavigation.BottomNavigationView>
+            </LinearLayout>
         </LinearLayout>
         <!-- 필터 Start-->
         <LinearLayout
