@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.HearOptima_D_02"
+        tools:targetApi="31">
+        <activity
+            android:name=".HDR.HDRResultActivity"
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
+        <activity
+            android:name=".views.Common.JoinResultActivity"
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
+        <activity
+            android:name=".views.Common.JoinActivity"
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
+        <activity
+            android:name=".views.Common.LoginActivity"
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
+        <activity
+            android:name=".views.Common.MenuActivity"
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
+        <activity
+            android:name=".views.HearingAidFind.HearingAidGoodsInfoActivity"
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
+        <activity
+            android:name=".views.HearingAidFind.HearingAidFind"
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
+        <activity
+            android:name=".views.HearingAidInfo.CoChlearImplantInfo"
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
+        <activity
+            android:name=".views.HearingAidInfo.HearingAidInfo"
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
+        <activity
+            android:name=".views.HearingAidInfo.HearingLossInfo"
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
+        <activity
+            android:name=".views.TestResultInput.SurveyResult"
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
+        <activity
+            android:name=".views.TestResultInput.SurveyStart"
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
+        <activity
+            android:name=".views.TestResultInput.TestResultInput"
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
+        <activity
+            android:name=".views.Common.MainActivity"
+            android:exported="true"
+            android:theme="@style/NoActionBarTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
