@@ -23,10 +23,8 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     AppCompatButton findHearingAidBtn;
     AppCompatButton infoHearingAidBtn;
     AppCompatButton infocochlearImplantBtn;
-    ImageButton HomeImageBtn;
-    ImageButton HearingAidSearchImageBtn;
-    ImageButton HearingAidInfoImageBtn;
-    ImageButton MyPageImageBtn;
+    AppCompatButton HomeImageBtn, HearingAidSearchImageBtn, HearingAidInfoImageBtn, MyPageImageBtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -48,17 +46,14 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         infocochlearImplantBtn = findViewById(R.id.infocochlearImplant);
         infocochlearImplantBtn.setOnClickListener(this);
 
-        HomeImageBtn = findViewById(R.id.HomeImage);
-        HomeImageBtn.setOnClickListener(this);
-
-        HearingAidSearchImageBtn = findViewById(R.id.HearingAidSearchImage);
-        HearingAidSearchImageBtn.setOnClickListener(this);
-
-        HearingAidInfoImageBtn = findViewById(R.id.HearingAidInfoImage);
-        HearingAidInfoImageBtn.setOnClickListener(this);
-
-        MyPageImageBtn = findViewById(R.id.MyPageImage);
-        MyPageImageBtn.setOnClickListener(this);
+//        HearingAidSearchImageBtn = findViewById(R.id.HearingAidSearchImage);
+//        HearingAidSearchImageBtn.setOnClickListener(this);
+//
+//        HearingAidInfoImageBtn = findViewById(R.id.HearingAidInfoImage);
+//        HearingAidInfoImageBtn.setOnClickListener(this);
+//
+//        MyPageImageBtn = findViewById(R.id.MyPageImage);
+//        MyPageImageBtn.setOnClickListener(this);
     }
 
     @Override
@@ -66,16 +61,20 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         if(view.getId() == R.id.haveTestResult){
             Intent intent = new Intent(getApplicationContext(), TestResultInput.class);
             startActivity(intent);
-        } else if (view.getId() == R.id.notHavaTestResult) {
+        }
+        if (view.getId() == R.id.notHavaTestResult) {
             Intent intent = new Intent(getApplicationContext(), SurveyStart.class);
             startActivity(intent);
-        } else if (view.getId() == R.id.findHearingAid) {
+        }
+        if (view.getId() == R.id.findHearingAid) {
             Intent intent = new Intent(getApplicationContext(), HearingAidFind.class);
             startActivity(intent);
-        } else if (view.getId() == R.id.infohearingAid) {
+        }
+        if (view.getId() == R.id.infohearingAid) {
             Intent intent = new Intent(getApplicationContext(), HearingAidInfo.class);
             startActivity(intent);
-        } else if (view.getId() == R.id.infocochlearImplant) {
+        }
+        if (view.getId() == R.id.infocochlearImplant) {
             Intent intent = new Intent(getApplicationContext(), CoChlearImplantInfo.class);
             startActivity(intent);
         }

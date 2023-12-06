@@ -7,8 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -64,6 +66,7 @@ public class HearingAidFind extends AppCompatActivity implements View.OnClickLis
     int[] brand_id = {R.id.brand1,R.id.brand2,R.id.brand3,R.id.brand4,R.id.brand5,R.id.brand6,R.id.brand7,R.id.brand8,R.id.brand9,R.id.brand10};
     Spinner sortSpinner;
     ImageButton HearingAidNameSearch;
+    ImageButton backBtn;
     EditText HearingAidNameInput;
 
     @Override
@@ -79,6 +82,9 @@ public class HearingAidFind extends AppCompatActivity implements View.OnClickLis
 
         HearingAidNameSearch = findViewById(R.id.hearingaidnamesearch);
         HearingAidNameSearch.setOnClickListener(this);
+
+        backBtn = findViewById(R.id.BackBtn);
+        backBtn.setOnClickListener(this);
 
         HearingAidNameInput = findViewById(R.id.hearingaidnameinput);
 
@@ -185,13 +191,17 @@ public class HearingAidFind extends AppCompatActivity implements View.OnClickLis
             }
             return;
 
+        } else if (v.getId() == R.id.BackBtn) {
+            finish();
         }
 
         if (v.getId() == R.id.filter_btn) {
             filter_layout.setVisibility(View.VISIBLE);
+            adapter.setItemClickable(false);
         }
         if (v.getId() == R.id.CrossBtn) {
-            filter_layout.setVisibility(View.INVISIBLE);
+            filter_layout.setVisibility(View.GONE);
+            adapter.setItemClickable(true);
         }
         if (v.getId() == R.id.searchBtn) {
             filter_layout.setVisibility(View.INVISIBLE);
@@ -235,20 +245,47 @@ public class HearingAidFind extends AppCompatActivity implements View.OnClickLis
 
         }
 
+//        if (v.getId() == R.id.resetBtn) {
+//            rangeSlider.setValues(0f, 100f);
+//            for (int i = 0; i < shapeButtons.length; i++) {
+//                if (shapeButtons[i].isChecked()) {
+//                    shapeButtons[i].performClick();
+//                }
+//            }
+//            for (int i = 0; i < brandButtons.length; i++) {
+//                if (brandButtons[i].isChecked()) {
+//                    brandButtons[i].performClick();
+//                }
+//            }
+//        }
+
         if (v.getId() == R.id.resetBtn) {
-            rangeSlider.setValues(0f, 100f);
-            for (int i = 0; i < shapeButtons.length; i++) {
-                if (shapeButtons[i].isChecked()) {
-                    shapeButtons[i].performClick();
+            // 모든 브랜드 버튼 해제
+            for (int brandButtonId : brand_id) {
+                AppCompatToggleButton brandButton = findViewById(brandButtonId);
+                if (brandButton != null) {
+                    brandButton.setChecked(false);
                 }
             }
-            for (int i = 0; i < brandButtons.length; i++) {
-                if (brandButtons[i].isChecked()) {
-                    brandButtons[i].performClick();
+
+            // 모든 형태 버튼 해제
+            for (int shapeButtonId : shape_id) {
+                AppCompatToggleButton shapeButton = findViewById(shapeButtonId);
+                if (shapeButton != null) {
+                    shapeButton.setChecked(false);
                 }
             }
+
+            // RangeSlider를 초기 범위로 설정
+            rangeSlider.setValues(rangeSlider.getValueFrom(), rangeSlider.getValueTo());
+
+            // 필터 숨기기 및 전체 보청기 목록 로드
+            filter_layout.setVisibility(View.INVISIBLE);
+            loadAllHearingAids();
         }
+
         if(v.getId() == R.id.HomeImage){
+            finish();
             Intent intent = new Intent(HearingAidFind.this, MenuActivity.class);
             startActivity(intent);
         } else if (v.getId() == R.id.HearingAidInfoImage) {
@@ -384,6 +421,16 @@ public class HearingAidFind extends AppCompatActivity implements View.OnClickLis
         dto.setShapes(shapes);
         aids = m_SqlCon.selectFilterHearingAid(dto);
         setDataLists(aids);
+    }
+    private void setButtonsEnabled(ViewGroup layout, boolean isEnabled) {
+        for (int i = 0; i < layout.getChildCount(); i++) {
+            View child = layout.getChildAt(i);
+            if (child instanceof ViewGroup) {
+                setButtonsEnabled((ViewGroup) child, isEnabled);
+            } else if (child instanceof Button) {
+                child.setEnabled(isEnabled);
+            }
+        }
     }
 
 }

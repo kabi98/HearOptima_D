@@ -22,6 +22,7 @@ public class CoChlearImplantInfo extends AppCompatActivity implements View.OnCli
     ImageButton HomeImageBtn;
     ImageButton HearingAidSearchImageBtn;
     ImageButton MyPageImageBtn;
+    ImageButton backBtn;
     private ScrollView hearingLossInfo, hearingAidInfo, cochlearImplantInfo;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +59,9 @@ public class CoChlearImplantInfo extends AppCompatActivity implements View.OnCli
         MyPageImageBtn = findViewById(R.id.MyPageImage);
         MyPageImageBtn.setOnClickListener(this);
 
+        backBtn = findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(this);
+
         hearingLossInfo = findViewById(R.id.hearingLossInfo);
         hearingAidInfo = findViewById(R.id.hearingaidinfo);
         cochlearImplantInfo = findViewById(R.id.cochlearimplantinfo);
@@ -67,6 +71,7 @@ public class CoChlearImplantInfo extends AppCompatActivity implements View.OnCli
     public void onClick(View view){
 
         if (view.getId() == R.id.HomeImage) {
+            finish();
             Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
             startActivity(intent);
         } else if (view.getId() == R.id.HearingAidSearchImage) {
@@ -78,6 +83,9 @@ public class CoChlearImplantInfo extends AppCompatActivity implements View.OnCli
             showHearingAidInfo();
         } else if (view.getId() == R.id.cochlearImplantInfobtn1 || view.getId() == R.id.cochlearImplantInfobtn) {
             showCochlearImplantInfo();
+        }
+        if (view.getId() ==R.id.backBtn){
+            finish();
         }
     }
 

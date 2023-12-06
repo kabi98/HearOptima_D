@@ -25,6 +25,7 @@ public class HearingAidAdapter extends RecyclerView.Adapter<HearingAidAdapter.Vi
     private ArrayList<AidsView> dataList;
     private Resources resources;
     private String m_packName;
+    private boolean isClickable = true;
     String m_TAG = "AidsListAdapter";
 
     public HearingAidAdapter(ArrayList<AidsView> dataList, Resources resources,String m_packName) {
@@ -41,6 +42,9 @@ public class HearingAidAdapter extends RecyclerView.Adapter<HearingAidAdapter.Vi
         Log.v(m_TAG,"onCreateViewHolder2");
         return new ViewHolder(view);
     }
+    public void setItemClickable(boolean clickable) {
+        this.isClickable = clickable;
+    }
 
     @Override
     public void onBindViewHolder(@NonNull HearingAidAdapter.ViewHolder holder, int position) {
@@ -56,14 +60,16 @@ public class HearingAidAdapter extends RecyclerView.Adapter<HearingAidAdapter.Vi
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.v("ItemViewOnClick","*******************ItemViewOnClick"+position);
-                Log.v("DataList.ididid","id ="+dataList.get(position).toString());
-                Log.v("아이디좀보여줘","id ="+dataList.get(position).getHa_id());
-                GlobalVar.Gha_id = dataList.get(position).getHa_id();
-                // 인텐트를 생성하여 상세보기 페이지로 이동
-                Intent detailIntent = new Intent(v.getContext(), HearingAidGoodsInfoActivity.class);
+                if(isClickable){
+                    Log.v("ItemViewOnClick","*******************ItemViewOnClick"+position);
+                    Log.v("DataList.ididid","id ="+dataList.get(position).toString());
+                    Log.v("아이디좀보여줘","id ="+dataList.get(position).getHa_id());
+                    GlobalVar.Gha_id = dataList.get(position).getHa_id();
+                    // 인텐트를 생성하여 상세보기 페이지로 이동
+                    Intent detailIntent = new Intent(v.getContext(), HearingAidGoodsInfoActivity.class);
 //                detailIntent.putExtra("EXTRA_DATA", dataList.get(position)); // 보청기 정보 전달
-                v.getContext().startActivity(detailIntent);
+                    v.getContext().startActivity(detailIntent);
+                }
             }
         });
 

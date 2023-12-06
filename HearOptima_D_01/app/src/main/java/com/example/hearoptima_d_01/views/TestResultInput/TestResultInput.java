@@ -28,6 +28,7 @@ public class TestResultInput extends AppCompatActivity implements View.OnClickLi
     ImageButton homeImageButton;
     ImageButton HearingAidSearchImageBtn;
     ImageButton hearingAidInfoImageButton;
+    ImageButton backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,10 @@ public class TestResultInput extends AppCompatActivity implements View.OnClickLi
         HearingAidSearchImageBtn = findViewById(R.id.HearingAidSearchImage);
         HearingAidSearchImageBtn.setOnClickListener(this);
 
+        backBtn = findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(this);
+
+
         dataInputBtn.setOnClickListener(this);
         Log.d("HDRResultActivity datavalue", "datavalue: ");
     }
@@ -58,6 +63,7 @@ public class TestResultInput extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View view){
         if(view.getId() == R.id.HomeImage){
+            finish();
             Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
             startActivity(intent);
         } else if (view.getId() == R.id.HearingAidInfoImage) {
@@ -68,6 +74,9 @@ public class TestResultInput extends AppCompatActivity implements View.OnClickLi
             startActivity(intent);
         } else if (view.getId() == R.id.dataInput) {
             sendData();
+        }
+        if (view.getId() == R.id.backBtn){
+            finish();
         }
     }
 

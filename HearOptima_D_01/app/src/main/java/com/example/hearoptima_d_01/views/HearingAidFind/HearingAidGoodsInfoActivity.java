@@ -4,6 +4,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,12 +18,12 @@ import com.example.hearoptima_d_01.entity.HraidInfoImage;
 import com.example.hearoptima_d_01.global.GlobalVar;
 import com.example.hearoptima_d_01.global.TConst;
 
-public class HearingAidGoodsInfoActivity extends AppCompatActivity {
+public class HearingAidGoodsInfoActivity extends AppCompatActivity implements View.OnClickListener {
 
     SQLiteControl m_SqlCon = null;
     SQLiteHelper m_SqlHlp;
 
-    private ImageView aidGoodsImage, aidGoodsImageInfo;
+    private ImageView aidGoodsImage, aidGoodsImageInfo, backBtn;
     private TextView aidBrand, aidShape, aidName, aidPrice, won;
     private SQLiteControl sqliteControl;
 
@@ -38,6 +39,9 @@ public class HearingAidGoodsInfoActivity extends AppCompatActivity {
         aidName = findViewById(R.id.Aidname);
         aidPrice = findViewById(R.id.Aidprice);
         won = findViewById(R.id.won);
+
+        backBtn = findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(this);
 
         m_SqlHlp = new SQLiteHelper(HearingAidGoodsInfoActivity.this, TConst.DB_FILE, null, TConst.DB_VER);
         m_SqlCon = new SQLiteControl(m_SqlHlp);
@@ -98,5 +102,11 @@ public class HearingAidGoodsInfoActivity extends AppCompatActivity {
         }
 
         m_SqlCon.db_close();
+    }
+    public void onClick(View view) {
+        if (view.getId() == R.id.backBtn){
+            finish();
+        }
+
     }
 }

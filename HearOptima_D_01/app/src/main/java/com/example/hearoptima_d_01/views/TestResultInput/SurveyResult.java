@@ -19,10 +19,7 @@ public class SurveyResult extends AppCompatActivity implements View.OnClickListe
 
     TextView hearingLossExpectation, resultExpectation, hearingLossInfo, hearingAidList;
     ImageView hearingLossView;
-    ImageButton HomeImageBtn;
-    ImageButton HearingAidSearchImageBtn;
-    ImageButton HearingAidInfoImageBtn;
-    ImageButton MyPageImageBtn;
+    ImageButton HomeImageBtn, HearingAidSearchImageBtn, HearingAidInfoImageBtn, MyPageImageBtn, backBtn;
     AppCompatButton MyHearingAid;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,14 +45,12 @@ public class SurveyResult extends AppCompatActivity implements View.OnClickListe
         MyHearingAid = findViewById(R.id.myHearingAid);
         MyHearingAid.setOnClickListener(this);
 
-        ImageButton returnMenuBtn = findViewById(R.id.backstepBtn);
-        returnMenuBtn.setOnClickListener(view -> {
-            Intent intent = new Intent(SurveyResult.this, SurveyStart.class);
-            startActivity(intent);
-        });
+        backBtn = findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(this);
     }
     public void onClick(View view){
         if (view.getId() == R.id.HomeImage){
+            finish();
             Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
             startActivity(intent);
         } else if (view.getId() == R.id.HearingAidSearchImage) {
@@ -66,6 +61,11 @@ public class SurveyResult extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         } else if (view.getId() == R.id.myHearingAid){
             Intent intent = new Intent(getApplicationContext(), HearingAidFind.class);
+            startActivity(intent);
+        }
+        if (view.getId() == R.id.backBtn) {
+            finish();
+            Intent intent = new Intent(SurveyResult.this, MenuActivity.class);
             startActivity(intent);
         }
     }

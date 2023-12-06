@@ -20,7 +20,7 @@ public class HearingAidInfo extends AppCompatActivity implements View.OnClickLis
     Button cochlearImplantInfoBtn1, cochlearImplantInfoBtn;
     ImageButton HomeImageBtn;
     ImageButton HearingAidSearchImageBtn;
-    ImageButton MyPageImageBtn;
+    ImageButton MyPageImageBtn, backBtn;
     private ScrollView hearingLossInfo, hearingAidInfo, cochlearImplantInfo;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +54,9 @@ public class HearingAidInfo extends AppCompatActivity implements View.OnClickLis
         MyPageImageBtn = findViewById(R.id.MyPageImage);
         MyPageImageBtn.setOnClickListener(this);
 
+        backBtn = findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(this);
+
         hearingLossInfo = findViewById(R.id.hearingLossInfo);
         hearingAidInfo = findViewById(R.id.hearingaidinfo);
         cochlearImplantInfo = findViewById(R.id.cochlearimplantinfo);
@@ -63,6 +66,7 @@ public class HearingAidInfo extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view){
 
         if (view.getId() == R.id.HomeImage) {
+            finish();
             Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
             startActivity(intent);
         } else if (view.getId() == R.id.HearingAidSearchImage) {
@@ -74,6 +78,9 @@ public class HearingAidInfo extends AppCompatActivity implements View.OnClickLis
             showHearingAidInfo();
         } else if (view.getId() == R.id.cochlearImplantInfobtn1 || view.getId() == R.id.cochlearImplantInfobtn) {
             showCochlearImplantInfo();
+        }
+        if (view.getId() == R.id.backBtn) {
+            finish();
         }
     }
     // 청각 손실 정보를 보여주는 메소드

@@ -48,6 +48,7 @@ public class SurveyStart extends AppCompatActivity {
         ImageButton homeImageButton = findViewById(R.id.HomeImage);
         ImageButton hearingAidFindButton = findViewById(R.id.HearingAidSearchImage);
         ImageButton hearingAidInfoImageButton = findViewById(R.id.HearingAidInfoImage);
+        ImageButton backBtn = findViewById(R.id.backBtn);
 
         initializeButtons();
         updateQuestion();
@@ -65,6 +66,7 @@ public class SurveyStart extends AppCompatActivity {
         homeImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 // MenuActivity로 이동
                 Intent intent = new Intent(SurveyStart.this, MenuActivity.class);
                 startActivity(intent);
@@ -73,6 +75,7 @@ public class SurveyStart extends AppCompatActivity {
         hearingAidInfoImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 // HearingAidInfo 클래스로 이동
                 Intent intent = new Intent(SurveyStart.this, HearingAidInfo.class);
                 startActivity(intent);
@@ -81,8 +84,15 @@ public class SurveyStart extends AppCompatActivity {
         hearingAidFindButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                finish();
                 Intent intent = new Intent(SurveyStart.this, HearingAidFind.class);
                 startActivity(intent);
+            }
+        });
+        backBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                finish();
             }
         });
     }
