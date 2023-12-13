@@ -981,7 +981,7 @@
                     android:fontFamily="@font/pretendardbold"
                     android:textColor="#a6a6a6"
                     android:textSize="14dp"
-                    android:text="나의 보청기"/>
+                    android:text="마이페이지"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

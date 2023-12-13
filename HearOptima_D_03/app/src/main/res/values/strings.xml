@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">HearOptima_D_03</string>
-    <string-array name="sort_options">
-        <item>이름순</item>
-        <item>가격순</item>
-        <item>최신순</item>
-    </string-array>
-</resources>
